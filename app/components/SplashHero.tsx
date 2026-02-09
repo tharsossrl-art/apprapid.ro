@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect, useCallback } from 'react'
 
-const PARTICLE_COUNT = 60
+const PARTICLE_COUNT = 50
 
 function Particle({ index }: { index: number }) {
   const x = Math.random() * 100
@@ -28,12 +28,7 @@ function Particle({ index }: { index: number }) {
         opacity: [0, 0.8, 0.4, 0.8, 0],
         scale: [0.5, 1.2, 0.8, 1.1, 0.5],
       }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
+      transition={{ duration, delay, repeat: Infinity, ease: 'easeInOut' }}
     />
   )
 }
@@ -78,12 +73,11 @@ function HexGrid() {
 function AnimatedLogo() {
   return (
     <motion.div
-      className="relative w-32 h-32 md:w-44 md:h-44 mx-auto mb-8"
+      className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-6"
       initial={{ scale: 0, rotate: -180 }}
       animate={{ scale: 1, rotate: 0 }}
       transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
     >
-      {/* Outer glow rings */}
       {[1, 2, 3].map((ring) => (
         <motion.div
           key={ring}
@@ -99,8 +93,6 @@ function AnimatedLogo() {
           transition={{ duration: 2 + ring * 0.5, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
-      
-      {/* Main hexagon with bolt */}
       <motion.svg
         viewBox="0 0 120 120"
         className="w-full h-full drop-shadow-[0_0_40px_rgba(96,165,250,0.5)]"
@@ -115,10 +107,7 @@ function AnimatedLogo() {
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
         <motion.polygon
@@ -156,9 +145,7 @@ function TypeWriter({ text, delay = 0 }: { text: string; delay?: number }) {
       if (i <= text.length) {
         setDisplayed(text.slice(0, i))
         i++
-      } else {
-        clearInterval(interval)
-      }
+      } else clearInterval(interval)
     }, 45)
     return () => clearInterval(interval)
   }, [started, text])
@@ -167,13 +154,7 @@ function TypeWriter({ text, delay = 0 }: { text: string; delay?: number }) {
     <span>
       {displayed}
       {started && displayed.length < text.length && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.5, repeat: Infinity }}
-          className="text-blue-400"
-        >
-          |
-        </motion.span>
+        <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }} className="text-blue-400">|</motion.span>
       )}
     </span>
   )
@@ -181,199 +162,311 @@ function TypeWriter({ text, delay = 0 }: { text: string; delay?: number }) {
 
 function InteractiveOrbs() {
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 })
-
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect()
-    setMousePos({
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    })
+    setMousePos({ x: (e.clientX - rect.left) / rect.width, y: (e.clientY - rect.top) / rect.height })
   }, [])
 
   return (
     <div className="absolute inset-0 overflow-hidden" onMouseMove={handleMouseMove}>
-      {/* Primary orb - follows mouse */}
       <motion.div
         className="absolute w-[500px] h-[500px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-        }}
-        animate={{
-          left: `${mousePos.x * 100 - 25}%`,
-          top: `${mousePos.y * 100 - 25}%`,
-        }}
+        style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)', filter: 'blur(60px)' }}
+        animate={{ left: `${mousePos.x * 100 - 25}%`, top: `${mousePos.y * 100 - 25}%` }}
         transition={{ type: 'spring', damping: 30, stiffness: 100 }}
       />
-      {/* Secondary orb */}
       <motion.div
         className="absolute w-[400px] h-[400px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-        }}
-        animate={{
-          right: `${mousePos.x * 30}%`,
-          bottom: `${mousePos.y * 30}%`,
-        }}
+        style={{ background: 'radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)', filter: 'blur(60px)' }}
+        animate={{ right: `${mousePos.x * 30}%`, bottom: `${mousePos.y * 30}%` }}
         transition={{ type: 'spring', damping: 25, stiffness: 80 }}
       />
     </div>
   )
 }
 
-function ScrollIndicator({ onEnter }: { onEnter?: () => void }) {
+/* ───── iPhone Mockup with rotating screens ───── */
+const SCREENS = [
+  // Restaurant app
+  <div key="rest" className="w-full h-full bg-gradient-to-b from-orange-950 to-slate-950 p-3 flex flex-col">
+    <div className="text-[8px] text-orange-400 font-bold mb-1">🍕 La Bella Pizza</div>
+    <div className="flex-1 space-y-1.5">
+      {['Margherita', 'Quattro Formaggi', 'Diavola'].map(p => (
+        <div key={p} className="bg-slate-800/60 rounded-lg p-1.5 flex justify-between items-center">
+          <span className="text-[7px] text-white">{p}</span>
+          <span className="text-[6px] text-orange-400 font-bold">32 lei</span>
+        </div>
+      ))}
+    </div>
+    <div className="bg-orange-500 rounded-lg py-1 text-center text-[7px] font-bold text-white">Comandă acum</div>
+  </div>,
+  // Fitness app
+  <div key="fit" className="w-full h-full bg-gradient-to-b from-emerald-950 to-slate-950 p-3 flex flex-col">
+    <div className="text-[8px] text-emerald-400 font-bold mb-1">💪 FitPro</div>
+    <div className="flex-1 space-y-1.5">
+      <div className="bg-slate-800/60 rounded-lg p-2 text-center">
+        <div className="text-[14px] font-black text-emerald-400">2,450</div>
+        <div className="text-[6px] text-slate-400">calorii arse azi</div>
+      </div>
+      <div className="grid grid-cols-2 gap-1">
+        <div className="bg-slate-800/60 rounded p-1 text-center">
+          <div className="text-[10px] font-bold text-blue-400">12k</div>
+          <div className="text-[5px] text-slate-500">pași</div>
+        </div>
+        <div className="bg-slate-800/60 rounded p-1 text-center">
+          <div className="text-[10px] font-bold text-purple-400">45m</div>
+          <div className="text-[5px] text-slate-500">antrenament</div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  // Salon app
+  <div key="salon" className="w-full h-full bg-gradient-to-b from-pink-950 to-slate-950 p-3 flex flex-col">
+    <div className="text-[8px] text-pink-400 font-bold mb-1">✨ GlowUp Studio</div>
+    <div className="flex-1 space-y-1.5">
+      {['Tuns & Styling', 'Manichiură Gel', 'Masaj Facial'].map(s => (
+        <div key={s} className="bg-slate-800/60 rounded-lg p-1.5">
+          <div className="text-[7px] text-white">{s}</div>
+          <div className="text-[5px] text-pink-400">Disponibil azi</div>
+        </div>
+      ))}
+    </div>
+    <div className="bg-pink-500 rounded-lg py-1 text-center text-[7px] font-bold text-white">Programează-te</div>
+  </div>,
+  // Shop app
+  <div key="shop" className="w-full h-full bg-gradient-to-b from-blue-950 to-slate-950 p-3 flex flex-col">
+    <div className="text-[8px] text-blue-400 font-bold mb-1">🛍 TrendShop</div>
+    <div className="flex-1 space-y-1.5">
+      <div className="bg-slate-800/60 rounded-lg p-2 text-center">
+        <div className="text-[6px] text-slate-400">Ofertă specială</div>
+        <div className="text-[10px] font-black text-yellow-400">-40% WEEKEND</div>
+      </div>
+      <div className="grid grid-cols-2 gap-1">
+        {['Sneakers', 'Jachetă', 'Ochelari', 'Ceas'].map(i => (
+          <div key={i} className="bg-slate-800/60 rounded p-1.5 text-center">
+            <div className="text-[7px] text-white">{i}</div>
+            <div className="text-[5px] text-emerald-400">Nou</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>,
+]
+
+function IPhoneMockup({ onEnter }: { onEnter?: () => void }) {
+  const [screen, setScreen] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => setScreen(s => (s + 1) % SCREENS.length), 3000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <motion.div
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      className="relative cursor-pointer group"
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 2.5, duration: 1, ease: 'easeOut' }}
+      onClick={() => onEnter?.()}
+      whileHover={{ scale: 1.03 }}
+    >
+      {/* Glow behind phone */}
+      <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-[60px] blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* iPhone frame */}
+      <div className="relative w-[160px] h-[320px] md:w-[200px] md:h-[400px] bg-slate-800 rounded-[30px] md:rounded-[40px] border-[3px] border-slate-600 shadow-2xl overflow-hidden">
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] md:w-[100px] h-[22px] md:h-[28px] bg-slate-900 rounded-b-2xl z-20" />
+        
+        {/* Screen content */}
+        <div className="absolute inset-[3px] rounded-[27px] md:rounded-[37px] overflow-hidden bg-slate-950">
+          <div className="w-full h-full pt-6">
+            {SCREENS.map((s, i) => (
+              <motion.div
+                key={i}
+                className="absolute inset-0 pt-7"
+                initial={false}
+                animate={{
+                  opacity: screen === i ? 1 : 0,
+                  scale: screen === i ? 1 : 0.95,
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                {s}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Home indicator */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[60px] md:w-[80px] h-[4px] bg-slate-500 rounded-full z-20" />
+      </div>
+
+      {/* Screen dots */}
+      <div className="flex justify-center gap-1.5 mt-3">
+        {SCREENS.map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-1.5 h-1.5 rounded-full"
+            animate={{
+              backgroundColor: screen === i ? '#60a5fa' : '#334155',
+              scale: screen === i ? 1.3 : 1,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Tap hint */}
+      <motion.div
+        className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 whitespace-nowrap"
+        animate={{ opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        Apasă pentru a continua
+      </motion.div>
+    </motion.div>
+  )
+}
+
+function SwipeIndicator({ onEnter }: { onEnter?: () => void }) {
+  return (
+    <motion.div
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 cursor-pointer md:hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ delay: 4, duration: 0.8 }}
-      onClick={() => {
-        onEnter?.()
-      }}
+      onClick={() => onEnter?.()}
     >
       <motion.span
-        className="text-slate-400 text-sm font-medium tracking-widest uppercase"
+        className="text-slate-400 text-xs font-medium tracking-widest uppercase"
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        Descoperă
+        Swipe
       </motion.span>
       <motion.div
-        animate={{ y: [0, 8, 0] }}
+        animate={{ x: [0, 12, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-400">
-          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </motion.div>
     </motion.div>
   )
 }
 
-function FloatingStats() {
-  const stats = [
-    { label: 'Zile livrare', value: '7', suffix: '' },
-    { label: 'Clienți mulțumiți', value: '100', suffix: '%' },
-    { label: 'De la', value: '1.499', suffix: ' RON' },
-  ]
-
-  return (
-    <motion.div
-      className="flex flex-wrap justify-center gap-4 md:gap-8 mt-10"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 3.2, duration: 0.8 }}
-    >
-      {stats.map((stat, i) => (
-        <motion.div
-          key={stat.label}
-          className="relative group cursor-default"
-          whileHover={{ scale: 1.05, y: -4 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <div className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl px-6 py-4 text-center overflow-hidden">
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-            <div className="relative">
-              <div className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                {stat.value}{stat.suffix}
-              </div>
-              <div className="text-slate-400 text-xs md:text-sm mt-1">{stat.label}</div>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
-
 export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Background layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
       <InteractiveOrbs />
       <HexGrid />
-      
-      {/* Particles */}
+
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: PARTICLE_COUNT }).map((_, i) => (
           <Particle key={i} index={i} />
         ))}
       </div>
 
-      {/* Scan lines effect */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)',
-        }}
+        style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)' }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <AnimatedLogo />
+      {/* Content — two column on desktop, stacked on mobile */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+        
+        {/* Left: Text */}
+        <div className="text-center md:text-left flex-1">
+          <AnimatedLogo />
 
-        <motion.h1
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[0.9]"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-        >
-          <span className="text-white">App</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
-            Rapid
-          </span>
-        </motion.h1>
+          <motion.h1
+            className="font-heading text-5xl md:text-7xl font-black mb-4 leading-[0.9]"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
+            <span className="text-white">App</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">Rapid</span>
+          </motion.h1>
 
-        <motion.div
-          className="text-lg md:text-2xl text-slate-300 mb-4 h-8 font-heading"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <TypeWriter text="Transformăm afaceri în aplicații web." delay={2200} />
-        </motion.div>
-
-        <motion.p
-          className="text-slate-500 text-sm md:text-base max-w-lg mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 0.8 }}
-        >
-          Gata în 7 zile. Sau e gratis.
-        </motion.p>
-
-        <FloatingStats />
-
-        <motion.button
-          className="mt-10 relative group overflow-hidden px-10 py-4 rounded-2xl font-bold text-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.8, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => {
-            onEnter?.()
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 transition-all duration-300" />
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          />
-          <div className="absolute inset-[1px] bg-slate-950 rounded-2xl group-hover:bg-slate-950/80 transition-all duration-300" />
-          <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 group-hover:from-white group-hover:to-white transition-all duration-300">
-            Vezi ce putem face
-          </span>
-        </motion.button>
+            className="text-lg md:text-2xl text-slate-300 mb-3 h-8 font-heading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2 }}
+          >
+            <TypeWriter text="Transformăm afaceri în aplicații web." delay={2200} />
+          </motion.div>
+
+          <motion.p
+            className="text-slate-500 text-sm md:text-base mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 3, duration: 0.8 }}
+          >
+            Gata în 7 zile. Sau e gratis.
+          </motion.p>
+
+          {/* Stats row — properly centered */}
+          <motion.div
+            className="flex justify-center md:justify-start gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3.2, duration: 0.8 }}
+          >
+            {[
+              { value: '7', label: 'Zile livrare' },
+              { value: '100%', label: 'Satisfacție' },
+              { value: '1.499', label: 'RON de la' },
+            ].map((stat) => (
+              <motion.div
+                key={stat.label}
+                className="bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-xl px-4 py-3 text-center"
+                whileHover={{ scale: 1.05, y: -2 }}
+              >
+                <div className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                  {stat.value}
+                </div>
+                <div className="text-slate-400 text-[10px] md:text-xs mt-0.5">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA button — desktop only (mobile taps phone) */}
+          <motion.button
+            className="hidden md:inline-flex mt-8 relative group overflow-hidden px-10 py-4 rounded-2xl font-bold text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3.8, duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => onEnter?.()}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500" />
+            <div className="absolute inset-[1px] bg-slate-950 rounded-2xl group-hover:bg-slate-950/80 transition-all duration-300" />
+            <span className="relative flex items-center gap-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 group-hover:from-white group-hover:to-white transition-all duration-300">
+              Vezi ce putem face
+              <motion.span
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="text-blue-400 group-hover:text-white"
+              >
+                →
+              </motion.span>
+            </span>
+          </motion.button>
+        </div>
+
+        {/* Right: iPhone mockup */}
+        <div className="flex-shrink-0">
+          <IPhoneMockup onEnter={onEnter} />
+        </div>
       </div>
 
-      <ScrollIndicator onEnter={onEnter} />
+      <SwipeIndicator onEnter={onEnter} />
     </section>
   )
 }
