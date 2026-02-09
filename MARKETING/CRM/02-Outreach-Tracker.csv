@@ -1,0 +1,4 @@
+ID Lead,Nume Afacere,Data Contact,Platforma,Script Folosit,Mesaj Trimis,Raspuns,Data Raspuns,Sentiment,Rezumat Raspuns,Follow-up Necesar,Data Follow-up,Follow-up Trimis,Status Final
+1,Salon Bella,2026-02-05,Instagram,Value-First,Salut! Am observat ca site-ul se incarca greu pe mobil...,Da,2026-02-06,Pozitiv,Interesata sa afle mai multe,Nu,,,Call programat
+3,FitZone Gym,2026-02-05,Facebook,Direct,Buna! Vad ca nu aveti site - pot sa va ajut?,Pending,,,,,2026-02-08,Nu,In progres
+5,Nail Art Studio,2026-02-05,Instagram,Compliment,Lucrarile voastre sunt superbe! O intrebare rapida...,Nu,,,,Da,2026-02-08,Nu,In progres

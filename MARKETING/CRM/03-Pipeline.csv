@@ -1,0 +1,3 @@
+ID Lead,Nume Afacere,Persoana Contact,Stage,Data Stage,Pachet Interes,Valoare Potentiala,Probabilitate,Valoare Weighted,Data Estimata Close,Motivul Pierderii,Note Conversatie,Next Action,Data Next Action
+1,Salon Bella,Maria,Call Programat,2026-02-06,Business,499,50%,249.5,2026-02-15,,Interesata de programari online. Are ~100 clienti/luna,Call discovery,2026-02-07
+3,FitZone Gym,Andrei,Lead,2026-02-05,Nu stie,499,25%,124.75,2026-02-20,,Asteapta raspuns la mesaj,Follow-up daca nu raspunde,2026-02-08
