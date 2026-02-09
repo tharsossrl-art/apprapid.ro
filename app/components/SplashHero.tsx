@@ -333,8 +333,29 @@ export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', duration: 1.2, bounce: 0.3, delay: 0.6 }}
             >
-              <span className="absolute inset-0 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl rotate-6 opacity-80" />
-              <span className="absolute inset-0 bg-slate-950 rounded-2xl flex items-center justify-center drop-shadow-[0_0_25px_rgba(96,165,250,0.4)]">
+              {/* Glow rings */}
+              {[1, 2].map((ring) => (
+                <motion.span
+                  key={ring}
+                  className="absolute inset-0 rounded-2xl"
+                  style={{ border: `1px solid rgba(96,165,250,${0.25 / ring})` }}
+                  animate={{
+                    scale: [1 + ring * 0.15, 1 + ring * 0.25, 1 + ring * 0.15],
+                    opacity: [0.4, 0.15, 0.4],
+                  }}
+                  transition={{ duration: 2 + ring * 0.5, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              ))}
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl opacity-80"
+                animate={{ rotate: [6, 12, 6] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <motion.span
+                className="absolute inset-0 bg-slate-950 rounded-2xl flex items-center justify-center drop-shadow-[0_0_25px_rgba(96,165,250,0.4)]"
+                animate={{ rotate: [0, 2, -2, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <svg viewBox="0 0 40 40" className="w-8 h-8 md:w-10 md:h-10">
                   <defs>
                     <linearGradient id="splashLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -344,9 +365,19 @@ export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
                   </defs>
                   <rect x="10" y="2" width="20" height="36" rx="4" fill="none" stroke="url(#splashLogoGrad)" strokeWidth="2"/>
                   <rect x="16" y="4" width="8" height="2.5" rx="1.25" fill="url(#splashLogoGrad)"/>
-                  <path d="M14 18 L18 24 L26 14" stroke="url(#splashLogoGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  <motion.path
+                    d="M14 18 L18 24 L26 14"
+                    stroke="url(#splashLogoGrad)"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1, delay: 1 }}
+                  />
                 </svg>
-              </span>
+              </motion.span>
             </motion.span>
             <span>
               <span className="text-white">App</span>
