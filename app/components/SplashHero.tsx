@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { motion } from 'framer-motion'
+import { useState, useEffect, useCallback } from 'react'
 
 const PARTICLE_COUNT = 60
 
@@ -222,7 +222,7 @@ function InteractiveOrbs() {
   )
 }
 
-function ScrollIndicator() {
+function ScrollIndicator({ onEnter }: { onEnter?: () => void }) {
   return (
     <motion.div
       className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
@@ -230,7 +230,7 @@ function ScrollIndicator() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 4, duration: 0.8 }}
       onClick={() => {
-        document.getElementById('main-site')?.scrollIntoView({ behavior: 'smooth' })
+        onEnter?.()
       }}
     >
       <motion.span
@@ -290,22 +290,10 @@ function FloatingStats() {
   )
 }
 
-export default function SplashHero() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.9])
-  const y = useTransform(scrollYProgress, [0, 0.8], [0, -100])
-
+export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
   return (
-    <motion.section
-      ref={containerRef}
+    <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
-      style={{ opacity, scale, y }}
     >
       {/* Background layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
@@ -371,7 +359,7 @@ export default function SplashHero() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => {
-            document.getElementById('main-site')?.scrollIntoView({ behavior: 'smooth' })
+            onEnter?.()
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 transition-all duration-300" />
@@ -385,7 +373,7 @@ export default function SplashHero() {
         </motion.button>
       </div>
 
-      <ScrollIndicator />
-    </motion.section>
+      <ScrollIndicator onEnter={onEnter} />
+    </section>
   )
 }
