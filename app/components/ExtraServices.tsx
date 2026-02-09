@@ -46,12 +46,12 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">990</span>
+              <span className="text-4xl font-black text-white">999</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează AI Chatbot-ul (990 RON).')}`}
+            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează AI Chatbot-ul (999 RON).')}`}
               target="_blank" rel="noopener noreferrer"
               className="block w-full py-3.5 rounded-xl bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 font-bold text-center text-sm text-blue-300 transition-all">
               Vreau chatbot
@@ -88,12 +88,12 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">390</span>
+              <span className="text-4xl font-black text-white">399</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează QR Menu Digital (390 RON).')}`}
+            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează QR Menu Digital (399 RON).')}`}
               target="_blank" rel="noopener noreferrer"
               className="block w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold text-center text-sm transition-all">
               Vreau meniu QR
@@ -128,12 +128,12 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">490</span>
+              <span className="text-4xl font-black text-white">499</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează Email Marketing (490 RON).')}`}
+            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează Email Marketing (499 RON).')}`}
               target="_blank" rel="noopener noreferrer"
               className="block w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold text-center text-sm transition-all">
               Vreau email marketing
@@ -147,7 +147,7 @@ export default function ExtraServices() {
             Adaugi toate 3? <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Primești 15% reducere.</span>
           </p>
           <p className="text-slate-400 text-sm mb-4">
-            Chatbot + QR Menu + Email Marketing = <span className="line-through text-slate-500">1.870 RON</span>{' '}
+            Chatbot + QR Menu + Email Marketing = <span className="line-through text-slate-500">1.899 RON</span>{' '}
             <span className="text-white font-bold">1.599 RON</span>
           </p>
           <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează pachetul complet de servicii extra (Chatbot + QR Menu + Email Marketing).')}`}

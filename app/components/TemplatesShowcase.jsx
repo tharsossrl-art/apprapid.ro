@@ -1319,7 +1319,7 @@ const templates = [
     color: 'from-orange-500 to-red-600',
     popularBadge: true,
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     demoUrl: '#',
     features: [
       {
@@ -1370,7 +1370,7 @@ const templates = [
       'Mai puține apeluri telefonice'
     ],
     testimonial: {
-      text: 'Am eliminat Glovo și acum toate comenzile vin direct. Economisesc 2000€/lună.',
+      text: 'Am eliminat Glovo și acum toate comenzile vin direct. Economisesc 10.000 lei/lună.',
       author: 'Marco, Pizzeria Roma',
       rating: 5
     }
@@ -1384,7 +1384,7 @@ const templates = [
     image: '/templates/cafenea.png',
     color: 'from-amber-600 to-orange-700',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Precomandă & Pick-up',
@@ -1433,7 +1433,7 @@ const templates = [
     image: '/templates/brutarie.png',
     color: 'from-yellow-600 to-amber-700',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Precomandă Pâine',
@@ -1485,7 +1485,7 @@ const templates = [
     color: 'from-pink-500 to-rose-600',
     popularBadge: true,
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Programări Online 24/7',
@@ -1549,7 +1549,7 @@ const templates = [
     image: '/templates/frizerie.png',
     color: 'from-slate-600 to-slate-800',
     packageRecommended: 'Vitrină',
-    price: '299€',
+    price: '1.499 RON',
     features: [
       {
         name: 'Programare în 3 Tapuri',
@@ -1598,7 +1598,7 @@ const templates = [
     image: '/templates/spa.png',
     color: 'from-teal-500 to-cyan-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Catalog Tratamente',
@@ -1650,7 +1650,7 @@ const templates = [
     color: 'from-red-500 to-orange-600',
     popularBadge: true,
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     features: [
       {
         name: 'Check-in Digital',
@@ -1714,7 +1714,7 @@ const templates = [
     image: '/templates/yoga.png',
     color: 'from-purple-500 to-indigo-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Calendar Clase',
@@ -1763,7 +1763,7 @@ const templates = [
     image: '/templates/clinica.png',
     color: 'from-blue-500 to-cyan-600',
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     features: [
       {
         name: 'Programări Online',
@@ -1822,7 +1822,7 @@ const templates = [
     image: '/templates/dentist.png',
     color: 'from-sky-500 to-blue-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Programări Inteligente',
@@ -1871,7 +1871,7 @@ const templates = [
     image: '/templates/veterinar.png',
     color: 'from-green-500 to-emerald-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Profil Animal',
@@ -1922,7 +1922,7 @@ const templates = [
     image: '/templates/service-auto.png',
     color: 'from-slate-600 to-zinc-700',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Programare Service',
@@ -1971,7 +1971,7 @@ const templates = [
     image: '/templates/imobiliare.png',
     color: 'from-emerald-500 to-teal-600',
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     features: [
       {
         name: 'Catalog Proprietăți',
@@ -2030,7 +2030,7 @@ const templates = [
     image: '/templates/avocat.png',
     color: 'from-amber-700 to-yellow-800',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Programare Consultație',
@@ -2079,7 +2079,7 @@ const templates = [
     image: '/templates/contabil.png',
     color: 'from-blue-600 to-indigo-700',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Portal Documente',
@@ -2128,7 +2128,7 @@ const templates = [
     image: '/templates/fotograf.png',
     color: 'from-violet-500 to-purple-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Portofoliu Galerie',
@@ -2177,7 +2177,7 @@ const templates = [
     image: '/templates/croitorie.png',
     color: 'from-rose-500 to-pink-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Catalog Servicii',
@@ -2228,7 +2228,7 @@ const templates = [
     image: '/templates/florarie.png',
     color: 'from-pink-400 to-rose-500',
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     features: [
       {
         name: 'Catalog Buchete',
@@ -2282,7 +2282,7 @@ const templates = [
     image: '/templates/petshop.png',
     color: 'from-orange-400 to-amber-500',
     packageRecommended: 'Complet',
-    price: '999€',
+    price: '4.999 RON',
     features: [
       {
         name: 'Catalog Produse',
@@ -2331,7 +2331,7 @@ const templates = [
     image: '/templates/farmacie.png',
     color: 'from-green-500 to-teal-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Verificare Stoc',
@@ -2382,7 +2382,7 @@ const templates = [
     image: '/templates/scoala-soferi.png',
     color: 'from-blue-500 to-sky-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Programare Condus',
@@ -2431,7 +2431,7 @@ const templates = [
     image: '/templates/limba-straina.png',
     color: 'from-indigo-500 to-violet-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Catalog Cursuri',
@@ -2480,7 +2480,7 @@ const templates = [
     image: '/templates/meditatii.png',
     color: 'from-yellow-500 to-orange-600',
     packageRecommended: 'Vitrină',
-    price: '299€',
+    price: '1.499 RON',
     features: [
       {
         name: 'Profil Profesor',
@@ -2531,7 +2531,7 @@ const templates = [
     image: '/templates/escape-room.png',
     color: 'from-purple-600 to-violet-700',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Catalog Camere',
@@ -2580,7 +2580,7 @@ const templates = [
     image: '/templates/sala-evenimente.png',
     color: 'from-gold-500 to-amber-600',
     packageRecommended: 'Business',
-    price: '499€',
+    price: '2.499 RON',
     features: [
       {
         name: 'Calendar Disponibilitate',
