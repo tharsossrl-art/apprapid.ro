@@ -20,33 +20,87 @@ function useCountdown(target: Date) {
   }
 }
 
+/* ── SVG Icons ── */
+const icons = {
+  calendar: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
+  ),
+  utensils: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+    </svg>
+  ),
+  scissors: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />
+    </svg>
+  ),
+  dumbbell: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path d="M6.5 6.5h11M6.5 17.5h11M2 9.5h3v5H2zM19 9.5h3v5h-3zM5 7.5h2v9H5zM17 7.5h2v9h-2z" />
+    </svg>
+  ),
+  heartPulse: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 0112 5.006a5 5 0 017.5 7.566z" /><path d="M3 12h4l2-3 4 6 2-3h6" />
+    </svg>
+  ),
+  bolt: (
+    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z" />
+    </svg>
+  ),
+  device: (
+    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" />
+    </svg>
+  ),
+  rocket: (
+    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
+    </svg>
+  ),
+  pin: (
+    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z" /><circle cx="12" cy="10" r="3" />
+    </svg>
+  ),
+  check: (
+    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+    </svg>
+  ),
+}
+
 const screens = [
   {
     title: 'Restaurant',
     subtitle: 'Comandă online',
     color: 'from-orange-500 to-red-500',
-    icon: '🍕',
+    icon: icons.utensils,
     items: ['Meniu digital', 'Comenzi online', 'Rezervări', 'Livrare'],
   },
   {
     title: 'Salon Beauty',
     subtitle: 'Programări instant',
     color: 'from-pink-500 to-purple-500',
-    icon: '💅',
+    icon: icons.scissors,
     items: ['Programări', 'Galerie foto', 'Prețuri', 'Recenzii'],
   },
   {
     title: 'Fitness',
     subtitle: 'Antrenament personal',
     color: 'from-emerald-500 to-cyan-500',
-    icon: '💪',
+    icon: icons.dumbbell,
     items: ['Program săpt.', 'Nutriție', 'Progres', 'Comunitate'],
   },
   {
     title: 'Cabinet Medical',
     subtitle: 'Consultații online',
     color: 'from-blue-500 to-indigo-500',
-    icon: '🏥',
+    icon: icons.heartPulse,
     items: ['Programări', 'Istoric medical', 'Rețete', 'Chat doctor'],
   },
 ]
@@ -73,7 +127,7 @@ function PhoneMockup() {
 
         {/* Status bar */}
         <div className="absolute top-0 left-0 right-0 h-9 sm:h-10 bg-slate-950/80 backdrop-blur-sm z-10 flex items-end justify-between px-5 sm:px-6 pb-1">
-          <span className="text-[9px] sm:text-[10px] text-slate-400">21:30</span>
+          <span className="text-[9px] sm:text-[10px] text-slate-400 font-body">21:30</span>
           <div className="flex gap-1 items-center">
             <div className="w-3 sm:w-3.5 h-1.5 sm:h-2 border border-slate-400 rounded-sm relative">
               <div className="absolute inset-0.5 bg-emerald-400 rounded-[1px]" />
@@ -91,10 +145,10 @@ function PhoneMockup() {
             className="flex-1 flex flex-col"
           >
             {/* Hero card */}
-            <div className={`w-full h-24 sm:h-28 md:h-30 lg:h-32 rounded-2xl bg-gradient-to-br ${s.color} flex flex-col items-center justify-center mb-3 sm:mb-4 shadow-lg`}>
-              <span className="text-2xl sm:text-3xl md:text-4xl mb-0.5 sm:mb-1">{s.icon}</span>
+            <div className={`w-full h-24 sm:h-28 lg:h-32 rounded-2xl bg-gradient-to-br ${s.color} flex flex-col items-center justify-center mb-3 sm:mb-4 shadow-lg`}>
+              <div className="text-white mb-1">{s.icon}</div>
               <span className="text-white font-heading font-bold text-xs sm:text-sm md:text-base">{s.title}</span>
-              <span className="text-white/70 text-[9px] sm:text-[10px] md:text-xs">{s.subtitle}</span>
+              <span className="text-white/70 text-[9px] sm:text-[10px] md:text-xs font-body">{s.subtitle}</span>
             </div>
 
             {/* Feature list */}
@@ -108,9 +162,7 @@ function PhoneMockup() {
                   className="flex items-center gap-2.5 sm:gap-3 bg-slate-800/60 rounded-lg sm:rounded-xl px-3 py-2 sm:py-2.5"
                 >
                   <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-md sm:rounded-lg bg-gradient-to-br ${s.color} opacity-80 flex items-center justify-center flex-shrink-0`}>
-                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
+                    {icons.check}
                   </div>
                   <span className="text-slate-300 text-[11px] sm:text-xs md:text-sm font-body">{item}</span>
                 </motion.div>
@@ -144,14 +196,15 @@ function PhoneMockup() {
   )
 }
 
-function FloatingTag({ text, className, delay }: { text: string; className: string; delay: number }) {
+function FloatingTag({ icon, text, className, delay }: { icon: React.ReactNode; text: string; className: string; delay: number }) {
   return (
     <motion.div
-      className={`absolute hidden lg:flex items-center gap-2 bg-slate-900/90 border border-slate-700/50 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg ${className}`}
+      className={`absolute hidden lg:flex items-center gap-2 bg-slate-900/90 border border-slate-700/50 backdrop-blur-sm rounded-full px-3.5 py-2 shadow-lg ${className}`}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay }}
     >
+      <span className="text-emerald-400">{icon}</span>
       <span className="text-xs text-slate-300 font-body whitespace-nowrap">{text}</span>
     </motion.div>
   )
@@ -175,8 +228,8 @@ export default function ComingSoon() {
       <div className="absolute bottom-1/4 left-1/4 w-[150px] sm:w-[250px] h-[150px] sm:h-[250px] bg-blue-500/8 rounded-full blur-[60px] sm:blur-[80px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-5xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-10 sm:gap-12 lg:gap-16">
-          
+        <div className="flex flex-col lg:flex-row items-center gap-10 sm:gap-12 lg:gap-20">
+
           {/* Left — Text content */}
           <div className="flex-1 text-center lg:text-left order-1">
             {/* Logo */}
@@ -264,17 +317,19 @@ export default function ComingSoon() {
             </motion.div>
           </div>
 
-          {/* Right — Phone mockup */}
-          <motion.div 
+          {/* Right — Phone mockup with floating tags */}
+          <motion.div
             className="relative flex-shrink-0 order-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <FloatingTag text="⚡ Gata în 7 zile" className="-top-2 -left-20" delay={1.0} />
-            <FloatingTag text="📱 PWA nativ" className="top-1/4 -right-24" delay={1.2} />
-            <FloatingTag text="🚀 Rapid & modern" className="bottom-1/4 -left-24" delay={1.4} />
-            <FloatingTag text="🇷🇴 Made in RO" className="-bottom-2 -right-20" delay={1.6} />
+            {/* Tags positioned well outside the phone */}
+            <FloatingTag icon={icons.bolt} text="Gata în 7 zile" className="-top-8 -left-28" delay={1.0} />
+            <FloatingTag icon={icons.device} text="PWA nativ" className="top-1/3 -right-32" delay={1.2} />
+            <FloatingTag icon={icons.rocket} text="Rapid & modern" className="bottom-1/3 -left-32" delay={1.4} />
+            <FloatingTag icon={icons.pin} text="Made in România" className="-bottom-6 -right-28" delay={1.6} />
+
             <PhoneMockup />
           </motion.div>
         </div>
