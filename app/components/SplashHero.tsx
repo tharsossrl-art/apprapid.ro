@@ -130,63 +130,63 @@ function InteractiveOrbs() {
 const SCREENS = [
   // Restaurant app
   <div key="rest" className="w-full h-full bg-gradient-to-b from-orange-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[8px] text-orange-400 font-bold mb-1">🍕 La Bella Pizza</div>
+    <div className="text-[12px] text-orange-400 font-bold mb-1">🍕 La Bella Pizza</div>
     <div className="flex-1 space-y-1.5">
       {['Margherita', 'Quattro Formaggi', 'Diavola'].map(p => (
         <div key={p} className="bg-slate-800/60 rounded-lg p-1.5 flex justify-between items-center">
-          <span className="text-[7px] text-white">{p}</span>
-          <span className="text-[6px] text-orange-400 font-bold">32 lei</span>
+          <span className="text-[9px] text-white">{p}</span>
+          <span className="text-[12px] text-orange-400 font-bold">32 lei</span>
         </div>
       ))}
     </div>
-    <div className="bg-orange-500 rounded-lg py-1 text-center text-[7px] font-bold text-white">Comandă acum</div>
+    <div className="bg-orange-500 rounded-lg py-1 text-center text-[9px] font-bold text-white">Comandă acum</div>
   </div>,
   // Fitness app
   <div key="fit" className="w-full h-full bg-gradient-to-b from-emerald-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[8px] text-emerald-400 font-bold mb-1">💪 FitPro</div>
+    <div className="text-[12px] text-emerald-400 font-bold mb-1">💪 FitPro</div>
     <div className="flex-1 space-y-1.5">
       <div className="bg-slate-800/60 rounded-lg p-2 text-center">
-        <div className="text-[14px] font-black text-emerald-400">2,450</div>
-        <div className="text-[6px] text-slate-400">calorii arse azi</div>
+        <div className="text-[16px] font-black text-emerald-400">2,450</div>
+        <div className="text-[12px] text-slate-400">calorii arse azi</div>
       </div>
       <div className="grid grid-cols-2 gap-1">
         <div className="bg-slate-800/60 rounded p-1 text-center">
-          <div className="text-[10px] font-bold text-blue-400">12k</div>
-          <div className="text-[5px] text-slate-500">pași</div>
+          <div className="text-[12px] font-bold text-blue-400">12k</div>
+          <div className="text-[9px] text-slate-500">pași</div>
         </div>
         <div className="bg-slate-800/60 rounded p-1 text-center">
-          <div className="text-[10px] font-bold text-purple-400">45m</div>
-          <div className="text-[5px] text-slate-500">antrenament</div>
+          <div className="text-[12px] font-bold text-purple-400">45m</div>
+          <div className="text-[9px] text-slate-500">antrenament</div>
         </div>
       </div>
     </div>
   </div>,
   // Salon app
   <div key="salon" className="w-full h-full bg-gradient-to-b from-pink-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[8px] text-pink-400 font-bold mb-1">✨ GlowUp Studio</div>
+    <div className="text-[12px] text-pink-400 font-bold mb-1">✨ GlowUp Studio</div>
     <div className="flex-1 space-y-1.5">
       {['Tuns & Styling', 'Manichiură Gel', 'Masaj Facial'].map(s => (
         <div key={s} className="bg-slate-800/60 rounded-lg p-1.5">
-          <div className="text-[7px] text-white">{s}</div>
-          <div className="text-[5px] text-pink-400">Disponibil azi</div>
+          <div className="text-[9px] text-white">{s}</div>
+          <div className="text-[9px] text-pink-400">Disponibil azi</div>
         </div>
       ))}
     </div>
-    <div className="bg-pink-500 rounded-lg py-1 text-center text-[7px] font-bold text-white">Programează-te</div>
+    <div className="bg-pink-500 rounded-lg py-1 text-center text-[9px] font-bold text-white">Programează-te</div>
   </div>,
   // Shop app
   <div key="shop" className="w-full h-full bg-gradient-to-b from-blue-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[8px] text-blue-400 font-bold mb-1">🛍 TrendShop</div>
+    <div className="text-[12px] text-blue-400 font-bold mb-1">🛍 TrendShop</div>
     <div className="flex-1 space-y-1.5">
       <div className="bg-slate-800/60 rounded-lg p-2 text-center">
-        <div className="text-[6px] text-slate-400">Ofertă specială</div>
-        <div className="text-[10px] font-black text-yellow-400">-40% WEEKEND</div>
+        <div className="text-[12px] text-slate-400">Ofertă specială</div>
+        <div className="text-[12px] font-black text-yellow-400">-40% WEEKEND</div>
       </div>
       <div className="grid grid-cols-2 gap-1">
         {['Sneakers', 'Jachetă', 'Ochelari', 'Ceas'].map(i => (
           <div key={i} className="bg-slate-800/60 rounded p-1.5 text-center">
-            <div className="text-[7px] text-white">{i}</div>
-            <div className="text-[5px] text-emerald-400">Nou</div>
+            <div className="text-[9px] text-white">{i}</div>
+            <div className="text-[9px] text-emerald-400">Nou</div>
           </div>
         ))}
       </div>
@@ -215,7 +215,7 @@ function IPhoneMockup({ onEnter }: { onEnter?: () => void }) {
       <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-[60px] blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* iPhone frame */}
-      <div className="relative w-[160px] h-[320px] md:w-[200px] md:h-[400px] bg-slate-800 rounded-[30px] md:rounded-[40px] border-[3px] border-slate-600 shadow-2xl overflow-hidden">
+      <div className="relative w-[180px] h-[360px] md:w-[220px] md:h-[440px] bg-slate-800 rounded-[30px] md:rounded-[40px] border-[3px] border-slate-600 shadow-2xl overflow-hidden">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] md:w-[100px] h-[22px] md:h-[28px] bg-slate-900 rounded-b-2xl z-20" />
         
@@ -259,7 +259,7 @@ function IPhoneMockup({ onEnter }: { onEnter?: () => void }) {
 
       {/* Tap hint */}
       <motion.div
-        className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 whitespace-nowrap"
+        className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[12px] text-slate-500 whitespace-nowrap"
         animate={{ opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
@@ -393,7 +393,7 @@ export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
                 <div className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                   {stat.value}
                 </div>
-                <div className="text-slate-400 text-[10px] md:text-xs mt-0.5">{stat.label}</div>
+                <div className="text-slate-400 text-[12px] md:text-xs mt-0.5">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
