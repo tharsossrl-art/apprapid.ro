@@ -73,58 +73,56 @@ function HexGrid() {
 function AnimatedLogo() {
   return (
     <motion.div
-      className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-6"
-      initial={{ scale: 0, rotate: -180 }}
-      animate={{ scale: 1, rotate: 0 }}
-      transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
+      className="flex items-center gap-4 justify-center md:justify-start mb-6"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: 'spring', duration: 1.2, bounce: 0.3 }}
     >
-      {[1, 2, 3].map((ring) => (
-        <motion.div
-          key={ring}
-          className="absolute inset-0 rounded-full"
-          style={{
-            border: `1px solid rgba(96,165,250,${0.3 / ring})`,
-            transform: `scale(${1 + ring * 0.25})`,
-          }}
-          animate={{
-            scale: [1 + ring * 0.25, 1 + ring * 0.35, 1 + ring * 0.25],
-            opacity: [0.5, 0.2, 0.5],
-          }}
-          transition={{ duration: 2 + ring * 0.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      ))}
-      <motion.svg
-        viewBox="0 0 120 120"
-        className="w-full h-full drop-shadow-[0_0_40px_rgba(96,165,250,0.5)]"
+      {/* Logo icon — phone with checkmark, same as Navigation */}
+      <motion.div
+        className="relative w-16 h-16 md:w-20 md:h-20"
+        whileHover={{ scale: 1.05, rotate: 3 }}
         animate={{ rotate: [0, 2, -2, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="50%" stopColor="#60a5fa" />
-            <stop offset="100%" stopColor="#34d399" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-          </filter>
-        </defs>
-        <motion.polygon
-          points="60,5 110,30 110,90 60,115 10,90 10,30"
-          fill="rgba(15,23,42,0.9)"
-          stroke="url(#logoGrad)"
-          strokeWidth="2"
-          filter="url(#glow)"
-        />
-        <motion.path
-          d="M55 25 L45 60 L58 58 L50 95 L80 52 L63 54 L72 25 Z"
-          fill="url(#logoGrad)"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.8 }}
-        />
-      </motion.svg>
+        {/* Glow rings */}
+        {[1, 2].map((ring) => (
+          <motion.div
+            key={ring}
+            className="absolute inset-0 rounded-2xl"
+            style={{ border: `1px solid rgba(96,165,250,${0.25 / ring})` }}
+            animate={{
+              scale: [1 + ring * 0.15, 1 + ring * 0.25, 1 + ring * 0.15],
+              opacity: [0.4, 0.15, 0.4],
+            }}
+            transition={{ duration: 2 + ring * 0.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl rotate-6 opacity-80" />
+        <div className="absolute inset-0 bg-slate-950 rounded-2xl flex items-center justify-center drop-shadow-[0_0_30px_rgba(96,165,250,0.4)]">
+          <svg viewBox="0 0 40 40" className="w-10 h-10 md:w-12 md:h-12">
+            <defs>
+              <linearGradient id="splashLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="100%" stopColor="#10b981" />
+              </linearGradient>
+            </defs>
+            <rect x="10" y="2" width="20" height="36" rx="4" fill="none" stroke="url(#splashLogoGrad)" strokeWidth="2"/>
+            <rect x="16" y="4" width="8" height="2.5" rx="1.25" fill="url(#splashLogoGrad)"/>
+            <motion.path
+              d="M14 18 L18 24 L26 14"
+              stroke="url(#splashLogoGrad)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            />
+          </svg>
+        </div>
+      </motion.div>
     </motion.div>
   )
 }
@@ -390,6 +388,7 @@ export default function SplashHero({ onEnter }: { onEnter?: () => void }) {
           >
             <span className="text-white">App</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">Rapid</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 text-3xl md:text-5xl">.ro</span>
           </motion.h1>
 
           <motion.div
