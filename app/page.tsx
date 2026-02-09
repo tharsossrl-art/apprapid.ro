@@ -327,7 +327,7 @@ export default function ComingSoon() {
             {/* Tags positioned well outside the phone */}
             <FloatingTag icon={icons.bolt} text="Gata în 7 zile" className="-top-8 -left-28" delay={1.0} />
             <FloatingTag icon={icons.device} text="PWA nativ" className="top-1/3 -right-32" delay={1.2} />
-            <FloatingTag icon={icons.rocket} text="Rapid & modern" className="bottom-1/3 -left-32" delay={1.4} />
+            <FloatingTag icon={icons.rocket} text="Rapid & modern" className="bottom-1/3 -left-40" delay={1.4} />
             <FloatingTag icon={icons.pin} text="Made in România" className="-bottom-6 -right-28" delay={1.6} />
 
             <PhoneMockup />
