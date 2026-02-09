@@ -73,9 +73,9 @@ export default function QuizAI() {
       question: 'Care e bugetul tău aproximativ?',
       subtitle: 'Fără obligații - doar pentru recomandare',
       options: [
-        { value: 'low', label: 'Sub 300€', points: { vitrina: 3, business: 0, complet: 0 } },
-        { value: 'medium', label: '300€ - 600€', points: { vitrina: 0, business: 3, complet: 0 } },
-        { value: 'high', label: 'Peste 600€', points: { vitrina: 0, business: 1, complet: 3 } }
+        { value: 'low', label: 'Sub 1.500 RON', points: { vitrina: 3, business: 0, complet: 0 } },
+        { value: 'medium', label: '1.500 - 3.000 RON', points: { vitrina: 0, business: 3, complet: 0 } },
+        { value: 'high', label: 'Peste 3.000 RON', points: { vitrina: 0, business: 1, complet: 3 } }
       ]
     },
     {
@@ -91,9 +91,9 @@ export default function QuizAI() {
   ]
 
   const packages = {
-    vitrina: { name: 'Vitrină', price: '249€', color: 'emerald', tagline: 'Prezența ta digitală completă' },
-    business: { name: 'Business', price: '499€', color: 'blue', tagline: 'Tot ce-ți trebuie să crești' },
-    complet: { name: 'Complet', price: '899€', color: 'orange', tagline: 'Operațiunea ta digitală completă' }
+    vitrina: { name: 'Vitrină', price: '1.490 RON', color: 'emerald', tagline: 'Prezența ta digitală completă' },
+    business: { name: 'Business', price: '2.490 RON', color: 'blue', tagline: 'Tot ce-ți trebuie să crești' },
+    complet: { name: 'Complet', price: '4.990 RON', color: 'orange', tagline: 'Operațiunea ta digitală completă' }
   }
 
   const handleAnswer = (questionId: string, option: QuizOption) => {

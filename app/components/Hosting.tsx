@@ -52,12 +52,12 @@ export default function Hosting() {
             </div>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-5xl font-black text-white">{annual ? '41' : '49'}</span>
-              <span className="text-slate-400 text-xl">€/lună</span>
+              <span className="text-5xl font-black text-white">{annual ? '199' : '245'}</span>
+              <span className="text-slate-400 text-xl">RON/lună</span>
             </div>
             {annual && (
               <div className="text-sm text-slate-400 mb-6">
-                <span className="text-purple-400 font-bold">489€</span> facturat anual <span className="text-emerald-400 font-medium">(economisești 99€)</span>
+                <span className="text-purple-400 font-bold">2.390 RON</span> facturat anual <span className="text-emerald-400 font-medium">(economisești 550 RON)</span>
               </div>
             )}
             {!annual && <div className="text-sm text-slate-400 mb-6">facturat lunar</div>}

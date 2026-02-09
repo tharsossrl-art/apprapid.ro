@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'AppRapid.ro - Aplicații web moderne de la 249€ | Gata în 7 zile sau e gratis'
+export const alt = 'AppRapid.ro - Aplicații web moderne de la 1.490 RON | Gata în 7 zile sau e gratis'
 export const size = {
   width: 1200,
   height: 630,
@@ -36,7 +36,7 @@ export default async function Image() {
           </div>
           <div style={{ display: 'flex', gap: 24 }}>
             {[
-              { text: 'De la 249€', sub: 'preț fix' },
+              { text: 'De la 1.490 RON', sub: 'preț fix' },
               { text: '5-7 zile', sub: 'sau e gratis' },
               { text: 'PWA nativ', sub: 'instalabil' },
             ].map((item) => (

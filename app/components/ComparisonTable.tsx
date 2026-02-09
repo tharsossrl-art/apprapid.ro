@@ -1,7 +1,7 @@
 'use client'
 
 const rows: { feature: string; apprapid: boolean | string; agency: boolean | string; diy: boolean | string }[] = [
-  { feature: 'Preț', apprapid: '249-899€', agency: '1.500-5.000€', diy: '200€/an ongoing' },
+  { feature: 'Preț', apprapid: '1.490-4.990 RON', agency: '7.500-25.000 RON', diy: '1.000 RON/an' },
   { feature: 'Timp livrare', apprapid: '3-14 zile', agency: '4-12 săptămâni', diy: 'DIY (ore-zile)' },
   { feature: 'Sistem rezervări', apprapid: true, agency: 'Cost extra', diy: 'Plugin plătit' },
   { feature: 'Comenzi online', apprapid: true, agency: 'Cost extra', diy: 'Limitat' },

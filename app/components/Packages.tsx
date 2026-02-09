@@ -5,7 +5,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const plans = [
   {
-    name: "Vitrină", price: "249", oldPrice: "499", tagline: "Prezența ta digitală completă",
+    name: "Vitrină", price: "1.490", oldPrice: "2.490", currency: "RON", tagline: "Prezența ta digitală completă",
     color: "from-emerald-500 to-teal-600", accent: "emerald", popular: false,
     target: "Cafenele, Frizerii, Florării, Freelanceri, Fotografi",
     features: [
@@ -30,7 +30,7 @@ const plans = [
     support: "30 zile suport tehnic"
   },
   {
-    name: "Business", price: "499", oldPrice: "899", tagline: "Tot ce-ți trebuie să crești",
+    name: "Business", price: "2.490", oldPrice: "3.990", currency: "RON", tagline: "Tot ce-ți trebuie să crești",
     color: "from-blue-500 to-indigo-600", accent: "blue", popular: true,
     target: "Saloane, Clinici, Personal Trainers, Studiouri",
     features: [
@@ -55,7 +55,7 @@ const plans = [
     support: "60 zile suport prioritar"
   },
   {
-    name: "Complet", price: "899", oldPrice: "1.599", tagline: "Operațiunea ta digitală completă",
+    name: "Complet", price: "4.990", oldPrice: "7.990", currency: "RON", tagline: "Operațiunea ta digitală completă",
     color: "from-orange-500 to-red-600", accent: "orange", popular: false,
     target: "Restaurante, Pizzerii, Săli fitness, Florării cu livrare",
     features: [
@@ -151,16 +151,16 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
         {/* Pricing */}
         <div className="mb-4">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-xl text-slate-500 line-through">{plan.oldPrice}€</span>
+            <span className="text-lg text-slate-500 line-through">{plan.oldPrice} RON</span>
             <motion.span
-              className="text-5xl font-black"
+              className="text-4xl md:text-5xl font-black"
               initial={{ scale: 0.5 }}
               animate={isInView ? { scale: 1 } : { scale: 0.5 }}
               transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
             >
               {plan.price}
             </motion.span>
-            <span className="text-slate-400 text-xl">€</span>
+            <span className="text-slate-400 text-lg">RON</span>
           </div>
           <div className="text-slate-500 text-sm">plată unică</div>
 
@@ -238,7 +238,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
 
         {/* CTA Button */}
         <motion.a
-          href={`https://wa.me/40756870425?text=${encodeURIComponent(`Bună! Mă interesează pachetul ${plan.name} (${plan.price}€). Putem discuta?`)}`}
+          href={`https://wa.me/40756870425?text=${encodeURIComponent(`Bună! Mă interesează pachetul ${plan.name} (${plan.price} RON). Putem discuta?`)}`}
           target="_blank"
           rel="noopener noreferrer"
           className={`relative block w-full py-4 rounded-xl font-bold text-center overflow-hidden transition-all ${

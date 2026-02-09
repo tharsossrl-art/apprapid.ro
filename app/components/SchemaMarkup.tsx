@@ -39,7 +39,7 @@ export default function SchemaMarkup() {
     telephone: '+40756870425',
     email: 'tharsossrl@gmail.com',
     url: 'https://apprapid.ro',
-    priceRange: '€€',
+    priceRange: '$$',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -71,8 +71,8 @@ export default function SchemaMarkup() {
             name: 'Pachet Vitrină',
             description: 'Prezența ta digitală completă'
           },
-          price: '249',
-          priceCurrency: 'EUR'
+          price: '1490',
+          priceCurrency: 'RON'
         },
         {
           '@type': 'Offer',
@@ -81,8 +81,8 @@ export default function SchemaMarkup() {
             name: 'Pachet Business',
             description: 'Tot ce-ți trebuie să crești'
           },
-          price: '499',
-          priceCurrency: 'EUR'
+          price: '2490',
+          priceCurrency: 'RON'
         },
         {
           '@type': 'Offer',
@@ -91,8 +91,8 @@ export default function SchemaMarkup() {
             name: 'Pachet Complet',
             description: 'Operațiunea ta digitală completă'
           },
-          price: '899',
-          priceCurrency: 'EUR'
+          price: '4990',
+          priceCurrency: 'RON'
         }
       ]
     }
