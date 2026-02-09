@@ -71,7 +71,7 @@ export default function SchemaMarkup() {
             name: 'Pachet Vitrină',
             description: 'Prezența ta digitală completă'
           },
-          price: '1490',
+          price: '1499',
           priceCurrency: 'RON'
         },
         {
@@ -81,7 +81,7 @@ export default function SchemaMarkup() {
             name: 'Pachet Business',
             description: 'Tot ce-ți trebuie să crești'
           },
-          price: '2490',
+          price: '2499',
           priceCurrency: 'RON'
         },
         {
@@ -91,7 +91,7 @@ export default function SchemaMarkup() {
             name: 'Pachet Complet',
             description: 'Operațiunea ta digitală completă'
           },
-          price: '4990',
+          price: '4999',
           priceCurrency: 'RON'
         }
       ]

@@ -151,9 +151,9 @@ export default function ContactForm() {
             className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
           >
             <option value="">Selectează...</option>
-            <option value="vitrina">Vitrină (1.490 RON)</option>
-            <option value="business">Business (2.490 RON)</option>
-            <option value="complet">Complet (4.990 RON)</option>
+            <option value="vitrina">Vitrină (1.499 RON)</option>
+            <option value="business">Business (2.499 RON)</option>
+            <option value="complet">Complet (4.999 RON)</option>
             <option value="altceva">Altceva / Nu știu încă</option>
           </select>
         </div>

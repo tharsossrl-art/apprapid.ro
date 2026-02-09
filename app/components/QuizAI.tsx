@@ -91,9 +91,9 @@ export default function QuizAI() {
   ]
 
   const packages = {
-    vitrina: { name: 'Vitrină', price: '1.490 RON', color: 'emerald', tagline: 'Prezența ta digitală completă' },
-    business: { name: 'Business', price: '2.490 RON', color: 'blue', tagline: 'Tot ce-ți trebuie să crești' },
-    complet: { name: 'Complet', price: '4.990 RON', color: 'orange', tagline: 'Operațiunea ta digitală completă' }
+    vitrina: { name: 'Vitrină', price: '1.499 RON', color: 'emerald', tagline: 'Prezența ta digitală completă' },
+    business: { name: 'Business', price: '2.499 RON', color: 'blue', tagline: 'Tot ce-ți trebuie să crești' },
+    complet: { name: 'Complet', price: '4.999 RON', color: 'orange', tagline: 'Operațiunea ta digitală completă' }
   }
 
   const handleAnswer = (questionId: string, option: QuizOption) => {

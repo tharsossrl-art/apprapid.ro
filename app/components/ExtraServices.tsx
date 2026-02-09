@@ -148,7 +148,7 @@ export default function ExtraServices() {
           </p>
           <p className="text-slate-400 text-sm mb-4">
             Chatbot + QR Menu + Email Marketing = <span className="line-through text-slate-500">1.870 RON</span>{' '}
-            <span className="text-white font-bold">1.590 RON</span>
+            <span className="text-white font-bold">1.599 RON</span>
           </p>
           <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează pachetul complet de servicii extra (Chatbot + QR Menu + Email Marketing).')}`}
             target="_blank" rel="noopener noreferrer"
