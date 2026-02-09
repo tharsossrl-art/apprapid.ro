@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'AppRapid.ro - Transformă-ți afacerea în aplicație'
+export const alt = 'AppRapid.ro - Aplicații web moderne de la 249€ | Gata în 7 zile sau e gratis'
 export const size = {
   width: 1200,
   height: 630,
@@ -17,161 +17,116 @@ export default async function Image() {
           height: '100%',
           width: '100%',
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           backgroundColor: '#020617',
-          backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.15) 0%, transparent 50%)',
+          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 50%)',
+          padding: '60px 80px',
         }}
       >
-        {/* Phone mockup */}
-        <div
-          style={{
+        {/* Left content */}
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, marginRight: 60 }}>
+          {/* Brand */}
+          <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: 30 }}>
+            <span style={{ fontSize: 64, fontWeight: 900, color: '#60a5fa' }}>App</span>
+            <span style={{ fontSize: 64, fontWeight: 900, color: '#ffffff' }}>Rapid</span>
+            <span style={{ fontSize: 64, fontWeight: 900, color: '#34d399' }}>.ro</span>
+          </div>
+
+          {/* Headline */}
+          <div style={{ fontSize: 36, fontWeight: 700, color: '#e2e8f0', lineHeight: 1.3, marginBottom: 30 }}>
+            Transformă-ți afacerea în aplicație web modernă
+          </div>
+
+          {/* Features row */}
+          <div style={{ display: 'flex', gap: 24, marginBottom: 30 }}>
+            {[
+              { text: 'De la 249€', sub: 'preț fix' },
+              { text: '5-7 zile', sub: 'sau e gratis' },
+              { text: 'PWA nativ', sub: 'instalabil' },
+            ].map((item) => (
+              <div key={item.text} style={{ display: 'flex', flexDirection: 'column', background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(71, 85, 105, 0.5)', borderRadius: 12, padding: '14px 20px' }}>
+                <span style={{ fontSize: 20, fontWeight: 700, color: '#ffffff' }}>{item.text}</span>
+                <span style={{ fontSize: 14, color: '#94a3b8' }}>{item.sub}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA hint */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ width: 8, height: 8, borderRadius: 4, background: '#10b981' }} />
+            <span style={{ fontSize: 18, color: '#94a3b8' }}>Timișoara, România</span>
+          </div>
+        </div>
+
+        {/* Right - Phone mockup */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{
+            width: 180,
+            height: 360,
+            borderRadius: 32,
+            border: '3px solid rgba(59, 130, 246, 0.5)',
+            background: 'linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%)',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 40,
-          }}
-        >
-          <div
-            style={{
-              width: 120,
-              height: 200,
-              borderRadius: 24,
-              border: '4px solid',
-              borderColor: '#3b82f6',
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%)',
+            padding: '40px 20px 20px',
+            position: 'relative',
+          }}>
+            {/* Notch */}
+            <div style={{ position: 'absolute', top: 12, width: 60, height: 8, borderRadius: 4, background: 'rgba(59, 130, 246, 0.4)' }} />
+
+            {/* App header */}
+            <div style={{
+              width: '100%',
+              height: 80,
+              borderRadius: 16,
+              background: 'linear-gradient(135deg, #3b82f6 0%, #10b981 100%)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              position: 'relative',
-            }}
-          >
-            {/* Notch */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 8,
-                width: 50,
-                height: 12,
-                borderRadius: 6,
-                background: 'linear-gradient(90deg, #3b82f6 0%, #10b981 100%)',
-              }}
-            />
-            {/* Checkmark */}
-            <svg
-              width="60"
-              height="60"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{ marginTop: 20 }}
-            >
-              <path
-                d="M5 13l4 4L19 7"
-                stroke="url(#grad)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" />
-                  <stop offset="100%" stopColor="#10b981" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
+              marginBottom: 16,
+            }}>
+              <span style={{ fontSize: 24, color: 'white', fontWeight: 700 }}>Salon</span>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>Programări</span>
+            </div>
 
-        {/* Brand */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: 20,
-          }}
-        >
-          <span
-            style={{
-              fontSize: 72,
-              fontWeight: 900,
-              background: 'linear-gradient(90deg, #60a5fa 0%, #34d399 100%)',
-              backgroundClip: 'text',
-              color: 'transparent',
-            }}
-          >
-            AppRapid
-          </span>
-          <span
-            style={{
-              fontSize: 72,
-              fontWeight: 900,
-              color: '#64748b',
-            }}
-          >
-            .ro
-          </span>
-        </div>
-
-        {/* Tagline */}
-        <div
-          style={{
-            fontSize: 32,
-            color: '#94a3b8',
-            textAlign: 'center',
-            maxWidth: 800,
-          }}
-        >
-          Transformă-ți afacerea în aplicație
-        </div>
-
-        {/* Features */}
-        <div
-          style={{
-            display: 'flex',
-            gap: 40,
-            marginTop: 40,
-          }}
-        >
-          {['Rapid', 'Modern', 'Accesibil'].map((text) => (
-            <div
-              key={text}
-              style={{
+            {/* Feature rows */}
+            {['Calendar', 'Galerie', 'Prețuri', 'Recenzii'].map((item) => (
+              <div key={item} style={{
+                width: '100%',
+                height: 28,
+                borderRadius: 8,
+                background: 'rgba(30, 41, 59, 0.6)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 8,
-              }}
-            >
-              <div
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: 12,
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #10b981 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 13l4 4L19 7"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                padding: '0 10px',
+                marginBottom: 8,
+              }}>
+                <div style={{ width: 14, height: 14, borderRadius: 4, background: 'linear-gradient(135deg, #3b82f6, #10b981)', marginRight: 8 }} />
+                <span style={{ fontSize: 11, color: '#cbd5e1' }}>{item}</span>
               </div>
-              <span style={{ color: '#e2e8f0', fontSize: 24 }}>{text}</span>
+            ))}
+
+            {/* CTA */}
+            <div style={{
+              width: '100%',
+              height: 28,
+              borderRadius: 8,
+              background: 'linear-gradient(90deg, #3b82f6, #10b981)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: 'auto',
+            }}>
+              <span style={{ fontSize: 10, color: 'white', fontWeight: 700 }}>Programează →</span>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     ),
-    {
-      ...size,
-    }
+    { ...size }
   )
 }

@@ -5,7 +5,7 @@ export default function SchemaMarkup() {
     name: 'AppRapid.ro',
     alternateName: 'Tharsos SRL',
     url: 'https://apprapid.ro',
-    logo: 'https://apprapid.ro/favicon.svg',
+    logo: 'https://apprapid.ro/favicon-512.png',
     description: 'Aplicații web moderne pentru afaceri locale din vestul României',
     address: {
       '@type': 'PostalAddress',
@@ -28,7 +28,7 @@ export default function SchemaMarkup() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'AppRapid.ro',
-    image: 'https://apprapid.ro/favicon.svg',
+    image: 'https://apprapid.ro/favicon-512.png',
     description: 'Dezvoltare aplicații web moderne pentru afaceri locale',
     address: {
       '@type': 'PostalAddress',
