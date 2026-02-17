@@ -1,30 +1,23 @@
 export default function Loading() {
   return (
-    <div className="fixed inset-0 bg-slate-950 flex items-center justify-center z-[100]">
-      <div className="relative">
-        {/* Outer ring */}
-        <div className="w-20 h-20 rounded-full border-4 border-slate-800" />
+    <div className="min-h-screen min-h-[100dvh] bg-slate-950 text-white flex flex-col items-center justify-center relative overflow-hidden px-5 sm:px-6 py-8 sm:py-12">
+      {/* Ambient glow - same as main page */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-blue-500/15 via-emerald-500/10 to-blue-500/15 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
+      
+      <div className="relative z-10 text-center">
+        {/* Logo - static version */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">App</span>
+          <span className="text-white">Rapid</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">.ro</span>
+        </h1>
 
-        {/* Spinning gradient ring */}
-        <div className="absolute inset-0 w-20 h-20 rounded-full border-4 border-transparent border-t-blue-500 border-r-emerald-500 animate-spin" />
-
-        {/* Center logo */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center animate-pulse">
-            <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="5" y="2" width="14" height="20" rx="3" />
-              <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth="3" strokeLinecap="round" />
-            </svg>
-          </div>
+        {/* Simple loading indicator */}
+        <div className="flex justify-center gap-1.5">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
         </div>
-      </div>
-
-      {/* Brand text */}
-      <div className="absolute bottom-1/3 text-center">
-        <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 font-bold text-lg">
-          AppRapid.ro
-        </p>
-        <p className="text-slate-500 text-sm mt-1">Se încarcă...</p>
       </div>
     </div>
   )

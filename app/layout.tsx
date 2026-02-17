@@ -78,7 +78,38 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
       </head>
-      <body className="antialiased font-body">{children}</body>
+      <body className="antialiased font-body">
+        {/* Instant loading screen - CSS only, no JS needed */}
+        <div id="__next-loading">
+          <div className="logo">
+            <span className="app">App</span>
+            <span className="rapid">Rapid</span>
+            <span className="ro">.ro</span>
+          </div>
+          <div className="dots">
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+          </div>
+        </div>
+        {/* Hide loading screen when React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                window.addEventListener('load', function() {
+                  var loader = document.getElementById('__next-loading');
+                  if (loader) {
+                    loader.classList.add('loaded');
+                    setTimeout(function() { loader.remove(); }, 300);
+                  }
+                });
+              }
+            `,
+          }}
+        />
+        {children}
+      </body>
     </html>
   )
 }
