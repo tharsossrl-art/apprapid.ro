@@ -77,37 +77,37 @@ export default function RootLayout({
     <html lang="ro" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
       <head>
         <GoogleAnalytics />
+        {/* Inline critical styles for instant loading screen */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          #__loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#020617}
+          #__loading .l{font-size:2.5rem;font-weight:700;margin-bottom:1.5rem}
+          #__loading .a{background:linear-gradient(to right,#60a5fa,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent}
+          #__loading .r{color:#fff}
+          #__loading .o{background:linear-gradient(to right,#34d399,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}
+          #__loading .d{display:flex;gap:6px}
+          #__loading .d span{width:8px;height:8px;background:#34d399;border-radius:50%;animation:b .6s ease-in-out infinite}
+          #__loading .d span:nth-child(2){animation-delay:.1s}
+          #__loading .d span:nth-child(3){animation-delay:.2s}
+          @keyframes b{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+          @media(min-width:640px){#__loading .l{font-size:3.5rem}}
+        `}} />
       </head>
       <body className="antialiased font-body">
-        {/* Instant loading screen - CSS only, no JS needed */}
-        <div id="__next-loading">
-          <div className="logo">
-            <span className="app">App</span>
-            <span className="rapid">Rapid</span>
-            <span className="ro">.ro</span>
+        {/* Instant loading screen - renders before React hydrates */}
+        <div id="__loading">
+          <div className="l">
+            <span className="a">App</span>
+            <span className="r">Rapid</span>
+            <span className="o">.ro</span>
           </div>
-          <div className="dots">
-            <div className="dot"></div>
-            <div className="dot"></div>
-            <div className="dot"></div>
+          <div className="d">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
-        {/* Hide loading screen when React hydrates */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== 'undefined') {
-                window.addEventListener('load', function() {
-                  var loader = document.getElementById('__next-loading');
-                  if (loader) {
-                    loader.classList.add('loaded');
-                    setTimeout(function() { loader.remove(); }, 300);
-                  }
-                });
-              }
-            `,
-          }}
-        />
+        {/* Hide loading when page fully loads */}
+        <script dangerouslySetInnerHTML={{ __html: `window.onload=function(){var e=document.getElementById('__loading');if(e){e.style.opacity='0';setTimeout(function(){e.remove()},300)}}` }} />
         {children}
       </body>
     </html>
