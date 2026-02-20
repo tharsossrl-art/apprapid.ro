@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const LAUNCH_DATE = new Date('2026-02-17T09:00:00+02:00')
+const LAUNCH_DATE = new Date('2026-03-09T09:00:00+02:00')
 
 function useCountdown(target: Date) {
   const [now, setNow] = useState(new Date())

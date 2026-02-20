@@ -3,10 +3,18 @@
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
+/* ─────────────────────────────────────────────
+   3-PACKAGE STRUCTURE (active)
+   ───────────────────────────────────────────── */
 const plans = [
   {
-    name: "Vitrină", price: "1.499", oldPrice: "1.799", currency: "RON", tagline: "Prezența ta digitală completă",
-    color: "from-emerald-500 to-teal-600", accent: "emerald", popular: false,
+    name: "STARTER",
+    price: "1.499",
+    currency: "RON",
+    tagline: "Prezența ta digitală completă",
+    color: "from-emerald-500 to-teal-600",
+    accent: "emerald",
+    popular: false,
     target: "Cafenele, Frizerii, Florării, Freelanceri, Fotografi",
     features: [
       "Pagină de prezentare completă",
@@ -24,17 +32,23 @@ const plans = [
       "Certificat SSL inclus",
       "Google My Business setup",
       "Viteză garantată 90+ PageSpeed",
-      "1 revizuire design inclusă"
+      "1 revizuire design inclusă",
+      "Prima lună hosting GRATIS 🎁",
     ],
     delivery: "3-5 zile",
-    support: "30 zile suport tehnic"
+    support: "30 zile suport tehnic",
   },
   {
-    name: "Business", price: "2.499", oldPrice: "2.999", currency: "RON", tagline: "Tot ce-ți trebuie să crești",
-    color: "from-blue-500 to-indigo-600", accent: "blue", popular: true,
+    name: "BUSINESS",
+    price: "2.999",
+    currency: "RON",
+    tagline: "Tot ce-ți trebuie să crești",
+    color: "from-blue-500 to-indigo-600",
+    accent: "blue",
+    popular: true,
     target: "Saloane, Clinici, Personal Trainers, Studiouri",
     features: [
-      "Tot ce include Vitrină +",
+      "Tot ce include STARTER +",
       "Sistem de rezervări cu calendar interactiv",
       "Vizualizare sloturi disponibile în timp real",
       "Confirmări automate pe email + WhatsApp",
@@ -49,17 +63,23 @@ const plans = [
       "Analytics vizitatori + raport lunar",
       "QR Code pentru scanare rapidă",
       "3 revizuiri design incluse",
-      "Suport tehnic prioritar 60 zile"
+      "Suport tehnic prioritar 60 zile",
+      "Prima lună hosting GRATIS 🎁",
     ],
     delivery: "5-7 zile",
-    support: "60 zile suport prioritar"
+    support: "60 zile suport prioritar",
   },
   {
-    name: "Complet", price: "4.999", oldPrice: "5.999", currency: "RON", tagline: "Operațiunea ta digitală completă",
-    color: "from-orange-500 to-red-600", accent: "orange", popular: false,
+    name: "COMPLET",
+    price: "4.999",
+    currency: "RON",
+    tagline: "Operațiunea ta digitală completă",
+    color: "from-orange-500 to-red-600",
+    accent: "orange",
+    popular: false,
     target: "Restaurante, Pizzerii, Săli fitness, Florării cu livrare",
     features: [
-      "Tot ce include Business +",
+      "Tot ce include BUSINESS +",
       "Sistem comenzi online complet",
       "Coș de cumpărături & checkout",
       "Plăți online integrate (card, Apple Pay)",
@@ -74,12 +94,43 @@ const plans = [
       "Suport locații/staff multiplu",
       "Integrare livrare (dacă e cazul)",
       "Revizuiri nelimitate",
-      "Suport tehnic prioritar 90 zile"
+      "Suport tehnic prioritar 90 zile",
+      "Prima lună hosting GRATIS 🎁",
     ],
     delivery: "7-14 zile",
-    support: "90 zile suport prioritar"
-  }
+    support: "90 zile suport prioritar",
+  },
 ]
+
+/* ─────────────────────────────────────────────
+   4-PACKAGE ALTERNATIVE (commented out — activate if needed)
+   ─────────────────────────────────────────────
+const customPlan = {
+  name: "CUSTOM",
+  price: "9.999+",
+  currency: "RON",
+  tagline: "Proiecte complexe, soluții enterprise",
+  color: "from-purple-500 to-pink-600",
+  accent: "purple",
+  popular: false,
+  target: "Startup-uri, Platforme SaaS, Rețele multi-locație",
+  features: [
+    "Arhitectură custom de la zero",
+    "Integrări API complexe",
+    "Baze de date scalabile",
+    "Dashboard multi-user cu roluri",
+    "Automatizări avansate",
+    "Scalabilitate enterprise",
+    "DevOps & CI/CD pipeline",
+    "SLA garantat 99.9% uptime",
+    "Suport dedicat 12 luni",
+    "Prima lună hosting GRATIS 🎁",
+  ],
+  delivery: "30-60 zile",
+  support: "12 luni suport dedicat",
+}
+// To activate: add customPlan to plans array above
+─────────────────────────────────────────────── */
 
 function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
   plan: typeof plans[0];
@@ -99,7 +150,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
     orange: { bg: 'bg-orange-500', text: 'text-orange-400', border: 'border-orange-500', glow: 'shadow-orange-500/25' },
   }
 
-  const accent = accentColors[plan.accent]
+  const accent = accentColors[plan.accent] ?? accentColors['blue']
 
   return (
     <motion.div
@@ -151,20 +202,14 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
         {/* Pricing */}
         <div className="mb-4">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-lg text-slate-500 line-through">{plan.oldPrice} RON</span>
-            <motion.span
-              className="text-4xl md:text-5xl font-black"
-              initial={{ scale: 0.5 }}
-              animate={isInView ? { scale: 1 } : { scale: 0.5 }}
-              transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-            >
+            <span className="text-4xl md:text-5xl font-black">
               {plan.price}
-            </motion.span>
+            </span>
             <span className="text-slate-400 text-lg">RON</span>
           </div>
           <div className="text-slate-500 text-sm">plată unică</div>
 
-          {/* Discount badge */}
+          {/* Hosting gratis badge */}
           <motion.div
             className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-full mt-3"
             whileHover={{ scale: 1.05 }}
@@ -172,7 +217,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Economisești {Math.round((1 - parseInt(plan.price) / parseInt(plan.oldPrice.replace('.', ''))) * 100)}%
+            Prima lună hosting GRATIS
           </motion.div>
         </div>
 
@@ -287,7 +332,7 @@ export default function Packages() {
               transparente
             </span>
           </h2>
-          <p className="text-slate-400 text-lg">Prețuri fixe, fără surprize. Alegi ce-ți trebuie.</p>
+          <p className="text-slate-400 text-lg">Prețuri fixe, fără surprize. Prima lună hosting inclusă gratuit.</p>
           <p className="text-slate-500 text-sm mt-2">De 3-4x mai ieftin decât o aplicație nativă. De 2x mai bun decât un site clasic.</p>
         </motion.div>
 

@@ -18,9 +18,10 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: '#quiz', label: 'Quiz AI' },
+    { href: '#', label: 'Acasă' },
     { href: '#pachete', label: 'Pachete' },
-    { href: '#cum-functioneaza', label: 'Cum funcționează' },
+    { href: '#template-uri', label: 'Templates' },
+    { href: '#contact', label: 'Contact' },
   ]
 
   return (
@@ -87,12 +88,12 @@ export default function Navigation() {
           </Link>
 
           <motion.a
-            href="#quiz"
+            href="#pachete"
             className="ml-4 relative overflow-hidden bg-gradient-to-r from-blue-500 to-emerald-500 px-6 py-2.5 rounded-full font-bold group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10">Începe acum</span>
+            <span className="relative z-10">Pachete & Prețuri</span>
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           </motion.a>
         </div>
@@ -154,14 +155,14 @@ export default function Navigation() {
               </Link>
 
               <motion.a
-                href="#quiz"
+                href="#pachete"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block mt-3 bg-gradient-to-r from-blue-500 to-emerald-500 px-5 py-4 rounded-xl font-bold text-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Începe acum
+                Pachete & Prețuri
               </motion.a>
             </div>
           </motion.div>

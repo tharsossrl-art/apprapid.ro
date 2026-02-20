@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SplashHero from './components/SplashHero'
 import AnimatedBackground from './components/AnimatedBackground'
@@ -28,6 +28,12 @@ import SchemaMarkup from './components/SchemaMarkup'
 
 export default function Home() {
   const [showSite, setShowSite] = useState(false)
+
+  // Auto-dismiss splash after 1s — no click required
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSite(true), 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
