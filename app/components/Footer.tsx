@@ -67,6 +67,8 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <a
               href="mailto:tharsossrl@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-slate-400 hover:text-white text-sm transition-colors"
             >
               tharsossrl@gmail.com
