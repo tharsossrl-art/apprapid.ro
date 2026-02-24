@@ -20,6 +20,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '#', label: 'Acasă' },
     { href: '#pachete', label: 'Pachete' },
+    { href: '#ai-employee', label: 'AI Employee' },
     { href: '#template-uri', label: 'Templates' },
     { href: '#contact', label: 'Contact' },
   ]

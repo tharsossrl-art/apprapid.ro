@@ -9,6 +9,7 @@ import Hero from './components/Hero'
 import Benefits from './components/Benefits'
 import QuizAI from './components/QuizAI'
 import Packages from './components/Packages'
+import AIEmployee from './components/AIEmployee'
 import TemplatesShowcase from './components/TemplatesShowcase'
 import ExtraServices from './components/ExtraServices'
 import Hosting from './components/Hosting'
@@ -77,6 +78,7 @@ export default function Home() {
             </section>
 
             <Packages />
+            <AIEmployee />
             <TemplatesShowcase />
             <ExtraServices />
             <Hosting />
