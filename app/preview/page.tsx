@@ -6,6 +6,7 @@ import QuizAI from '../components/QuizAI'
 import Packages from '../components/Packages'
 import TemplatesShowcase from '../components/TemplatesShowcase'
 import ExtraServices from '../components/ExtraServices'
+import AIEmployee from '../components/AIEmployee'
 import Hosting from '../components/Hosting'
 import Portfolio from '../components/Portfolio'
 import Testimonials from '../components/Testimonials'
@@ -49,6 +50,7 @@ export default function Home() {
       <Packages />
       <TemplatesShowcase />
       <ExtraServices />
+      <AIEmployee />
       <Hosting />
       <Portfolio />
       <Testimonials />
