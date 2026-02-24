@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 /* ─────────────────────────────────────────────
-   3-PACKAGE STRUCTURE (active)
+   5-PACKAGE STRUCTURE
    ───────────────────────────────────────────── */
 const plans = [
   {
@@ -39,7 +39,7 @@ const plans = [
     support: "30 zile suport tehnic",
   },
   {
-    name: "BUSINESS",
+    name: "PRO",
     price: "2.999",
     currency: "RON",
     tagline: "Tot ce-ți trebuie să crești",
@@ -70,16 +70,16 @@ const plans = [
     support: "60 zile suport prioritar",
   },
   {
-    name: "COMPLET",
+    name: "COMMERCE",
     price: "4.999",
     currency: "RON",
-    tagline: "Operațiunea ta digitală completă",
+    tagline: "Vinde online, crește rapid",
     color: "from-orange-500 to-red-600",
     accent: "orange",
     popular: false,
     target: "Restaurante, Pizzerii, Săli fitness, Florării cu livrare",
     features: [
-      "Tot ce include BUSINESS +",
+      "Tot ce include PRO +",
       "Sistem comenzi online complet",
       "Coș de cumpărături & checkout",
       "Plăți online integrate (card, Apple Pay)",
@@ -100,37 +100,58 @@ const plans = [
     delivery: "7-14 zile",
     support: "90 zile suport prioritar",
   },
+  {
+    name: "SUITE",
+    price: "9.999",
+    currency: "RON",
+    tagline: "Operațiunea ta digitală completă",
+    color: "from-purple-500 to-violet-600",
+    accent: "purple",
+    popular: false,
+    target: "Rețele multi-locație, Francize, Clinici private",
+    features: [
+      "Tot ce include COMMERCE +",
+      "Multi-locație cu management centralizat",
+      "Sistem de loialitate avansat & gamificare",
+      "Automatizări workflow (email, SMS, push)",
+      "Dashboard echipă cu roluri & permisiuni",
+      "CRM integrat (gestiune clienți)",
+      "Raportare avansată & export date",
+      "Integrări API externe (contabilitate, ERP)",
+      "A/B testing & optimizare conversii",
+      "Training echipă (2h video call)",
+      "Suport tehnic prioritar 6 luni",
+      "Prima lună hosting GRATIS 🎁",
+    ],
+    delivery: "14-21 zile",
+    support: "6 luni suport prioritar",
+  },
+  {
+    name: "CUSTOM",
+    price: "15.000+",
+    currency: "RON",
+    tagline: "Proiecte complexe, soluții enterprise",
+    color: "from-rose-500 to-pink-600",
+    accent: "rose",
+    popular: false,
+    target: "Startup-uri, Platforme SaaS, Enterprise",
+    features: [
+      "Tot ce include SUITE +",
+      "Arhitectură custom de la zero",
+      "Integrări API complexe",
+      "Baze de date scalabile",
+      "Dashboard multi-user cu roluri avansate",
+      "Automatizări avansate & AI features",
+      "Scalabilitate enterprise",
+      "DevOps & CI/CD pipeline",
+      "SLA garantat 99.9% uptime",
+      "Suport dedicat 12 luni",
+      "Prima lună hosting GRATIS 🎁",
+    ],
+    delivery: "30-60 zile",
+    support: "12 luni suport dedicat",
+  },
 ]
-
-/* ─────────────────────────────────────────────
-   4-PACKAGE ALTERNATIVE (commented out — activate if needed)
-   ─────────────────────────────────────────────
-const customPlan = {
-  name: "CUSTOM",
-  price: "9.999+",
-  currency: "RON",
-  tagline: "Proiecte complexe, soluții enterprise",
-  color: "from-purple-500 to-pink-600",
-  accent: "purple",
-  popular: false,
-  target: "Startup-uri, Platforme SaaS, Rețele multi-locație",
-  features: [
-    "Arhitectură custom de la zero",
-    "Integrări API complexe",
-    "Baze de date scalabile",
-    "Dashboard multi-user cu roluri",
-    "Automatizări avansate",
-    "Scalabilitate enterprise",
-    "DevOps & CI/CD pipeline",
-    "SLA garantat 99.9% uptime",
-    "Suport dedicat 12 luni",
-    "Prima lună hosting GRATIS 🎁",
-  ],
-  delivery: "30-60 zile",
-  support: "12 luni suport dedicat",
-}
-// To activate: add customPlan to plans array above
-─────────────────────────────────────────────── */
 
 function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
   plan: typeof plans[0];
@@ -148,6 +169,8 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
     emerald: { bg: 'bg-emerald-500', text: 'text-emerald-400', border: 'border-emerald-500', glow: 'shadow-emerald-500/25' },
     blue: { bg: 'bg-blue-500', text: 'text-blue-400', border: 'border-blue-500', glow: 'shadow-blue-500/25' },
     orange: { bg: 'bg-orange-500', text: 'text-orange-400', border: 'border-orange-500', glow: 'shadow-orange-500/25' },
+    purple: { bg: 'bg-purple-500', text: 'text-purple-400', border: 'border-purple-500', glow: 'shadow-purple-500/25' },
+    rose: { bg: 'bg-rose-500', text: 'text-rose-400', border: 'border-rose-500', glow: 'shadow-rose-500/25' },
   }
 
   const accent = accentColors[plan.accent] ?? accentColors['blue']
@@ -337,7 +360,7 @@ export default function Packages() {
         </motion.div>
 
         {/* Plans grid */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6">
           {plans.map((plan, i) => (
             <PlanCard
               key={i}
