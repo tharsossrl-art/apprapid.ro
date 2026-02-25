@@ -92,9 +92,9 @@ export default function RootLayout({
           @media(min-width:640px){#__loading .l{font-size:3.5rem}}
         `}} />
       </head>
-      <body className="antialiased font-body">
-        {/* Instant loading screen - renders before React hydrates */}
-        <div id="__loading">
+      <body className="antialiased font-body" suppressHydrationWarning>
+        {/* Instant loading screen - hidden via CSS after page loads */}
+        <div id="__loading" suppressHydrationWarning>
           <div className="l">
             <span className="a">App</span>
             <span className="r">Rapid</span>
@@ -106,8 +106,12 @@ export default function RootLayout({
             <span></span>
           </div>
         </div>
-        {/* Hide loading when page fully loads */}
-        <script dangerouslySetInnerHTML={{ __html: `window.onload=function(){var e=document.getElementById('__loading');if(e){e.style.opacity='0';setTimeout(function(){e.remove()},300)}}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `
+          function _hl(){var e=document.getElementById('__loading');if(e){e.style.transition='opacity .3s';e.style.opacity='0';e.style.pointerEvents='none'}}
+          if(document.readyState==='complete'||document.readyState==='interactive'){_hl()}
+          else{document.addEventListener('DOMContentLoaded',_hl)}
+          setTimeout(_hl,3000);
+        `}} />
         {children}
       </body>
     </html>

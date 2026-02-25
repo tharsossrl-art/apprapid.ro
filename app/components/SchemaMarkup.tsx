@@ -110,6 +110,56 @@ export default function SchemaMarkup() {
     }
   }
 
+  const aiEmployeeSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'AI Employee Configuration',
+    provider: {
+      '@type': 'Organization',
+      name: 'AppRapid.ro'
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Romania'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Pachete AI Employee',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'AI Employee ESENȚIAL',
+            description: '1 AI Employee configurat, 5 proceduri automate, 1 canal de comunicare, SLA 24h'
+          },
+          price: '1499',
+          priceCurrency: 'RON'
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'AI Employee AVANSAT',
+            description: '2 AI Employees, 10 proceduri automate, 2 canale, SLA 12h, integrare CRM/API'
+          },
+          price: '2499',
+          priceCurrency: 'RON'
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'AI Employee COMPLET',
+            description: 'AI Employees nelimitați, proceduri automate nelimitate, toate canalele, SLA 4h, manager AI dedicat'
+          },
+          price: '3999',
+          priceCurrency: 'RON'
+        }
+      ]
+    }
+  }
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -158,6 +208,10 @@ export default function SchemaMarkup() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aiEmployeeSchema) }}
       />
       <script
         type="application/ld+json"

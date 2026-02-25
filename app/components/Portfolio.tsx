@@ -3,17 +3,23 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
+const statusConfig: Record<string, { bg: string; text: string; dot: string }> = {
+  'Design finalizat': { bg: 'bg-emerald-500/10', text: 'text-emerald-400', dot: 'bg-emerald-400' },
+  'Aproape gata': { bg: 'bg-amber-500/10', text: 'text-amber-400', dot: 'bg-amber-400' },
+  'În dezvoltare': { bg: 'bg-blue-500/10', text: 'text-blue-400', dot: 'bg-blue-400' },
+}
+
 const projects = [
   {
-    name: 'MegaSun', type: 'Tanning / Beauty', status: 'În dezvoltare', color: 'from-amber-500 to-orange-600',
+    name: 'MegaSun', type: 'Tanning / Beauty', status: 'Design finalizat', color: 'from-amber-500 to-orange-600',
     icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" strokeLinecap="round"/></svg>
   },
   {
-    name: 'Derma Graphics', type: 'Tattoo / Graphics', status: 'În dezvoltare', color: 'from-purple-500 to-pink-600',
+    name: 'Derma Graphics', type: 'Tattoo / Graphics', status: 'Design finalizat', color: 'from-purple-500 to-pink-600',
     icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" strokeLinecap="round" strokeLinejoin="round"/></svg>
   },
   {
-    name: 'Icon Shop', type: 'Retail', status: 'În dezvoltare', color: 'from-blue-500 to-indigo-600',
+    name: 'Icon Shop', type: 'Retail', status: 'Aproape gata', color: 'from-blue-500 to-indigo-600',
     icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" strokeLinecap="round" strokeLinejoin="round"/></svg>
   },
   {
@@ -29,7 +35,7 @@ const projects = [
     icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" strokeLinecap="round" strokeLinejoin="round"/></svg>
   },
   {
-    name: 'Studio Masaj', type: 'Wellness / Masaj', status: 'În dezvoltare', color: 'from-indigo-500 to-violet-600',
+    name: 'Studio Masaj', type: 'Wellness / Masaj', status: 'Aproape gata', color: 'from-indigo-500 to-violet-600',
     icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z" strokeLinecap="round" strokeLinejoin="round"/></svg>
   },
 ]
@@ -70,13 +76,18 @@ export default function Portfolio() {
               <div className="p-4">
                 <h3 className="font-bold text-white mb-1">{project.name}</h3>
                 <p className="text-slate-500 text-xs mb-3">{project.type}</p>
-                <div className="inline-flex items-center gap-1.5 bg-blue-500/10 text-blue-400 text-xs font-medium px-2.5 py-1 rounded-full">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400"></span>
-                  </span>
-                  {project.status}
-                </div>
+                {(() => {
+                  const sc = statusConfig[project.status] || statusConfig['În dezvoltare']
+                  return (
+                    <div className={`inline-flex items-center gap-1.5 ${sc.bg} ${sc.text} text-xs font-medium px-2.5 py-1 rounded-full`}>
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${sc.dot} opacity-75`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${sc.dot}`}></span>
+                      </span>
+                      {project.status}
+                    </div>
+                  )
+                })()}
               </div>
             </motion.div>
           ))}
