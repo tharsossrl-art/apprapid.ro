@@ -176,54 +176,48 @@ const packages = [
     key: 'esential',
     name: 'ESENȚIAL',
     tagline: 'Un angajat AI care răspunde 24/7',
-    setup: '1.499',
-    monthly: '499',
+    price: '1.499',
     color: 'emerald',
     popular: false,
     features: [
       '1 AI Employee configurat pe afacerea ta',
+      '5 proceduri automate configurate',
       '1 canal de comunicare (WhatsApp sau email)',
-      'Notificări automate de bază',
-      'Auto-reply la mesaje frecvente',
-      'Onboarding + testare completă',
       'Răspuns la incidente în 24h',
+      'Onboarding + testare completă',
     ],
   },
   {
     key: 'avansat',
     name: 'AVANSAT',
     tagline: 'Echipă AI care automatizează operațiunile',
-    setup: '2.499',
-    monthly: '999',
+    price: '2.499',
     color: 'blue',
     popular: true,
     features: [
       '2 AI Employees configurați',
+      '10 proceduri automate configurate',
       '2 canale de comunicare',
-      'Reminder-e automate clienți',
-      'Update-uri livrare / status',
-      'FAQ inteligent pe afacerea ta',
-      'Alerte owner (decizii importante)',
       'Răspuns la incidente în 12h',
+      'Update lunar al instrucțiunilor',
+      'Integrare CRM / API',
     ],
   },
   {
     key: 'complet',
     name: 'COMPLET',
     tagline: 'Departament AI complet, zero efort din partea ta',
-    setup: '3.999',
-    monthly: '2.499',
+    price: '3.999',
     color: 'amber',
     popular: false,
     features: [
       'AI Employees nelimitați',
+      'Proceduri automate nelimitate',
       'Toate canalele de comunicare',
-      'Asistent AI complet configurat',
-      'Workflow-uri custom automate',
+      'Răspuns la incidente în 4h',
       'Manager AI dedicat afacerii tale',
       'Integrări multiple (CRM, API, webhooks)',
       'Rapoarte lunare de performanță',
-      'Răspuns la incidente în 4h',
     ],
   },
 ]
@@ -337,7 +331,7 @@ export default function AIEmployee() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              De la 1.499 RON setup + 499/lună
+              De la 1.499 RON — plată unică
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -629,10 +623,10 @@ export default function AIEmployee() {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl md:text-4xl font-black mb-3">
-              Prețuri simple. Fără surprize.
+              Prețuri simple. Plată unică.
             </h3>
             <p className="text-slate-400 max-w-xl mx-auto mb-2">
-              Setup o singură dată + abonament lunar care include operare, monitorizare și suport. Costurile API le plătești direct la furnizor — transparent, fără markup.
+              Plătești o singură dată configurarea. Costurile de operare (API) le plătești direct la furnizor — transparent, fără markup din partea noastră.
             </p>
           </motion.div>
 
@@ -642,14 +636,14 @@ export default function AIEmployee() {
               <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Setup + lunar transparent. Fără costuri ascunse. Anulezi oricând.
+              Fără abonament. Fără costuri ascunse. Fără surprize.
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {packages.map((pkg, idx) => {
               const c = colorMap[pkg.color]
-              const waText = `Bună! Mă interesează AI Employee pachetul ${pkg.name} (${pkg.setup} RON setup + ${pkg.monthly} RON/lună).`
+              const waText = `Bună! Mă interesează AI Employee pachetul ${pkg.name} (${pkg.price} RON).`
 
               return (
                 <motion.div
@@ -690,14 +684,10 @@ export default function AIEmployee() {
 
                   <div className="mb-1">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-black text-white">{pkg.setup}</span>
-                      <span className="text-slate-400 text-sm">RON setup</span>
+                      <span className="text-4xl font-black text-white">{pkg.price}</span>
+                      <span className="text-slate-400 text-sm">RON</span>
                     </div>
-                    <div className="flex items-baseline gap-1 mt-1">
-                      <span className="text-lg font-bold text-white">+ {pkg.monthly}</span>
-                      <span className="text-slate-400 text-sm">RON/lună</span>
-                    </div>
-                    <p className="text-xs mt-1.5 text-slate-500">configurare + operare lunară</p>
+                    <p className="text-xs mt-1 text-slate-500">plată unică</p>
                   </div>
 
                   <a
