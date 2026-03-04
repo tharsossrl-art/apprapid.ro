@@ -52,22 +52,17 @@ export default function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(`[AppRapid] Cerere nouă de la ${formData.name}`)
-      const body = encodeURIComponent(
-        `Nume: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Telefon: ${formData.phone}\n` +
-        `Pachet interesat: ${formData.package || 'Nespecificat'}\n\n` +
-        `Mesaj:\n${formData.message}`
-      )
+      // Build WhatsApp message with all form data
+      const packageLabel = formData.package
+        ? document.querySelector<HTMLOptionElement>(`#package option[value="${formData.package}"]`)?.textContent || formData.package
+        : 'Nespecificat'
 
-      // Open email client
-      window.location.href = `mailto:tharsossrl@gmail.com?subject=${subject}&body=${body}`
-
-      // Also open WhatsApp as backup
       const whatsappMessage = encodeURIComponent(
-        `Bună! Sunt ${formData.name}.\n\n${formData.message}\n\nContact: ${formData.email} / ${formData.phone}`
+        `Bună! Sunt ${formData.name}.\n\n` +
+        `${formData.message}\n\n` +
+        `Pachet: ${packageLabel}\n` +
+        `Email: ${formData.email}\n` +
+        `Telefon: ${formData.phone || 'Nespecificat'}`
       )
       window.open(`https://wa.me/40756870425?text=${whatsappMessage}`, '_blank')
 
@@ -151,10 +146,12 @@ export default function ContactForm() {
             className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
           >
             <option value="">Selectează...</option>
-            <option value="vitrina">Vitrină (1.499 RON)</option>
-            <option value="business">Business (2.499 RON)</option>
-            <option value="complet">Complet (4.999 RON)</option>
-            <option value="altceva">Altceva / Nu știu încă</option>
+            <option value="starter">STARTER (1.499 RON)</option>
+            <option value="pro">PRO (2.999 RON)</option>
+            <option value="commerce">COMMERCE (4.999 RON)</option>
+            <option value="suite">SUITE (9.999 RON)</option>
+            <option value="custom">CUSTOM (15.000+ RON)</option>
+            <option value="altceva">Nu știu încă</option>
           </select>
         </div>
       </div>
