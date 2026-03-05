@@ -183,7 +183,7 @@ function AIChatMockup() {
 function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string }) {
   return (
     <motion.span
-      className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400"
+      className="text-4xl md:text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -685,7 +685,7 @@ export default function AIEmployee() {
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl font-black text-violet-500/20">{item.step}</span>
+                  <span className="text-3xl font-heading font-black text-violet-500/20">{item.step}</span>
                   <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
@@ -794,7 +794,7 @@ export default function AIEmployee() {
 
                   <div className="mb-1">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-black text-white">{pkg.price}</span>
+                      <span className="text-4xl font-heading font-black text-white">{pkg.price}</span>
                       <span className="text-slate-400 text-sm">RON</span>
                     </div>
                     <p className="text-xs mt-1 text-slate-500">plată unică / angajat AI</p>

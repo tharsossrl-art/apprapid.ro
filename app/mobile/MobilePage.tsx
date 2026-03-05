@@ -102,7 +102,7 @@ export default function MobilePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-black leading-[1.1] mb-6"
+              className="text-5xl md:text-7xl font-heading font-black leading-[1.1] mb-6"
             >
               Afacerea ta,{' '}
               <br className="hidden md:block" />
@@ -267,7 +267,7 @@ export default function MobilePage() {
                 className="flex gap-6 items-start"
               >
                 <div className="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/20 flex items-center justify-center">
-                  <span className="text-lg font-black text-violet-400">{step.number}</span>
+                  <span className="text-lg font-heading font-black text-violet-400">{step.number}</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>

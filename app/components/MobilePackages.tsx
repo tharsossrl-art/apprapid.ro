@@ -161,7 +161,7 @@ export default function MobilePackages() {
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-black text-white">{pkg.price}</span>
+                    <span className="text-4xl font-heading font-black text-white">{pkg.price}</span>
                     <span className="text-slate-400 text-sm">RON</span>
                   </div>
                   <p className="text-xs mt-1 text-slate-500">plată unică</p>

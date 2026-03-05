@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts */
-h1, h2, h3, h4, h5, h6,
-.font-black, .font-bold, .font-extrabold {
+/* Fonts — Space Grotesk for headings (Tailwind font-heading handles non-heading elements) */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
 }
 

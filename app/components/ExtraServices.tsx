@@ -46,7 +46,7 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">999</span>
+              <span className="text-4xl font-heading font-black text-white">999</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
@@ -88,7 +88,7 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">399</span>
+              <span className="text-4xl font-heading font-black text-white">399</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
@@ -128,7 +128,7 @@ export default function ExtraServices() {
             </ul>
 
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-4xl font-black text-white">499</span>
+              <span className="text-4xl font-heading font-black text-white">499</span>
               <span className="text-slate-400 text-lg">RON</span>
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
@@ -148,7 +148,7 @@ export default function ExtraServices() {
           </p>
           <p className="text-slate-400 text-sm mb-4">
             Chatbot + QR Menu + Email Marketing = <span className="line-through text-slate-500">1.899 RON</span>{' '}
-            <span className="text-white font-bold">1.599 RON</span>
+            <span className="text-white font-heading font-bold">1.599 RON</span>
           </p>
           <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează pachetul complet de servicii extra (Chatbot + QR Menu + Email Marketing).')}`}
             target="_blank" rel="noopener noreferrer"

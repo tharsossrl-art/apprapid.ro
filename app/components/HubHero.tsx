@@ -78,7 +78,7 @@ export default function HubHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-6"
+            className="text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[1.05] mb-6"
           >
             Tot ce are nevoie{' '}
             <br className="hidden md:block" />

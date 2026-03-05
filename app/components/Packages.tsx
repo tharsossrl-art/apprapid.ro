@@ -225,7 +225,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
         {/* Pricing */}
         <div className="mb-4">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-4xl md:text-5xl font-black">
+            <span className="text-4xl md:text-5xl font-heading font-black">
               {plan.price}
             </span>
             <span className="text-slate-400 text-lg">RON</span>

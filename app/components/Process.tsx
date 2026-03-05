@@ -60,7 +60,7 @@ export default function Process() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: i * 0.12 }}
             >
-              <div className={`text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r ${item.color} mb-4`}>
+              <div className={`text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r ${item.color} mb-4`}>
                 {item.step}
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>

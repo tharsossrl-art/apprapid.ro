@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="text-2xl font-black inline-block mb-3">
+            <Link href="/" className="text-2xl font-heading font-black inline-block mb-3">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                 AppRapid
               </span>

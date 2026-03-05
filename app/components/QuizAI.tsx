@@ -203,7 +203,7 @@ export default function QuizAI() {
               <p className="text-white/80">{recommended.tagline}</p>
             </div>
             <div className="text-right">
-              <div className="text-4xl font-black text-white">{recommended.price}</div>
+              <div className="text-4xl font-heading font-black text-white">{recommended.price}</div>
               <div className="text-white/70 text-sm">plată unică</div>
             </div>
           </div>

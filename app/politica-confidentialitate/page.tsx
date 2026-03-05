@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       {/* Header */}
       <header className="border-b border-slate-800">
         <div className="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-black">
+          <Link href="/" className="text-2xl font-heading font-black">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               AppRapid
             </span>

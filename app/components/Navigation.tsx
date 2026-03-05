@@ -90,7 +90,7 @@ export default function Navigation() {
             </div>
           </motion.div>
           <div>
-            <span className="text-xl font-black tracking-tight text-white">
+            <span className="text-xl font-heading font-black tracking-tight text-white">
               App<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Rapid</span>
             </span>
             <div className="text-[10px] text-slate-500 -mt-1 tracking-wider">.ro</div>

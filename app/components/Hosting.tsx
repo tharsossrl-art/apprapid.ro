@@ -145,7 +145,7 @@ export default function Hosting() {
                 {/* Price */}
                 <div className="mb-5">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-black text-white">{price}</span>
+                    <span className="text-4xl font-heading font-black text-white">{price}</span>
                     <span className="text-slate-400 text-sm">RON/lună</span>
                   </div>
                   {annual && (

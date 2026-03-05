@@ -23,7 +23,7 @@ const SCREENS = [
     <div className="text-[12px] text-emerald-400 font-bold mb-1">FitPro</div>
     <div className="flex-1 space-y-1.5">
       <div className="bg-slate-800/60 rounded-lg p-2 text-center">
-        <div className="text-[16px] font-black text-emerald-400">2,450</div>
+        <div className="text-[16px] font-heading font-black text-emerald-400">2,450</div>
         <div className="text-[12px] text-slate-400">calorii arse azi</div>
       </div>
       <div className="grid grid-cols-2 gap-1">
@@ -57,7 +57,7 @@ const SCREENS = [
     <div className="flex-1 space-y-1.5">
       <div className="bg-slate-800/60 rounded-lg p-2 text-center">
         <div className="text-[12px] text-slate-400">Ofertă specială</div>
-        <div className="text-[12px] font-black text-yellow-400">-40% WEEKEND</div>
+        <div className="text-[12px] font-heading font-black text-yellow-400">-40% WEEKEND</div>
       </div>
       <div className="grid grid-cols-2 gap-1">
         {['Sneakers', 'Jachetă', 'Ochelari', 'Ceas'].map(i => (
