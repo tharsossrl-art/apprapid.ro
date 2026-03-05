@@ -33,13 +33,13 @@ export default function AboutUs() {
             {/* Text */}
             <div>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Suntem <span className="text-white font-bold">Tharsos SRL</span>, o echipă din Timișoara care construiește aplicații web moderne pentru afaceri locale.
+                Suntem <span className="text-white font-bold">Tharsos SRL</span>, o echipă din Timișoara care construiește soluții digitale complete pentru afaceri.
               </p>
               <p className="text-slate-400 leading-relaxed mb-6">
-                Credem că fiecare afacere locală merită o prezență digitală la nivel de 2026 — nu un site vechi care arată ca în 2010. De aceea construim aplicații web (PWA) care se instalează pe telefon, funcționează offline și arată impecabil.
+                Aplicații web, aplicații mobile iOS & Android și angajați AI care lucrează non-stop. Tot ce are nevoie afacerea ta ca să fie prezentă, eficientă și competitivă în 2026.
               </p>
               <p className="text-slate-400 leading-relaxed">
-                Folosim cele mai noi tehnologii și livrăm rapid. Dacă nu e gata în 7 zile — e gratis.
+                Folosim cele mai noi tehnologii, livrăm rapid și oferim prețuri fixe — fără surprize.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function AboutUs() {
                 </div>
                 <div>
                   <div className="font-bold text-white mb-1">Livrare rapidă</div>
-                  <div className="text-sm text-slate-400">Gata în 5-7 zile. Dacă întârziem — e gratis.</div>
+                  <div className="text-sm text-slate-400">Aplicații web gata în 5-7 zile. Proiecte mobile în 30-60 zile.</div>
                 </div>
               </div>
 
@@ -77,8 +77,8 @@ export default function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-white mb-1">Tehnologie 2026</div>
-                  <div className="text-sm text-slate-400">Next.js, TypeScript, Tailwind CSS. Nu WordPress.</div>
+                  <div className="font-bold text-white mb-1">3 servicii, o echipă</div>
+                  <div className="text-sm text-slate-400">Aplicații web, mobile și AI — totul sub un singur acoperiș.</div>
                 </div>
               </div>
             </div>

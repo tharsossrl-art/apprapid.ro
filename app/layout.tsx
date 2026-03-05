@@ -24,9 +24,9 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'AppRapid.ro - Aplicații web moderne de la 1.499 RON | Gata în 7 zile',
-  description: 'Transformă-ți afacerea în aplicație web modernă. Instalabilă pe telefon, funcționează offline, gata în 5-7 zile sau e gratis. De la 1.499 RON. Timișoara, România.',
-  keywords: ['aplicații web', 'web app', 'dezvoltare aplicații', 'Timișoara', 'România', 'afaceri locale', 'PWA', 'site afacere', 'aplicatie mobila', 'dezvoltare web'],
+  title: 'AppRapid.ro — Aplicații Web, Mobile & AI | Timișoara',
+  description: 'Aplicații web, aplicații mobile iOS & Android și angajați AI pentru afacerea ta. De la 999 RON. Echipă din Timișoara, România.',
+  keywords: ['aplicații web', 'aplicații mobile', 'iOS', 'Android', 'AI Employee', 'dezvoltare aplicații', 'Timișoara', 'România', 'PWA', 'web app'],
   authors: [{ name: 'AppRapid.ro', url: 'https://apprapid.ro' }],
   creator: 'Tharsos SRL',
   publisher: 'Tharsos SRL',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: 'AppRapid.ro - Aplicații web moderne de la 1.499 RON | Gata în 7 zile',
-    description: 'Transformă-ți afacerea în aplicație web modernă. Instalabilă pe telefon, funcționează offline. De la 1.499 RON, gata în 5-7 zile sau e gratis.',
+    title: 'AppRapid.ro — Aplicații Web, Mobile & AI | Timișoara',
+    description: 'Aplicații web, aplicații mobile iOS & Android și angajați AI pentru afacerea ta. De la 999 RON. Echipă din Timișoara.',
     url: 'https://apprapid.ro',
     siteName: 'AppRapid.ro',
     locale: 'ro_RO',
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AppRapid.ro - Aplicații web moderne de la 1.499 RON',
-    description: 'Transformă-ți afacerea în aplicație web modernă. Gata în 5-7 zile sau e gratis. Timișoara, România.',
+    title: 'AppRapid.ro — Aplicații Web, Mobile & AI | Timișoara',
+    description: 'Aplicații web, mobile și AI pentru afacerea ta. Echipă din Timișoara, România.',
     creator: '@apprapidro',
   },
   metadataBase: new URL('https://apprapid.ro'),

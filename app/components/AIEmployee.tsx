@@ -2,45 +2,70 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 /* ═══════════════════════════════════════════════════
-   Chat mockup — rotating real conversations
+   Chat mockup — owner giving tasks to AI Employee
    ═══════════════════════════════════════════════════ */
 const CONVERSATIONS = [
   {
-    biz: 'Imobiliare',
+    biz: 'HoReCa',
     color: 'from-violet-500 to-fuchsia-500',
-    botName: 'Andrei',
-    avatar: 'A',
+    botName: 'AI Employee',
+    avatar: 'AI',
     messages: [
-      { from: 'user', text: 'Bună! Am văzut apartamentul de 2 camere din Lipovei. Mai e disponibil?' },
-      { from: 'bot', text: 'Bună! Da, apartamentul din Lipovei (65mp, etaj 3) este disponibil. Prețul: 89.900€. Doriți să programăm o vizionare?' },
-      { from: 'user', text: 'Da, mâine după-amiază merge?' },
-      { from: 'bot', text: 'Perfect! V-am programat mâine la 16:00. Vă trimit locația pe WhatsApp. Aveți întrebări despre apartament?' },
-    ],
-  },
-  {
-    biz: 'Restaurant',
-    color: 'from-orange-500 to-red-500',
-    botName: 'Maria',
-    avatar: 'M',
-    messages: [
-      { from: 'user', text: 'Salut, vreau o rezervare diseară, 4 persoane.' },
-      { from: 'bot', text: 'Bună seara! Avem disponibil la 19:00 sau 20:30. Ce preferați?' },
-      { from: 'user', text: '20:30, și aveți meniu vegetarian?' },
-      { from: 'bot', text: 'Gata, 20:30 pentru 4 persoane! Da, avem 6 opțiuni vegetariene. Vă trimit meniul complet acum.' },
+      { from: 'user', text: 'Care sunt vânzările de săptămâna asta?' },
+      { from: 'bot', text: '23 comenzi, 8.450 RON, +15% față de săptămâna trecută. Cel mai vândut: Pachet Pro.' },
+      { from: 'user', text: 'Trimite raportul pe WhatsApp la contabila.' },
+      { from: 'bot', text: 'Gata. Am trimis raportul complet cu breakdown pe zile la Andreea.' },
     ],
   },
   {
     biz: 'Salon Beauty',
-    color: 'from-pink-500 to-rose-500',
-    botName: 'Elena',
-    avatar: 'E',
+    color: 'from-violet-500 to-fuchsia-500',
+    botName: 'AI Employee',
+    avatar: 'AI',
     messages: [
-      { from: 'user', text: 'Hei, vreau o programare manichiură gel.' },
-      { from: 'bot', text: 'Hei! Avem locuri joi la 14:00 sau vineri la 10:00. Ce zi preferi?' },
-      { from: 'user', text: 'Vineri la 10, cât costă?' },
-      { from: 'bot', text: 'Te-am programat vineri la 10:00! Manichiura gel: 120 RON. Ai nevoie și de altceva?' },
+      { from: 'user', text: 'Trimite reminder-e la toți clienții cu programări mâine.' },
+      { from: 'bot', text: 'Am trimis 12 reminder-e pe WhatsApp. 3 au confirmat deja.' },
+      { from: 'user', text: 'Câte no-show-uri am avut luna asta?' },
+      { from: 'bot', text: '4 din 89 programări (4.5%). Luna trecută: 11%. Reminder-ele funcționează.' },
+    ],
+  },
+  {
+    biz: 'E-commerce',
+    color: 'from-violet-500 to-fuchsia-500',
+    botName: 'AI Employee',
+    avatar: 'AI',
+    messages: [
+      { from: 'user', text: 'Câte comenzi noi avem de ieri?' },
+      { from: 'bot', text: '17 comenzi noi, 4.230 RON. 3 au plata ramburs, restul card. Nicio returnare.' },
+      { from: 'user', text: 'Verifică stocul la produsele best-seller.' },
+      { from: 'bot', text: '2 produse sub limită: Crema X (4 buc) și Serum Y (7 buc). Trimit alertă la furnizor?' },
+    ],
+  },
+  {
+    biz: 'Clinică',
+    color: 'from-violet-500 to-fuchsia-500',
+    botName: 'AI Employee',
+    avatar: 'AI',
+    messages: [
+      { from: 'user', text: 'Care e gradul de ocupare pe săptămâna asta?' },
+      { from: 'bot', text: '78% ocupare. Luni și marți pline. Joi are 4 sloturi libere, vineri 6.' },
+      { from: 'user', text: 'Trimite ofertă la clienții inactivi de 3+ luni.' },
+      { from: 'bot', text: 'Am identificat 23 clienți inactivi. Trimit mesaj personalizat pe WhatsApp acum.' },
+    ],
+  },
+  {
+    biz: 'Auto Service',
+    color: 'from-violet-500 to-fuchsia-500',
+    botName: 'AI Employee',
+    avatar: 'AI',
+    messages: [
+      { from: 'user', text: 'Ce programări avem mâine?' },
+      { from: 'bot', text: '6 programări: 3 ITP, 2 revizie, 1 schimb anvelope. Rampa 2 e liberă după 14:00.' },
+      { from: 'user', text: 'Trimite confirmare la toți și verifică piesele.' },
+      { from: 'bot', text: 'Confirmări trimise. Piesele pentru revizii sunt pe stoc. Lipsesc filtre pentru ITP #3 — comand?' },
     ],
   },
 ]
@@ -83,14 +108,14 @@ function AIChatMockup() {
         <div className="absolute inset-[3px] rounded-[32px] overflow-hidden bg-slate-950 flex flex-col">
           {/* Header */}
           <div className={`pt-8 pb-3 px-4 bg-gradient-to-r ${current.color} flex items-center gap-3`}>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-[9px] font-bold">
               {current.avatar}
             </div>
             <div>
               <div className="text-white text-[11px] font-bold">{current.botName}</div>
               <div className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <span className="text-white/70 text-[9px]">Online acum</span>
+                <span className="text-white/70 text-[9px]">Activ — 24/7</span>
               </div>
             </div>
             <div className="ml-auto text-white/40 text-[9px]">{current.biz}</div>
@@ -129,7 +154,7 @@ function AIChatMockup() {
           {/* Input */}
           <div className="px-3 pb-4 pt-2">
             <div className="flex items-center gap-2 bg-slate-800/80 rounded-full px-4 py-2">
-              <span className="text-[10px] text-slate-500 flex-1">Scrie un mesaj...</span>
+              <span className="text-[10px] text-slate-500 flex-1">Dă o instrucțiune...</span>
               <div className="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center">
                 <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
@@ -175,7 +200,7 @@ const packages = [
   {
     key: 'esential',
     name: 'ESENȚIAL',
-    tagline: 'Un angajat AI care răspunde 24/7',
+    tagline: '1 angajat AI care operează 24/7',
     price: '1.499',
     color: 'emerald',
     popular: false,
@@ -190,33 +215,33 @@ const packages = [
   {
     key: 'avansat',
     name: 'AVANSAT',
-    tagline: 'Echipă AI care automatizează operațiunile',
+    tagline: '1 angajat AI cu capabilități avansate',
     price: '2.499',
     color: 'blue',
     popular: true,
     features: [
-      '2 AI Employees configurați',
+      '1 AI Employee configurat pe afacerea ta',
       '10 proceduri automate configurate',
       '2 canale de comunicare',
       'Răspuns la incidente în 12h',
       'Update lunar al instrucțiunilor',
-      'Integrare CRM / API',
+      'Conectare la uneltele tale existente',
     ],
   },
   {
     key: 'complet',
     name: 'COMPLET',
-    tagline: 'Departament AI complet, zero efort din partea ta',
+    tagline: '1 angajat AI cu tot ce ai nevoie',
     price: '3.999',
     color: 'amber',
     popular: false,
     features: [
-      'AI Employees nelimitați',
+      '1 AI Employee configurat pe afacerea ta',
       'Proceduri automate nelimitate',
       'Toate canalele de comunicare',
       'Răspuns la incidente în 4h',
-      'Manager AI dedicat afacerii tale',
-      'Integrări multiple (CRM, API, webhooks)',
+      'Update-uri și ajustări nelimitate',
+      'Conectare la toate platformele tale',
       'Rapoarte lunare de performanță',
     ],
   },
@@ -244,12 +269,44 @@ const colorMap: Record<string, Record<string, string>> = {
 }
 
 /* ═══════════════════════════════════════════════════
+   Daily Operations Timeline
+   ═══════════════════════════════════════════════════ */
+const TIMELINE = [
+  { time: '07:00', task: 'Verifică programările zilei, trimite reminder-e', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+  { time: '09:00', task: 'Verificare date — informații lipsă, erori, deadline-uri', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' },
+  { time: '12:00', task: 'Raport de dimineață — vânzări, comenzi noi, alerte', icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+  { time: '15:00', task: 'Follow-up automat cu clienții care nu au confirmat', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+  { time: '18:00', task: 'Verificare conformitate echipă — rapoarte, reguli', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { time: '22:00', task: 'Raport zilnic complet trimis pe WhatsApp/Telegram', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+]
+
+/* ═══════════════════════════════════════════════════
    Main Component
    ═══════════════════════════════════════════════════ */
 export default function AIEmployee() {
   return (
     <section id="ai-employee" className="relative z-10 px-6 py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto">
+
+        {/* ──────────────────────────────────────────
+            HERO IMAGE — Full width
+            ────────────────────────────────────────── */}
+        <motion.div
+          className="mb-12 rounded-2xl overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image
+            src="/ai-employee-hero.jpg"
+            alt="AI Employee — Colegul tău digital, activ 24/7"
+            width={1280}
+            height={720}
+            className="w-full h-auto rounded-2xl"
+            priority
+          />
+        </motion.div>
 
         {/* ──────────────────────────────────────────
             SECTION 1: Hero — The Hook
@@ -286,7 +343,7 @@ export default function AIEmployee() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Un angajat digital care <span className="text-white font-semibold">știe afacerea ta pe de rost</span> — servicii, prețuri, proceduri, tonul comunicării. Răspunde clienților, programează întâlniri, preia comenzi.
+              Un angajat digital care <span className="text-white font-semibold">știe afacerea ta pe de rost</span> — proceduri, echipa, regulile interne. Auditează date, trimite rapoarte, aplică reguli, urmărește deadline-uri. Tu doar dai instrucțiuni.
             </motion.p>
 
             <motion.p
@@ -309,8 +366,8 @@ export default function AIEmployee() {
             >
               {[
                 { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', text: 'Non-stop, 365 zile/an' },
-                { icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z', text: 'WhatsApp, email, Telegram' },
-                { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', text: 'Securitate enterprise' },
+                { icon: 'M13 10V3L4 14h7v7l9-11h-7z', text: 'Răspunsuri în secunde' },
+                { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', text: 'Datele tale rămân la tine' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 px-4 py-2.5 rounded-xl">
                   <svg className="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -331,7 +388,7 @@ export default function AIEmployee() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              De la 1.499 RON — plată unică
+              De la 1.499 RON — plată unică / angajat AI
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -356,7 +413,7 @@ export default function AIEmployee() {
             &ldquo;Da, și eu am un chatbot pe site.&rdquo;
           </h3>
           <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
-            Un chatbot generic copiază un text de pe site. Un AI Employee <span className="text-white">înțelege</span> afacerea ta.
+            Un chatbot răspunde clienților. Un AI Employee <span className="text-white">conduce operațiunile</span>.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -372,11 +429,11 @@ export default function AIEmployee() {
               </div>
               <ul className="space-y-3">
                 {[
-                  'Copie textul de pe site, fără context',
-                  'Răspunsuri vagi: "Contactați-ne pentru detalii"',
-                  'Nu știe prețuri, disponibilitate, proceduri',
-                  'Nu poate programa, rezerva sau confirma',
-                  'Clienții îl ocolesc după 2 mesaje',
+                  'Răspunde reactiv, doar când e întrebat',
+                  'Doar interacțiune cu clienții',
+                  'Răspunsuri generice, fără context intern',
+                  'Nu știe regulile, procedurile sau echipa ta',
+                  'Nu poate lua decizii sau aplica reguli',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-slate-500 text-sm">
                     <svg className="w-4 h-4 text-red-400/60 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -400,11 +457,11 @@ export default function AIEmployee() {
               </div>
               <ul className="space-y-3">
                 {[
-                  'Învățat pe afacerea ta — servicii, prețuri, reguli',
-                  'Răspunsuri concrete cu date reale',
-                  'Programează, rezervă, confirmă automat',
-                  'Se conectează la CRM-ul tău existent',
-                  'Clienții nu realizează că nu e om',
+                  'Lucrează proactiv — pe program, fără să-l întrebi',
+                  'Trimite rapoarte, reminder-e și alerte automat',
+                  'Cunoaște procedurile, echipa și regulile tale',
+                  'Aplică reguli și ia decizii conform instrucțiunilor',
+                  'Se conectează la uneltele pe care le folosești deja',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-slate-200 text-sm">
                     <svg className="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -429,10 +486,10 @@ export default function AIEmployee() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: '24/7', label: 'Disponibil non-stop', sub: 'Fără pauze, concedii sau zile libere' },
-              { value: '<2s', label: 'Timp de răspuns', sub: 'Clientul nu așteaptă niciodată' },
-              { value: '10×', label: 'Mai ieftin', sub: 'Față de un angajat clasic pe rol similar' },
-              { value: '0', label: 'Greșeli de comunicare', sub: 'Aceeași calitate, de fiecare dată' },
+              { value: '24/7', label: 'Activ non-stop', sub: 'Verifică, raportează și alertează constant' },
+              { value: '0', label: 'Sarcini uitate', sub: 'Fiecare procedură se execută la timp' },
+              { value: '10×', label: 'Mai ieftin', sub: 'Față de un angajat pe rol similar' },
+              { value: '<2min', label: 'Timp de raportare', sub: 'Rapoarte complete, pe loc' },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -451,7 +508,60 @@ export default function AIEmployee() {
         </motion.div>
 
         {/* ──────────────────────────────────────────
-            SECTION 4: Use Cases by Industry
+            SECTION 4: Daily Operations Timeline
+            ────────────────────────────────────────── */}
+        <motion.div
+          className="mb-24"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl md:text-3xl font-black text-center mb-3">
+            Ce face în fiecare zi — fără să-l rogi
+          </h3>
+          <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
+            Un program complet de operațiuni, executat automat, în fiecare zi.
+          </p>
+
+          <div className="max-w-3xl mx-auto relative">
+            {/* Vertical line */}
+            <div className="absolute left-[29px] md:left-[33px] top-0 bottom-0 w-px bg-gradient-to-b from-violet-500/40 via-fuchsia-500/30 to-transparent" />
+
+            <div className="space-y-4">
+              {TIMELINE.map((item, i) => (
+                <motion.div
+                  key={item.time}
+                  className="flex items-start gap-4 group"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  {/* Time badge */}
+                  <div className="flex-shrink-0 w-[58px] md:w-[66px] text-right">
+                    <span className="text-sm md:text-base font-mono font-bold text-violet-400">{item.time}</span>
+                  </div>
+
+                  {/* Dot */}
+                  <div className="flex-shrink-0 w-3 h-3 mt-1.5 rounded-full bg-violet-500 ring-4 ring-slate-950 relative z-10" />
+
+                  {/* Card */}
+                  <div className="flex-1 bg-slate-800/40 border border-slate-700/50 rounded-xl px-4 py-3 group-hover:border-violet-500/30 transition-colors">
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-4 h-4 text-violet-400/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                      </svg>
+                      <span className="text-sm text-slate-300">{item.task}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ──────────────────────────────────────────
+            SECTION 5: Use Cases by Industry
             ────────────────────────────────────────── */}
         <motion.div
           className="mb-24"
@@ -469,39 +579,39 @@ export default function AIEmployee() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                industry: 'Imobiliare',
-                icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+                industry: 'Rapoarte & Verificări',
+                icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
                 color: 'text-violet-400',
                 bg: 'bg-violet-500/10',
                 tasks: [
-                  'Califică lead-uri automat pe baza criteriilor tale',
-                  'Programează vizionări și trimite locații',
-                  'Audit automat al datelor din CRM',
-                  'Urmărește pipeline-ul și alertează pe deadlines',
+                  'Rapoarte zilnice și săptămânale — automat, la fix',
+                  'Verifică dacă echipa respectă procedurile',
+                  'Alerte când ceva nu e în regulă',
+                  'Sumar cu cifre, nu povești',
                 ],
               },
               {
-                industry: 'HoReCa',
-                icon: 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25',
+                industry: 'Reminder-e & Follow-up',
+                icon: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9',
                 color: 'text-orange-400',
                 bg: 'bg-orange-500/10',
                 tasks: [
-                  'Preia rezervări și confirmă automat',
-                  'Trimite meniul pe WhatsApp',
-                  'Răspunde la "aveți loc diseară?"',
-                  'Gestionează comenzi de livrare',
+                  'Trimite reminder-e clienților automat',
+                  'Follow-up cu cei care nu au răspuns',
+                  'Confirmări programări și comenzi',
+                  'Reactivare clienți inactivi',
                 ],
               },
               {
-                industry: 'Servicii & Beauty',
-                icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z',
+                industry: 'Decizii & Reguli',
+                icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
                 color: 'text-pink-400',
                 bg: 'bg-pink-500/10',
                 tasks: [
-                  'Programări automate pe baza disponibilității',
-                  'Confirmări și reminder-e înainte de vizită',
-                  'Răspunde la întrebări despre prețuri și servicii',
-                  'Recomandări personalizate pentru clienți recurenți',
+                  'Aplică regulile tale fără excepții',
+                  'Escalează problemele la persoana potrivită',
+                  'Monitorizează deadline-uri și termene',
+                  'Acționează conform procedurilor — mereu la fel',
                 ],
               },
             ].map((item) => (
@@ -530,7 +640,7 @@ export default function AIEmployee() {
         </motion.div>
 
         {/* ──────────────────────────────────────────
-            SECTION 5: How it works — 3 steps
+            SECTION 6: How it works — 3 steps
             ────────────────────────────────────────── */}
         <motion.div
           className="mb-24"
@@ -550,20 +660,20 @@ export default function AIEmployee() {
               {
                 step: '01',
                 title: 'Învățăm afacerea',
-                desc: 'Discutăm cu tine 30-60 minute. Înțelegem serviciile, prețurile, tonul, regulile interne, cazurile frecvente. Totul devine „creierul" angajatului tău AI.',
+                desc: 'Discutăm cu tine 30-60 minute. Servicii, prețuri, proceduri, echipa, reguli interne. Totul devine „creierul" angajatului tău AI.',
                 icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
               },
               {
                 step: '02',
-                title: 'Testăm cu scenarii reale',
-                desc: 'Simulăm zeci de conversații — clienți curioși, clienți nerăbdători, întrebări ciudate. Ajustăm până fiecare răspuns e impecabil.',
+                title: 'Configurăm AI-ul',
+                desc: 'Construim „creierul" configurat pe afacerea ta, regulile tale, tonul tău. Testat cu scenarii reale până fiecare acțiune e impecabilă.',
                 icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
               },
               {
                 step: '03',
-                title: 'Lansăm pe canalele tale',
-                desc: 'Conectăm WhatsApp, email, Telegram — ce folosești tu. De acum, angajatul AI răspunde în locul tău. Tu primești doar sumarul zilnic.',
-                icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+                title: 'Instalăm pe echipamentul tău',
+                desc: 'Rulează pe mașina sau serverul tău. Costuri API direct la furnizor — transparent, fără markup. Noi menținem și actualizăm.',
+                icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
               },
             ].map((item, i) => (
               <motion.div
@@ -590,7 +700,7 @@ export default function AIEmployee() {
         </motion.div>
 
         {/* ──────────────────────────────────────────
-            SECTION 6: Social proof
+            SECTION 7: Social proof
             ────────────────────────────────────────── */}
         <motion.div
           className="mb-24 max-w-3xl mx-auto"
@@ -613,7 +723,7 @@ export default function AIEmployee() {
         </motion.div>
 
         {/* ──────────────────────────────────────────
-            SECTION 7: Pricing
+            SECTION 8: Pricing
             ────────────────────────────────────────── */}
         <div id="ai-pachete">
           <motion.div
@@ -687,7 +797,7 @@ export default function AIEmployee() {
                       <span className="text-4xl font-black text-white">{pkg.price}</span>
                       <span className="text-slate-400 text-sm">RON</span>
                     </div>
-                    <p className="text-xs mt-1 text-slate-500">plată unică</p>
+                    <p className="text-xs mt-1 text-slate-500">plată unică / angajat AI</p>
                   </div>
 
                   <a

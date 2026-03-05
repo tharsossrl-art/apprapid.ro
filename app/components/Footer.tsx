@@ -15,22 +15,27 @@ export default function Footer() {
               <span className="text-slate-400">.ro</span>
             </Link>
             <p className="text-slate-500 text-sm">
-              Aplicații web moderne pentru afaceri locale din vestul României.
+              Aplicații web, mobile și AI pentru afaceri din România.
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Link-uri rapide</h4>
+            <h4 className="font-semibold text-white mb-3">Servicii</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/#pachete" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  Pachete și prețuri
+                <Link href="/aplicatii" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  Aplicații Web (PWA)
                 </Link>
               </li>
               <li>
-                <Link href="/#cum-functioneaza" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  Cum funcționează
+                <Link href="/mobile" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  Aplicații Mobile
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  AI Employee
                 </Link>
               </li>
               <li>

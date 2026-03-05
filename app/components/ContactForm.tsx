@@ -146,11 +146,23 @@ export default function ContactForm() {
             className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
           >
             <option value="">Selectează...</option>
-            <option value="starter">STARTER (1.499 RON)</option>
-            <option value="pro">PRO (2.999 RON)</option>
-            <option value="commerce">COMMERCE (4.999 RON)</option>
-            <option value="suite">SUITE (9.999 RON)</option>
-            <option value="custom">CUSTOM (15.000+ RON)</option>
+            <optgroup label="Aplicații Web (PWA)">
+              <option value="starter">STARTER (1.499 RON)</option>
+              <option value="pro">PRO (2.999 RON)</option>
+              <option value="commerce">COMMERCE (4.999 RON)</option>
+              <option value="suite">SUITE (9.999 RON)</option>
+              <option value="custom">CUSTOM (15.000+ RON)</option>
+            </optgroup>
+            <optgroup label="Aplicații Mobile">
+              <option value="mobile-essential">ESSENTIAL (4.999 RON)</option>
+              <option value="mobile-business">BUSINESS (12.999 RON)</option>
+              <option value="mobile-enterprise">ENTERPRISE (24.999+ RON)</option>
+            </optgroup>
+            <optgroup label="AI Employee">
+              <option value="ai-esential">ESENȚIAL (1.499 RON)</option>
+              <option value="ai-avansat">AVANSAT (2.499 RON)</option>
+              <option value="ai-complet">COMPLET (3.999 RON)</option>
+            </optgroup>
             <option value="altceva">Nu știu încă</option>
           </select>
         </div>

@@ -2,25 +2,17 @@
 
 import AnimatedBackground from './components/AnimatedBackground'
 import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import Benefits from './components/Benefits'
-import QuizAI from './components/QuizAI'
-import Packages from './components/Packages'
-import TemplatesShowcase from './components/TemplatesShowcase'
-import ExtraServices from './components/ExtraServices'
-import Hosting from './components/Hosting'
-import Portfolio from './components/Portfolio'
-import Testimonials from './components/Testimonials'
-import ComparisonTable from './components/ComparisonTable'
-import AboutUs from './components/AboutUs'
+import HubHero from './components/HubHero'
+import ProductGrid from './components/ProductGrid'
+import TrustBar from './components/TrustBar'
 import Process from './components/Process'
+import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import CookieConsent from './components/CookieConsent'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollAnimations from './components/ScrollAnimations'
-import ThemeToggle from './components/ThemeToggle'
 import SchemaMarkup from './components/SchemaMarkup'
 
 export default function Home() {
@@ -29,31 +21,9 @@ export default function Home() {
       <SchemaMarkup />
       <AnimatedBackground />
       <Navigation />
-      <ThemeToggle />
-      <Hero />
-      <Benefits />
-      <TemplatesShowcase />
-
-      <section id="quiz" className="relative z-10 px-6 py-24 bg-slate-900/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              Nu știi ce pachet <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">ți se potrivește?</span>
-            </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Răspunde la 6 întrebări simple și îți recomandăm pachetul perfect pentru afacerea ta.
-            </p>
-          </div>
-          <QuizAI />
-        </div>
-      </section>
-
-      <Packages />
-      <ExtraServices />
-      <Hosting />
-      <ComparisonTable />
-      <Portfolio />
-      <Testimonials />
+      <HubHero />
+      <ProductGrid />
+      <TrustBar />
       <Process />
       <AboutUs />
       <Contact />
