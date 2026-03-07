@@ -24,9 +24,9 @@ const serviceIcons: Record<string, React.ReactNode> = {
 }
 
 const services = [
-  { href: '/aplicatii', label: 'Aplicații Web', sub: 'De la 1.499 RON', iconKey: 'web' },
-  { href: '/mobile', label: 'Aplicații Mobile', sub: 'De la 4.999 RON', iconKey: 'mobile' },
-  { href: '/ai', label: 'AI Employee', sub: 'De la 1.499 RON', iconKey: 'ai' },
+  { href: '/aplicatii', label: 'Aplicații Web', sub: 'De la 2.999 RON', iconKey: 'web' },
+  { href: '/mobile', label: 'Aplicații Mobile', sub: 'De la 7.999 RON', iconKey: 'mobile' },
+  { href: '/ai', label: 'AI Employee', sub: 'De la 2.499 RON', iconKey: 'ai' },
 ]
 
 export default function Navigation() {

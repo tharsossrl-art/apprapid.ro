@@ -4,42 +4,29 @@ import { useState } from 'react'
 
 const tiers = [
   {
-    key: 'esential',
-    name: 'Esențial',
-    target: 'Pentru STARTER',
-    monthly: 99,
-    annual: 79,
-    color: 'emerald',
-    features: [
-      'Hosting rapid pe servere din Europa',
-      'Certificat SSL (HTTPS) inclus',
-      'Backup automat săptămânal',
-      'Updates de securitate',
-      'Suport WhatsApp — răspundem în 24h',
-    ],
-  },
-  {
     key: 'standard',
     name: 'Standard',
-    target: 'Pentru PRO / COMMERCE',
-    monthly: 199,
-    annual: 159,
+    target: 'Pentru STARTER & BUSINESS',
+    monthly: 149,
+    annual: 119,
     color: 'purple',
     popular: true,
     features: [
-      'Tot din Esențial, plus:',
+      'Hosting rapid pe servere din Europa',
+      'Certificat SSL (HTTPS) inclus',
       'CDN pentru viteză maximă',
-      'Monitorizare uptime 24/7',
       'Backup automat zilnic',
-      'Prioritate la suport (răspuns în 12h)',
+      'Monitorizare uptime 24/7',
+      'Updates de securitate',
+      'Suport WhatsApp — răspuns în 12h',
     ],
   },
   {
     key: 'premium',
     name: 'Premium',
-    target: 'Pentru SUITE / CUSTOM',
-    monthly: 399,
-    annual: 319,
+    target: 'Pentru ENTERPRISE',
+    monthly: 299,
+    annual: 239,
     color: 'amber',
     features: [
       'Tot din Standard, plus:',
@@ -52,15 +39,6 @@ const tiers = [
 ]
 
 const colorMap: Record<string, Record<string, string>> = {
-  emerald: {
-    border: 'border-emerald-500/30',
-    borderHover: 'hover:border-emerald-500/60',
-    bg: 'from-emerald-900/20 to-emerald-900/5',
-    badge: 'bg-emerald-500',
-    check: 'text-emerald-400',
-    btn: 'bg-emerald-500/20 border-emerald-500/30 hover:bg-emerald-500/30 text-emerald-300',
-    price: 'text-emerald-400',
-  },
   purple: {
     border: 'border-purple-500/40',
     borderHover: 'hover:border-purple-500/70',
@@ -115,7 +93,7 @@ export default function Hosting() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-6">
           {/* Tier cards */}
           {tiers.map((tier) => {
             const c = colorMap[tier.color]

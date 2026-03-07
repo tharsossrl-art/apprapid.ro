@@ -194,79 +194,101 @@ function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string
 }
 
 /* ═══════════════════════════════════════════════════
-   Packages
+   Product Data — 3 AI Employee Products
    ═══════════════════════════════════════════════════ */
-const packages = [
+
+const AGENT_PRICING = [
+  { agents: '1-2', setupPerAgent: '2.499', monthly: '199' },
+  { agents: '3-5', setupPerAgent: '1.999', monthly: '399' },
+  { agents: '5+', setupPerAgent: '1.699', monthly: '599' },
+]
+
+const TEAM_PACKAGES = [
   {
-    key: 'esential',
-    name: 'ESENȚIAL',
-    tagline: '1 angajat AI care operează 24/7',
-    price: '1.499',
-    color: 'emerald',
+    key: 'solo',
+    name: 'SOLO',
+    tagline: '1-3 plugin-uri custom, 1 utilizator',
+    setup: '2.499',
+    monthly: '199',
+    color: 'blue',
     popular: false,
     features: [
-      '1 AI Employee configurat pe afacerea ta',
-      '5 proceduri automate configurate',
-      '1 canal de comunicare (WhatsApp sau email)',
-      'Răspuns la incidente în 24h',
-      'Onboarding + testare completă',
+      '1-3 plugin-uri AI custom pentru afacerea ta',
+      'Configurare completă Google Workspace',
+      'Onboarding 1 utilizator',
+      'Suport și actualizări lunare',
     ],
   },
   {
-    key: 'avansat',
-    name: 'AVANSAT',
-    tagline: '1 angajat AI cu capabilități avansate',
-    price: '2.499',
+    key: 'team',
+    name: 'TEAM',
+    tagline: '5-10 plugin-uri, echipă până la 10 persoane',
+    setup: '4.999',
+    monthly: '399',
     color: 'blue',
     popular: true,
     features: [
-      '1 AI Employee configurat pe afacerea ta',
-      '10 proceduri automate configurate',
-      '2 canale de comunicare',
-      'Răspuns la incidente în 12h',
-      'Update lunar al instrucțiunilor',
-      'Conectare la uneltele tale existente',
+      '5-10 plugin-uri AI custom',
+      'Integrare completă Google Workspace',
+      'Onboarding echipă (până la 10 utilizatori)',
+      'Configurare marketplace plugin-uri',
+      'Suport prioritar și actualizări',
     ],
   },
   {
-    key: 'complet',
-    name: 'COMPLET',
-    tagline: '1 angajat AI cu tot ce ai nevoie',
-    price: '3.999',
-    color: 'amber',
+    key: 'business',
+    name: 'BUSINESS',
+    tagline: 'Plugin-uri nelimitate, deployment organizațional',
+    setup: '9.999',
+    monthly: '699',
+    color: 'blue',
     popular: false,
     features: [
-      '1 AI Employee configurat pe afacerea ta',
-      'Proceduri automate nelimitate',
-      'Toate canalele de comunicare',
-      'Răspuns la incidente în 4h',
-      'Update-uri și ajustări nelimitate',
-      'Conectare la toate platformele tale',
-      'Rapoarte lunare de performanță',
+      'Plugin-uri AI nelimitate',
+      'Suita completă de integrări',
+      'Branding custom organizațional',
+      'Deployment la nivel de organizație',
+      'Suport prioritar dedicat',
     ],
   },
 ]
 
-const colorMap: Record<string, Record<string, string>> = {
-  emerald: {
-    border: 'border-emerald-500/30', borderHover: 'hover:border-emerald-500/60',
-    bg: 'from-emerald-900/20 to-emerald-900/5', badge: 'bg-emerald-500',
-    icon: 'bg-emerald-500/20', iconText: 'text-emerald-400', check: 'text-emerald-400',
-    btn: 'bg-emerald-500/20 border-emerald-500/30 hover:bg-emerald-500/30 text-emerald-300',
+const PLATFORM_PACKAGES = [
+  {
+    key: 'platform-business',
+    name: 'BUSINESS',
+    tagline: 'Până la 5 agenți AI, dashboard complet',
+    setup: '14.999',
+    monthly: '699',
+    color: 'amber',
+    popular: false,
+    features: [
+      'Până la 5 agenți AI configurați',
+      'Dashboard management complet',
+      'Organigramă și roluri AI',
+      'Bugete și tracking costuri',
+      'Rapoarte de performanță',
+      'Suport prioritar',
+    ],
   },
-  blue: {
-    border: 'border-blue-500/40', borderHover: 'hover:border-blue-500/70',
-    bg: 'from-blue-900/30 to-blue-900/10', badge: 'bg-blue-500',
-    icon: 'bg-blue-500/20', iconText: 'text-blue-400', check: 'text-blue-400',
-    btn: 'bg-blue-500 hover:bg-blue-600 text-white',
+  {
+    key: 'platform-enterprise',
+    name: 'ENTERPRISE',
+    tagline: '10+ agenți, multi-companie, fără limite',
+    setup: '24.999',
+    monthly: '1.499',
+    color: 'amber',
+    popular: true,
+    features: [
+      'Agenți AI nelimitați (10+)',
+      'Suport multi-companie',
+      'Integrări custom API',
+      'Dashboard avansat cu analytics',
+      'Organigramă completă cu raportare',
+      'Suport dedicat 12 luni',
+    ],
   },
-  amber: {
-    border: 'border-amber-500/30', borderHover: 'hover:border-amber-500/60',
-    bg: 'from-amber-900/20 to-amber-900/5', badge: 'bg-amber-500',
-    icon: 'bg-amber-500/20', iconText: 'text-amber-400', check: 'text-amber-400',
-    btn: 'bg-amber-500/20 border-amber-500/30 hover:bg-amber-500/30 text-amber-300',
-  },
-}
+]
 
 /* ═══════════════════════════════════════════════════
    Daily Operations Timeline
@@ -281,9 +303,228 @@ const TIMELINE = [
 ]
 
 /* ═══════════════════════════════════════════════════
+   Tab Components — Pricing
+   ═══════════════════════════════════════════════════ */
+
+function AgentsTab() {
+  return (
+    <div>
+      {/* Pricing table */}
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-slate-800/30 border border-violet-500/20 rounded-2xl overflow-hidden">
+          {/* Header */}
+          <div className="grid grid-cols-3 bg-violet-500/10 px-6 py-4 border-b border-violet-500/20">
+            <span className="text-sm font-bold text-violet-300">Nr. Agenți</span>
+            <span className="text-sm font-bold text-violet-300 text-center">Setup / agent</span>
+            <span className="text-sm font-bold text-violet-300 text-right">Lunar</span>
+          </div>
+          {/* Rows */}
+          {AGENT_PRICING.map((tier, i) => (
+            <div
+              key={tier.agents}
+              className={`grid grid-cols-3 px-6 py-5 items-center ${
+                i < AGENT_PRICING.length - 1 ? 'border-b border-slate-700/50' : ''
+              } hover:bg-violet-500/5 transition-colors`}
+            >
+              <span className="text-white font-bold">{tier.agents} agenți</span>
+              <div className="text-center">
+                <span className="text-2xl font-black text-white">{tier.setupPerAgent}</span>
+                <span className="text-slate-400 text-sm ml-1">RON</span>
+              </div>
+              <div className="text-right">
+                <span className="text-lg font-bold text-white">{tier.monthly}</span>
+                <span className="text-slate-400 text-sm ml-1">RON/lună</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Features */}
+        <div className="mt-6 grid sm:grid-cols-2 gap-3">
+          {[
+            'Agenți AI care lucrează 24/7 pe infrastructura ta',
+            'Modelul AI optim, ales per sarcină',
+            'Integrare Google Workspace completă',
+            'Rapoarte, reminder-e, verificări automate',
+            'Monitorizare și actualizări continue',
+            'Suport tehnic dedicat',
+          ].map((f) => (
+            <div key={f} className="flex items-start gap-2.5 text-slate-300 text-sm">
+              <svg className="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              {f}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 text-center">
+          <a
+            href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează Agenți AI Autonomi pentru afacerea mea.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity"
+          >
+            Vreau Agenți AI
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TeamTab() {
+  return (
+    <div>
+      <div className="grid md:grid-cols-3 gap-6">
+        {TEAM_PACKAGES.map((pkg, idx) => {
+          const waText = `Bună! Mă interesează Automatizări de Echipă — pachetul ${pkg.name} (${pkg.setup} RON).`
+          return (
+            <motion.div
+              key={pkg.key}
+              className={`relative bg-gradient-to-br from-blue-900/20 to-blue-900/5 border ${
+                pkg.popular ? 'border-blue-500/40 ring-1 ring-blue-500/20' : 'border-blue-500/20'
+              } hover:border-blue-500/50 rounded-2xl p-6 transition-all flex flex-col`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                    Recomandat
+                  </span>
+                </div>
+              )}
+
+              <h3 className="text-xl font-black mb-1 mt-1">{pkg.name}</h3>
+              <p className="text-slate-500 text-xs mb-5">{pkg.tagline}</p>
+
+              <ul className="space-y-2.5 mb-6 flex-1">
+                {pkg.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                    <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mb-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-3xl font-heading font-black text-white">{pkg.setup}</span>
+                  <span className="text-slate-400 text-sm">RON</span>
+                </div>
+                <p className="text-xs mt-1 text-slate-500">setup unic</p>
+                <div className="flex items-baseline gap-1.5 mt-2">
+                  <span className="text-lg font-bold text-blue-300">+{pkg.monthly}</span>
+                  <span className="text-slate-500 text-sm">RON/lună</span>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-5 block w-full py-3.5 rounded-xl border font-bold text-center text-sm transition-all ${
+                  pkg.popular
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white border-blue-500'
+                    : 'bg-blue-500/20 border-blue-500/30 hover:bg-blue-500/30 text-blue-300'
+                }`}
+              >
+                Vreau {pkg.name}
+              </a>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function PlatformTab() {
+  return (
+    <div>
+      <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {PLATFORM_PACKAGES.map((pkg, idx) => {
+          const waText = `Bună! Mă interesează Platforma AI Business OS — pachetul ${pkg.name} (${pkg.setup} RON).`
+          return (
+            <motion.div
+              key={pkg.key}
+              className={`relative bg-gradient-to-br from-amber-900/20 to-amber-900/5 border ${
+                pkg.popular ? 'border-amber-500/40 ring-1 ring-amber-500/20' : 'border-amber-500/20'
+              } hover:border-amber-500/50 rounded-2xl p-6 transition-all flex flex-col`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15 }}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                    Enterprise
+                  </span>
+                </div>
+              )}
+
+              <h3 className="text-xl font-black mb-1 mt-1">{pkg.name}</h3>
+              <p className="text-slate-500 text-xs mb-5">{pkg.tagline}</p>
+
+              <ul className="space-y-2.5 mb-6 flex-1">
+                {pkg.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                    <svg className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mb-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-3xl font-heading font-black text-white">{pkg.setup}</span>
+                  <span className="text-slate-400 text-sm">RON</span>
+                </div>
+                <p className="text-xs mt-1 text-slate-500">setup unic</p>
+                <div className="flex items-baseline gap-1.5 mt-2">
+                  <span className="text-lg font-bold text-amber-300">+{pkg.monthly}</span>
+                  <span className="text-slate-500 text-sm">RON/lună</span>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-5 block w-full py-3.5 rounded-xl border font-bold text-center text-sm transition-all ${
+                  pkg.popular
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-white border-amber-500'
+                    : 'bg-amber-500/20 border-amber-500/30 hover:bg-amber-500/30 text-amber-300'
+                }`}
+              >
+                Vreau {pkg.name}
+              </a>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════
    Main Component
    ═══════════════════════════════════════════════════ */
 export default function AIEmployee() {
+  const [activeTab, setActiveTab] = useState('agents')
+
   return (
     <section id="ai-employee" className="relative z-10 px-6 py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -388,7 +629,7 @@ export default function AIEmployee() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              De la 1.499 RON — plată unică / angajat AI
+              Vezi soluțiile AI pentru afacerea ta
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -584,10 +825,10 @@ export default function AIEmployee() {
                 color: 'text-violet-400',
                 bg: 'bg-violet-500/10',
                 tasks: [
-                  'Rapoarte zilnice și săptămânale — automat, la fix',
-                  'Verifică dacă echipa respectă procedurile',
-                  'Alerte când ceva nu e în regulă',
-                  'Sumar cu cifre, nu povești',
+                  'Raport zilnic pe WhatsApp — vânzări, comenzi, anomalii',
+                  'Audit automat: lipsă date, câmpuri necompletate, erori',
+                  'Alerte instant când ceva nu e în parametri normali',
+                  'Comparații săptămână vs săptămână, lună vs lună',
                 ],
               },
               {
@@ -596,10 +837,10 @@ export default function AIEmployee() {
                 color: 'text-orange-400',
                 bg: 'bg-orange-500/10',
                 tasks: [
-                  'Trimite reminder-e clienților automat',
-                  'Follow-up cu cei care nu au răspuns',
-                  'Confirmări programări și comenzi',
-                  'Reactivare clienți inactivi',
+                  'Reminder automat cu 24h și 1h înainte de programare',
+                  'Follow-up personalizat dacă clientul nu a confirmat',
+                  'Mesaj de reactivare la clienții inactivi 30+ zile',
+                  'Confirmare automată comenzi + estimare livrare',
                 ],
               },
               {
@@ -608,10 +849,10 @@ export default function AIEmployee() {
                 color: 'text-pink-400',
                 bg: 'bg-pink-500/10',
                 tasks: [
-                  'Aplică regulile tale fără excepții',
-                  'Escalează problemele la persoana potrivită',
-                  'Monitorizează deadline-uri și termene',
-                  'Acționează conform procedurilor — mereu la fel',
+                  'Aplică politica de prețuri, discount-uri și excepții exact cum ai definit-o',
+                  'Escalare automată: problema merge direct la cine trebuie',
+                  'Deadline depășit? Alertă + acțiune — nu doar notificare',
+                  'Același standard, de fiecare dată — fără „am uitat"',
                 ],
               },
             ].map((item) => (
@@ -666,13 +907,13 @@ export default function AIEmployee() {
               {
                 step: '02',
                 title: 'Configurăm AI-ul',
-                desc: 'Construim „creierul" configurat pe afacerea ta, regulile tale, tonul tău. Testat cu scenarii reale până fiecare acțiune e impecabilă.',
+                desc: 'Configurăm agenții AI pe procedurile, echipa și fluxurile tale. Testăm cu date reale din afacerea ta până totul merge perfect.',
                 icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
               },
               {
                 step: '03',
                 title: 'Instalăm pe echipamentul tău',
-                desc: 'Rulează pe mașina sau serverul tău. Costuri API direct la furnizor — transparent, fără markup. Noi menținem și actualizăm.',
+                desc: 'Rulează pe infrastructura ta. Noi gestionăm totul — configurare, monitorizare și actualizări continue.',
                 icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
               },
             ].map((item, i) => (
@@ -727,91 +968,53 @@ export default function AIEmployee() {
             ────────────────────────────────────────── */}
         <div id="ai-pachete">
           <motion.div
-            className="text-center mb-4"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <h3 className="text-3xl md:text-4xl font-black mb-3">
-              Prețuri simple. Plată unică.
+              Alege soluția AI potrivită
             </h3>
-            <p className="text-slate-400 max-w-xl mx-auto mb-2">
-              Plătești o singură dată configurarea. Costurile de operare (API) le plătești direct la furnizor — transparent, fără markup din partea noastră.
+            <p className="text-slate-400 max-w-xl mx-auto">
+              Trei produse diferite, pentru nevoi diferite. De la agenți autonomi la platforme complete de management AI.
             </p>
           </motion.div>
 
-          {/* Trust badge */}
+          {/* Tabs */}
           <div className="flex justify-center mb-10">
-            <div className="flex items-center gap-2 bg-slate-800/60 border border-slate-700 rounded-full px-5 py-2.5 text-sm text-slate-400">
-              <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Fără abonament. Fără costuri ascunse. Fără surprize.
+            <div className="inline-flex bg-slate-800/60 border border-slate-700 rounded-full p-1 gap-1">
+              {[
+                { id: 'agents', label: 'Agenți AI' },
+                { id: 'team', label: 'Automatizări Echipă' },
+                { id: 'platform', label: 'Platformă Business' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
+                    activeTab === tab.id
+                      ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-lg'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {packages.map((pkg, idx) => {
-              const c = colorMap[pkg.color]
-              const waText = `Bună! Mă interesează AI Employee pachetul ${pkg.name} (${pkg.price} RON).`
-
-              return (
-                <motion.div
-                  key={pkg.key}
-                  className={`relative bg-gradient-to-br ${c.bg} border ${c.border} ${c.borderHover} rounded-2xl p-6 transition-all flex flex-col ${pkg.popular ? 'ring-1 ring-blue-500/30' : ''}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  {pkg.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className={`${c.badge} text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap`}>
-                        Cel mai ales
-                      </span>
-                    </div>
-                  )}
-
-                  <div className={`w-12 h-12 rounded-xl ${c.icon} flex items-center justify-center mb-4 ${pkg.popular ? 'mt-2' : ''}`}>
-                    <svg className={`w-6 h-6 ${c.iconText}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .03 2.798-1.304 2.798H4.102c-1.333 0-2.303-1.798-1.304-2.798L4.2 15.3" />
-                    </svg>
-                  </div>
-
-                  <h3 className="text-xl font-black mb-1">{pkg.name}</h3>
-                  <p className="text-slate-500 text-xs mb-5">{pkg.tagline}</p>
-
-                  <ul className="space-y-2.5 mb-6 flex-1">
-                    {pkg.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
-                        <svg className={`w-4 h-4 ${c.check} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mb-1">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-heading font-black text-white">{pkg.price}</span>
-                      <span className="text-slate-400 text-sm">RON</span>
-                    </div>
-                    <p className="text-xs mt-1 text-slate-500">plată unică / angajat AI</p>
-                  </div>
-
-                  <a
-                    href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-5 block w-full py-3.5 rounded-xl border font-bold text-center text-sm transition-all ${c.btn}`}
-                  >
-                    Vreau {pkg.name}
-                  </a>
-                </motion.div>
-              )
-            })}
-          </div>
+          {/* Tab Content */}
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {activeTab === 'agents' && <AgentsTab />}
+            {activeTab === 'team' && <TeamTab />}
+            {activeTab === 'platform' && <PlatformTab />}
+          </motion.div>
         </div>
 
         {/* CTA final */}

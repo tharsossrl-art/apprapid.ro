@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-type PackageKey = 'starter' | 'pro' | 'commerce' | 'suite' | 'custom'
+type PackageKey = 'starter' | 'business' | 'enterprise'
 
 interface QuizOption {
   value: string
@@ -30,14 +30,14 @@ export default function QuizAI() {
       question: 'Ce tip de afacere ai?',
       subtitle: 'Selectează categoria care ți se potrivește cel mai bine',
       options: [
-        { value: 'salon', label: 'Salon / Frizerie / Beauty', points: { starter: 0, pro: 3, commerce: 1, suite: 0, custom: 0 } },
-        { value: 'restaurant', label: 'Restaurant / Cafenea / Bar', points: { starter: 0, pro: 1, commerce: 3, suite: 1, custom: 0 } },
-        { value: 'clinic', label: 'Clinică / Cabinet medical', points: { starter: 0, pro: 3, commerce: 1, suite: 1, custom: 0 } },
-        { value: 'fitness', label: 'Sală fitness / Yoga / PT', points: { starter: 0, pro: 3, commerce: 1, suite: 0, custom: 0 } },
-        { value: 'services', label: 'Servicii (foto, makeup, etc)', points: { starter: 3, pro: 1, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'retail', label: 'Magazin / Retail', points: { starter: 0, pro: 0, commerce: 3, suite: 1, custom: 0 } },
-        { value: 'chain', label: 'Rețea / Franciză / Multi-locație', points: { starter: 0, pro: 0, commerce: 1, suite: 3, custom: 1 } },
-        { value: 'other', label: 'Altceva', points: { starter: 1, pro: 1, commerce: 1, suite: 0, custom: 1 } }
+        { value: 'salon', label: 'Salon / Frizerie / Beauty', points: { starter: 2, business: 3, enterprise: 0 } },
+        { value: 'restaurant', label: 'Restaurant / Cafenea / Bar', points: { starter: 1, business: 3, enterprise: 1 } },
+        { value: 'clinic', label: 'Clinică / Cabinet medical', points: { starter: 1, business: 3, enterprise: 1 } },
+        { value: 'fitness', label: 'Sală fitness / Yoga / PT', points: { starter: 2, business: 3, enterprise: 0 } },
+        { value: 'services', label: 'Servicii (foto, makeup, etc)', points: { starter: 3, business: 1, enterprise: 0 } },
+        { value: 'retail', label: 'Magazin / Retail', points: { starter: 1, business: 3, enterprise: 1 } },
+        { value: 'chain', label: 'Rețea / Franciză / Multi-locație', points: { starter: 0, business: 1, enterprise: 3 } },
+        { value: 'other', label: 'Altceva', points: { starter: 1, business: 2, enterprise: 1 } }
       ]
     },
     {
@@ -45,11 +45,11 @@ export default function QuizAI() {
       question: 'Ce ai nevoie cel mai mult?',
       subtitle: 'Care e problema principală pe care vrei să o rezolvi?',
       options: [
-        { value: 'presence', label: 'Prezență online profesională', desc: 'Să mă găsească clienții pe Google', points: { starter: 3, pro: 1, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'bookings', label: 'Sistem de programări online', desc: 'Clienții să se programeze singuri 24/7', points: { starter: 0, pro: 3, commerce: 1, suite: 0, custom: 0 } },
-        { value: 'orders', label: 'Comenzi și vânzări online', desc: 'Vânzare produse, meniu digital, livrare', points: { starter: 0, pro: 0, commerce: 3, suite: 1, custom: 0 } },
-        { value: 'management', label: 'Management complet al afacerii', desc: 'CRM, echipă, rapoarte, automatizări', points: { starter: 0, pro: 0, commerce: 0, suite: 3, custom: 1 } },
-        { value: 'custom_platform', label: 'Platformă sau aplicație complexă', desc: 'SaaS, marketplace, integrări API', points: { starter: 0, pro: 0, commerce: 0, suite: 1, custom: 3 } }
+        { value: 'presence', label: 'Prezență online profesională', desc: 'Să mă găsească clienții pe Google', points: { starter: 3, business: 1, enterprise: 0 } },
+        { value: 'bookings', label: 'Sistem de programări online', desc: 'Clienții să se programeze singuri 24/7', points: { starter: 1, business: 3, enterprise: 0 } },
+        { value: 'orders', label: 'Comenzi și vânzări online', desc: 'Vânzare produse, meniu digital, livrare', points: { starter: 0, business: 3, enterprise: 1 } },
+        { value: 'management', label: 'Management complet al afacerii', desc: 'CRM, echipă, rapoarte, automatizări', points: { starter: 0, business: 1, enterprise: 3 } },
+        { value: 'custom_platform', label: 'Platformă sau aplicație complexă', desc: 'SaaS, marketplace, integrări API', points: { starter: 0, business: 0, enterprise: 3 } }
       ]
     },
     {
@@ -57,10 +57,10 @@ export default function QuizAI() {
       question: 'Ce ai în momentul de față?',
       subtitle: 'Spune-ne de unde pornim',
       options: [
-        { value: 'nothing', label: 'Nimic online', desc: 'Doar Facebook/Instagram', points: { starter: 2, pro: 1, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'old_site', label: 'Un site vechi', desc: 'Arată depășit, nu merge pe mobil', points: { starter: 1, pro: 2, commerce: 1, suite: 0, custom: 0 } },
-        { value: 'good_site', label: 'Un site OK', desc: 'Dar fără programări sau comenzi', points: { starter: 0, pro: 2, commerce: 2, suite: 0, custom: 0 } },
-        { value: 'existing_system', label: 'Sisteme multiple, neintegrate', desc: 'Site + Excel + altceva, nimic legat', points: { starter: 0, pro: 0, commerce: 1, suite: 3, custom: 1 } }
+        { value: 'nothing', label: 'Nimic online', desc: 'Doar Facebook/Instagram', points: { starter: 3, business: 1, enterprise: 0 } },
+        { value: 'old_site', label: 'Un site vechi', desc: 'Arată depășit, nu merge pe mobil', points: { starter: 2, business: 2, enterprise: 0 } },
+        { value: 'good_site', label: 'Un site OK', desc: 'Dar fără programări sau comenzi', points: { starter: 1, business: 3, enterprise: 0 } },
+        { value: 'existing_system', label: 'Sisteme multiple, neintegrate', desc: 'Site + Excel + altceva, nimic legat', points: { starter: 0, business: 1, enterprise: 3 } }
       ]
     },
     {
@@ -68,10 +68,10 @@ export default function QuizAI() {
       question: 'Câți clienți ai aproximativ pe lună?',
       subtitle: 'Ne ajută să înțelegem dimensiunea afacerii',
       options: [
-        { value: 'small', label: 'Sub 50 clienți', points: { starter: 3, pro: 1, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'medium', label: '50 - 200 clienți', points: { starter: 0, pro: 2, commerce: 2, suite: 0, custom: 0 } },
-        { value: 'large', label: '200 - 500 clienți', points: { starter: 0, pro: 0, commerce: 2, suite: 2, custom: 0 } },
-        { value: 'enterprise', label: 'Peste 500 clienți', points: { starter: 0, pro: 0, commerce: 0, suite: 2, custom: 2 } }
+        { value: 'small', label: 'Sub 50 clienți', points: { starter: 3, business: 1, enterprise: 0 } },
+        { value: 'medium', label: '50 - 200 clienți', points: { starter: 1, business: 3, enterprise: 0 } },
+        { value: 'large', label: '200 - 500 clienți', points: { starter: 0, business: 2, enterprise: 2 } },
+        { value: 'enterprise', label: 'Peste 500 clienți', points: { starter: 0, business: 0, enterprise: 3 } }
       ]
     },
     {
@@ -79,31 +79,29 @@ export default function QuizAI() {
       question: 'Care e bugetul tău aproximativ?',
       subtitle: 'Fără obligații - doar pentru recomandare',
       options: [
-        { value: 'low', label: 'Sub 2.000 RON', points: { starter: 3, pro: 0, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'medium', label: '2.000 - 5.000 RON', points: { starter: 0, pro: 3, commerce: 2, suite: 0, custom: 0 } },
-        { value: 'high', label: '5.000 - 10.000 RON', points: { starter: 0, pro: 0, commerce: 2, suite: 3, custom: 0 } },
-        { value: 'premium', label: 'Peste 10.000 RON', points: { starter: 0, pro: 0, commerce: 0, suite: 2, custom: 3 } }
+        { value: 'low', label: 'Sub 4.000 RON', points: { starter: 3, business: 0, enterprise: 0 } },
+        { value: 'medium', label: '4.000 - 10.000 RON', points: { starter: 0, business: 3, enterprise: 0 } },
+        { value: 'high', label: '10.000 - 20.000 RON', points: { starter: 0, business: 1, enterprise: 3 } },
+        { value: 'premium', label: 'Peste 20.000 RON', points: { starter: 0, business: 0, enterprise: 3 } }
       ]
     },
     {
       id: 'timeline',
       question: 'Când ai nevoie de aplicație?',
-      subtitle: 'Livrăm în 3-60 zile în funcție de pachet',
+      subtitle: 'Livrăm în 5-60 zile în funcție de pachet',
       options: [
-        { value: 'urgent', label: 'Cât mai repede posibil', desc: 'În mai puțin de o săptămână', points: { starter: 3, pro: 1, commerce: 0, suite: 0, custom: 0 } },
-        { value: 'soon', label: 'În următoarele 2-3 săptămâni', points: { starter: 1, pro: 2, commerce: 2, suite: 0, custom: 0 } },
-        { value: 'flexible', label: 'Am timp, vreau calitate', desc: 'Poate dura și o lună', points: { starter: 0, pro: 1, commerce: 1, suite: 2, custom: 1 } },
-        { value: 'planning', label: 'Doar mă informez deocamdată', points: { starter: 1, pro: 1, commerce: 1, suite: 1, custom: 1 } }
+        { value: 'urgent', label: 'Cât mai repede posibil', desc: 'În mai puțin de o săptămână', points: { starter: 3, business: 1, enterprise: 0 } },
+        { value: 'soon', label: 'În următoarele 2-3 săptămâni', points: { starter: 1, business: 3, enterprise: 0 } },
+        { value: 'flexible', label: 'Am timp, vreau calitate', desc: 'Poate dura și o lună', points: { starter: 0, business: 1, enterprise: 2 } },
+        { value: 'planning', label: 'Doar mă informez deocamdată', points: { starter: 1, business: 1, enterprise: 1 } }
       ]
     }
   ]
 
   const packages: Record<PackageKey, { name: string; price: string; color: string; tagline: string }> = {
-    starter: { name: 'STARTER', price: '1.499 RON', color: 'emerald', tagline: 'Prezența ta digitală completă' },
-    pro: { name: 'PRO', price: '2.999 RON', color: 'blue', tagline: 'Tot ce-ți trebuie să crești' },
-    commerce: { name: 'COMMERCE', price: '4.999 RON', color: 'orange', tagline: 'Vinde online, crește rapid' },
-    suite: { name: 'SUITE', price: '9.999 RON', color: 'purple', tagline: 'Operațiunea ta digitală completă' },
-    custom: { name: 'CUSTOM', price: '15.000+ RON', color: 'rose', tagline: 'Proiecte complexe, soluții enterprise' }
+    starter: { name: 'STARTER', price: '2.999 RON', color: 'emerald', tagline: 'Prezența ta digitală completă' },
+    business: { name: 'BUSINESS', price: '6.999 RON', color: 'blue', tagline: 'Tot ce-ți trebuie să vinzi și să crești' },
+    enterprise: { name: 'ENTERPRISE', price: '14.999+ RON', color: 'purple', tagline: 'Proiecte complexe, soluții enterprise' }
   }
 
   const handleAnswer = (questionId: string, option: QuizOption) => {
@@ -122,7 +120,7 @@ export default function QuizAI() {
   }
 
   const calculateResult = (): PackageKey => {
-    const scores: Record<PackageKey, number> = { starter: 0, pro: 0, commerce: 0, suite: 0, custom: 0 }
+    const scores: Record<PackageKey, number> = { starter: 0, business: 0, enterprise: 0 }
     Object.values(answers).forEach(answer => {
       if (answer.points) {
         (Object.keys(scores) as PackageKey[]).forEach(key => {
@@ -132,10 +130,8 @@ export default function QuizAI() {
     })
     const maxScore = Math.max(...Object.values(scores))
     // Priority: higher tiers win ties (better upsell)
-    if (scores.custom === maxScore) return 'custom'
-    if (scores.suite === maxScore) return 'suite'
-    if (scores.commerce === maxScore) return 'commerce'
-    if (scores.pro === maxScore) return 'pro'
+    if (scores.enterprise === maxScore) return 'enterprise'
+    if (scores.business === maxScore) return 'business'
     return 'starter'
   }
 
@@ -178,9 +174,7 @@ export default function QuizAI() {
     const colorClasses: Record<string, string> = {
       emerald: 'from-emerald-500 to-teal-600',
       blue: 'from-blue-500 to-indigo-600',
-      orange: 'from-orange-500 to-red-600',
       purple: 'from-purple-500 to-violet-600',
-      rose: 'from-rose-500 to-pink-600'
     }
 
     return (

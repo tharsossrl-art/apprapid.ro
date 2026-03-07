@@ -3,10 +3,10 @@ import AIEmployeePage from './AIEmployeePage'
 
 export const metadata: Metadata = {
   title: 'AI Employee — Angajați AI pentru afacerea ta | AppRapid.ro',
-  description: 'De la 1.499 RON plată unică per angajat AI. Un AI Employee care auditează date, trimite rapoarte, aplică reguli și urmărește deadline-uri — non-stop, 365 zile/an.',
+  description: 'Agenți AI autonomi, automatizări de echipă și platforme AI Business OS. De la 1.999 RON per agent — soluții AI complete pentru afaceri.',
   openGraph: {
     title: 'AI Employee — Angajați AI pentru afacerea ta | AppRapid.ro',
-    description: 'De la 1.499 RON plată unică per angajat AI. Un AI Employee care auditează date, trimite rapoarte, aplică reguli și urmărește deadline-uri — non-stop, 365 zile/an.',
+    description: 'Agenți AI autonomi, automatizări de echipă și platforme AI Business OS. De la 1.999 RON per agent — soluții AI complete pentru afaceri.',
     url: 'https://apprapid.ro/ai',
     siteName: 'AppRapid.ro',
     locale: 'ro_RO',
