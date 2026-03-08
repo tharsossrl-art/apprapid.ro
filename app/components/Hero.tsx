@@ -1,139 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-
-/* ── iPhone Mockup with rotating screens ── */
-const SCREENS = [
-  // Restaurant app
-  <div key="rest" className="w-full h-full bg-gradient-to-b from-orange-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[12px] text-orange-400 font-bold mb-1">La Bella Pizza</div>
-    <div className="flex-1 space-y-1.5">
-      {['Margherita', 'Quattro Formaggi', 'Diavola'].map(p => (
-        <div key={p} className="bg-slate-800/60 rounded-lg p-1.5 flex justify-between items-center">
-          <span className="text-[9px] text-white">{p}</span>
-          <span className="text-[12px] text-orange-400 font-bold">32 lei</span>
-        </div>
-      ))}
-    </div>
-    <div className="bg-orange-500 rounded-lg py-1 text-center text-[9px] font-bold text-white">Comandă acum</div>
-  </div>,
-  // Fitness app
-  <div key="fit" className="w-full h-full bg-gradient-to-b from-emerald-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[12px] text-emerald-400 font-bold mb-1">FitPro</div>
-    <div className="flex-1 space-y-1.5">
-      <div className="bg-slate-800/60 rounded-lg p-2 text-center">
-        <div className="text-[16px] font-heading font-black text-emerald-400">2,450</div>
-        <div className="text-[12px] text-slate-400">calorii arse azi</div>
-      </div>
-      <div className="grid grid-cols-2 gap-1">
-        <div className="bg-slate-800/60 rounded p-1 text-center">
-          <div className="text-[12px] font-bold text-blue-400">12k</div>
-          <div className="text-[9px] text-slate-500">pași</div>
-        </div>
-        <div className="bg-slate-800/60 rounded p-1 text-center">
-          <div className="text-[12px] font-bold text-purple-400">45m</div>
-          <div className="text-[9px] text-slate-500">antrenament</div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  // Salon app
-  <div key="salon" className="w-full h-full bg-gradient-to-b from-pink-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[12px] text-pink-400 font-bold mb-1">GlowUp Studio</div>
-    <div className="flex-1 space-y-1.5">
-      {['Tuns & Styling', 'Manichiură Gel', 'Masaj Facial'].map(s => (
-        <div key={s} className="bg-slate-800/60 rounded-lg p-1.5">
-          <div className="text-[9px] text-white">{s}</div>
-          <div className="text-[9px] text-pink-400">Disponibil azi</div>
-        </div>
-      ))}
-    </div>
-    <div className="bg-pink-500 rounded-lg py-1 text-center text-[9px] font-bold text-white">Programează-te</div>
-  </div>,
-  // Shop app
-  <div key="shop" className="w-full h-full bg-gradient-to-b from-blue-950 to-slate-950 p-3 flex flex-col">
-    <div className="text-[12px] text-blue-400 font-bold mb-1">TrendShop</div>
-    <div className="flex-1 space-y-1.5">
-      <div className="bg-slate-800/60 rounded-lg p-2 text-center">
-        <div className="text-[12px] text-slate-400">Ofertă specială</div>
-        <div className="text-[12px] font-heading font-black text-yellow-400">-40% WEEKEND</div>
-      </div>
-      <div className="grid grid-cols-2 gap-1">
-        {['Sneakers', 'Jachetă', 'Ochelari', 'Ceas'].map(i => (
-          <div key={i} className="bg-slate-800/60 rounded p-1.5 text-center">
-            <div className="text-[9px] text-white">{i}</div>
-            <div className="text-[9px] text-emerald-400">Nou</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>,
-]
-
-function IPhoneMockup() {
-  const [screen, setScreen] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => setScreen(s => (s + 1) % SCREENS.length), 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <motion.div
-      className="relative"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-    >
-      {/* Glow behind phone */}
-      <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-[60px] blur-3xl opacity-60" />
-
-      {/* iPhone frame */}
-      <div className="relative w-[220px] h-[440px] sm:w-[240px] sm:h-[480px] md:w-[260px] md:h-[520px] bg-slate-800 rounded-[30px] md:rounded-[40px] border-[3px] border-slate-600 shadow-2xl overflow-hidden">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] md:w-[100px] h-[22px] md:h-[28px] bg-slate-900 rounded-b-2xl z-20" />
-
-        {/* Screen content */}
-        <div className="absolute inset-[3px] rounded-[27px] md:rounded-[37px] overflow-hidden bg-slate-950">
-          <div className="w-full h-full pt-6">
-            {SCREENS.map((s, i) => (
-              <motion.div
-                key={i}
-                className="absolute inset-0 pt-7"
-                initial={false}
-                animate={{
-                  opacity: screen === i ? 1 : 0,
-                  scale: screen === i ? 1 : 0.95,
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                {s}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Home indicator */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[60px] md:w-[80px] h-[4px] bg-slate-500 rounded-full z-20" />
-      </div>
-
-      {/* Screen dots */}
-      <div className="flex justify-center gap-1.5 mt-3">
-        {SCREENS.map((_, i) => (
-          <motion.div
-            key={i}
-            className="w-1.5 h-1.5 rounded-full"
-            animate={{
-              backgroundColor: screen === i ? '#60a5fa' : '#334155',
-              scale: screen === i ? 1.3 : 1,
-            }}
-          />
-        ))}
-      </div>
-    </motion.div>
-  )
-}
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -255,10 +123,30 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right - iPhone Mockup */}
-          <div className="flex-shrink-0">
-            <IPhoneMockup />
-          </div>
+          {/* Right - Hero Image */}
+          <motion.div
+            className="flex-shrink-0 flex-1 max-w-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+          >
+            <Image
+              src="/heroes/aplicatiiwebdesktop.png"
+              alt="Aplicații web moderne — dashboard cu statistici"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-2xl hidden md:block"
+              priority
+            />
+            <Image
+              src="/heroes/aplicatiiwebmobile.png"
+              alt="Aplicații web moderne"
+              width={540}
+              height={960}
+              className="w-full h-auto rounded-2xl md:hidden"
+              priority
+            />
+          </motion.div>
         </div>
       </div>
     </section>

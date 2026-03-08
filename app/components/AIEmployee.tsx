@@ -540,11 +540,19 @@ export default function AIEmployee() {
           transition={{ duration: 0.6 }}
         >
           <Image
-            src="/ai-employee-hero.jpg"
+            src="/heroes/aiemployeedesktop.png"
             alt="AI Employee — Colegul tău digital, activ 24/7"
-            width={1280}
-            height={720}
-            className="w-full h-auto rounded-2xl"
+            width={1920}
+            height={1080}
+            className="w-full h-auto rounded-2xl hidden md:block"
+            priority
+          />
+          <Image
+            src="/heroes/aiemployeemobile.png"
+            alt="AI Employee — Colegul tău digital, activ 24/7"
+            width={540}
+            height={960}
+            className="w-full h-auto rounded-2xl md:hidden"
             priority
           />
         </motion.div>

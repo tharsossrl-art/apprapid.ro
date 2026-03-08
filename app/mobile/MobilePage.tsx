@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import AnimatedBackground from '../components/AnimatedBackground'
 import Navigation from '../components/Navigation'
 import MobilePackages from '../components/MobilePackages'
@@ -87,7 +88,8 @@ export default function MobilePage() {
       {/* Hero */}
       <section className="relative z-10 min-h-[80vh] flex items-center px-6 pt-24 pb-16">
         <div className="max-w-6xl mx-auto w-full">
-          <div className="max-w-3xl">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div className="flex-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -188,6 +190,32 @@ export default function MobilePage() {
                 Discută cu noi
               </a>
             </motion.div>
+          </div>
+
+          {/* Right - Hero Image */}
+          <motion.div
+            className="flex-shrink-0 flex-1 max-w-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+          >
+            <Image
+              src="/heroes/mobileappsdesktop.png"
+              alt="Aplicații mobile — iOS și Android"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-2xl hidden md:block"
+              priority
+            />
+            <Image
+              src="/heroes/mobileappmobile.png"
+              alt="Aplicații mobile"
+              width={540}
+              height={960}
+              className="w-full h-auto rounded-2xl md:hidden"
+              priority
+            />
+          </motion.div>
           </div>
         </div>
       </section>
