@@ -202,7 +202,7 @@ export default function MobilePage() {
               alt="Aplicații mobile"
               width={540}
               height={960}
-              className="w-full max-h-[60vh] object-contain rounded-2xl md:hidden"
+              className="w-full h-auto rounded-2xl md:hidden"
               priority
             />
           </motion.div>
