@@ -90,16 +90,6 @@ export default function MobilePage() {
         <div className="max-w-6xl mx-auto w-full">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex-1">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-              <span className="text-sm text-violet-300">Aplicații Mobile — iOS & Android</span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -194,7 +184,7 @@ export default function MobilePage() {
 
           {/* Right - Hero Image */}
           <motion.div
-            className="flex-shrink-0 flex-1 max-w-xl"
+            className="flex-shrink-0 flex-1 max-w-xl order-first md:order-none"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
@@ -212,7 +202,7 @@ export default function MobilePage() {
               alt="Aplicații mobile"
               width={540}
               height={960}
-              className="w-full h-auto rounded-2xl md:hidden"
+              className="w-full max-h-[60vh] object-contain rounded-2xl md:hidden"
               priority
             />
           </motion.div>

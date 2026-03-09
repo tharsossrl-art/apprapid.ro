@@ -562,15 +562,6 @@ export default function AIEmployee() {
             ────────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 mb-24">
           <div className="flex-1 text-center md:text-left">
-            <motion.span
-              className="inline-block bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 text-violet-300 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              Nou — AI Employee
-            </motion.span>
-
             <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}

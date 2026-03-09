@@ -15,24 +15,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Badge */}
-            <motion.div
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/10 via-emerald-500/10 to-blue-500/10 border border-white/10 backdrop-blur-sm px-5 py-2.5 rounded-full mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-              </span>
-              <span className="text-sm font-medium">
-                <span className="text-blue-400">Mai mult decât un site.</span>
-                <span className="text-slate-500 mx-1.5">|</span>
-                <span className="text-emerald-400">Mai simplu decât o aplicație.</span>
-              </span>
-            </motion.div>
-
             {/* Headline */}
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-6"
@@ -125,7 +107,7 @@ export default function Hero() {
 
           {/* Right - Hero Image */}
           <motion.div
-            className="flex-shrink-0 flex-1 max-w-xl"
+            className="flex-shrink-0 flex-1 max-w-xl order-first md:order-none"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
@@ -143,7 +125,7 @@ export default function Hero() {
               alt="Aplicații web moderne"
               width={540}
               height={960}
-              className="w-full h-auto rounded-2xl md:hidden"
+              className="w-full max-h-[60vh] object-contain rounded-2xl md:hidden"
               priority
             />
           </motion.div>
