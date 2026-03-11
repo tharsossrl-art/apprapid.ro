@@ -105,7 +105,7 @@ body {
 .animate-on-scroll-init {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .animate-on-scroll-init.animate-in {

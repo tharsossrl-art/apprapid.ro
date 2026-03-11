@@ -90,7 +90,7 @@ export default function Navigation() {
             </div>
           </motion.div>
           <div>
-            <span className="text-xl font-heading font-black tracking-tight text-white">
+            <span className="text-xl font-heading font-semibold tracking-wide text-white">
               App<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Rapid</span>
             </span>
             <div className="text-[10px] text-slate-500 -mt-1 tracking-wider">.ro</div>
@@ -101,7 +101,7 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-1">
           <Link
             href="/"
-            className={`relative px-4 py-2 transition-colors font-medium group ${
+            className={`relative px-4 py-2 transition-all duration-300 ease-premium font-medium tracking-wide group ${
               pathname === '/' ? 'text-white' : 'text-slate-300 hover:text-white'
             }`}
           >
@@ -116,7 +116,7 @@ export default function Navigation() {
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               onMouseEnter={() => setServicesOpen(true)}
-              className={`relative px-4 py-2 transition-colors font-medium group flex items-center gap-1 ${
+              className={`relative px-4 py-2 transition-all duration-300 ease-premium font-medium tracking-wide group flex items-center gap-1 ${
                 isServicePage ? 'text-white' : 'text-slate-300 hover:text-white'
               }`}
             >
@@ -137,7 +137,7 @@ export default function Navigation() {
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15 }}
                   onMouseLeave={() => setServicesOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-72 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-xl overflow-hidden shadow-2xl"
+                  className="absolute top-full left-0 mt-2 w-72 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-xl overflow-hidden shadow-token-xl"
                 >
                   <div className="p-2">
                     {services.map((service) => (
@@ -145,7 +145,7 @@ export default function Navigation() {
                         key={service.href}
                         href={service.href}
                         onClick={() => setServicesOpen(false)}
-                        className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-colors ${
+                        className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-300 ease-premium ${
                           pathname.startsWith(service.href)
                             ? 'bg-slate-800/80 text-white'
                             : 'hover:bg-slate-800/50 text-slate-300 hover:text-white'
@@ -166,7 +166,7 @@ export default function Navigation() {
 
           <Link
             href="/#contact"
-            className="relative px-4 py-2 text-slate-300 hover:text-white transition-colors font-medium"
+            className="relative px-4 py-2 text-slate-300 hover:text-white transition-all duration-300 ease-premium font-medium tracking-wide"
           >
             Contact
           </Link>
@@ -175,7 +175,7 @@ export default function Navigation() {
             href="https://wa.me/40756870425?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20serviciile%20AppRapid."
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 relative overflow-hidden bg-gradient-to-r from-blue-500 to-emerald-500 px-6 py-2.5 rounded-full font-bold group"
+            className="ml-4 relative overflow-hidden bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)] transition-all duration-300 ease-premium group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -211,7 +211,7 @@ export default function Navigation() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl overflow-hidden shadow-2xl"
+            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-xl overflow-hidden shadow-token-xl"
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -221,7 +221,7 @@ export default function Navigation() {
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 text-slate-300 font-medium hover:bg-slate-800/50 rounded-xl transition-colors"
+                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
               >
                 Acasă
               </Link>
@@ -229,7 +229,7 @@ export default function Navigation() {
               {/* Services Accordion */}
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="w-full flex items-center justify-between py-3 px-4 text-slate-300 font-medium hover:bg-slate-800/50 rounded-xl transition-colors"
+                className="w-full flex items-center justify-between py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
               >
                 Servicii
                 <svg className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -252,7 +252,7 @@ export default function Navigation() {
                           key={service.href}
                           href={service.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-3 py-2.5 px-4 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-xl transition-colors"
+                          className="flex items-center gap-3 py-2.5 px-4 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
                         >
                           {serviceIcons[service.iconKey]}
                           <div>
@@ -269,7 +269,7 @@ export default function Navigation() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 text-slate-300 font-medium hover:bg-slate-800/50 rounded-xl transition-colors"
+                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
               >
                 Contact
               </Link>
@@ -279,7 +279,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block mt-3 bg-gradient-to-r from-blue-500 to-emerald-500 px-5 py-4 rounded-xl font-bold text-center"
+                className="block mt-3 bg-gradient-to-r from-blue-500 to-emerald-500 px-5 py-4 rounded-lg font-medium tracking-wider text-center transition-all duration-300 ease-premium shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)]"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}

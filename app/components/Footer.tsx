@@ -2,26 +2,26 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 px-6 py-12 border-t border-slate-800 bg-slate-950/50">
+    <footer className="relative z-10 px-6 py-12 border-t border-slate-700 bg-slate-950/50">
       <div className="max-w-7xl mx-auto">
         {/* Main footer content */}
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="text-2xl font-heading font-black inline-block mb-3">
+            <Link href="/" className="text-2xl font-heading font-semibold tracking-wide inline-block mb-3">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                 AppRapid
               </span>
               <span className="text-slate-400">.ro</span>
             </Link>
-            <p className="text-slate-500 text-sm">
+            <p className="text-slate-400 text-sm font-light">
               Aplicații web, mobile și AI pentru afaceri din România.
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Servicii</h4>
+            <h4 className="font-medium tracking-wide text-white mb-3">Servicii</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/aplicatii" className="text-slate-400 hover:text-white text-sm transition-colors">
@@ -48,7 +48,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Legal</h4>
+            <h4 className="font-medium tracking-wide text-white mb-3">Legal</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/politica-confidentialitate" className="text-slate-400 hover:text-white text-sm transition-colors">
@@ -65,8 +65,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-slate-500 text-sm text-center md:text-left">
+        <div className="pt-8 border-t border-slate-700 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-slate-400 text-sm font-light text-center md:text-left">
             © 2026 AppRapid.ro — Operat de Tharsos SRL, Timișoara
           </div>
           <div className="flex items-center gap-4">

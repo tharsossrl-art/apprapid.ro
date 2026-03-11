@@ -28,7 +28,7 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6 animate-slide-up">
-      <div className="max-w-4xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/50 rounded-2xl p-5 md:p-6 shadow-2xl shadow-black/20">
+      <div className="max-w-4xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-xl p-5 md:p-6 shadow-token-xl">
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           {/* Custom Icon */}
           <div className="flex items-start gap-4 flex-1">
@@ -55,7 +55,7 @@ export default function CookieConsent() {
             </div>
 
             <div>
-              <h3 className="font-bold text-white text-lg mb-1">Confidențialitatea ta contează</h3>
+              <h3 className="font-medium tracking-wide text-white text-lg mb-1">Confidențialitatea ta contează</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Folosim cookie-uri pentru a-ți oferi cea mai bună experiență. Datele tale sunt în siguranță.
                 {' '}
@@ -73,13 +73,13 @@ export default function CookieConsent() {
           <div className="flex gap-3 flex-shrink-0 md:ml-4">
             <button
               onClick={handleDecline}
-              className="px-5 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl transition-all"
+              className="px-5 py-2.5 text-sm font-medium tracking-wider text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg transition-all duration-300 ease-premium"
             >
               Refuz
             </button>
             <button
               onClick={handleAccept}
-              className="group relative px-5 py-2.5 text-sm font-semibold text-white overflow-hidden rounded-xl transition-all"
+              className="group relative px-5 py-2.5 text-sm font-medium tracking-wider text-white overflow-hidden rounded-lg transition-all duration-300 ease-premium"
             >
               {/* Button gradient background */}
               <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 group-hover:from-blue-600 group-hover:to-emerald-600 transition-all" />
