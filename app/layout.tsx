@@ -1,20 +1,27 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, DM_Sans } from 'next/font/google'
+import { Hanken_Grotesk, Sora, Inconsolata } from 'next/font/google'
 import './globals.css'
 import GoogleAnalytics from './components/GoogleAnalytics'
 
-const spaceGrotesk = Space_Grotesk({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['500', '600'],
 })
 
-const dmSans = DM_Sans({
+const sora = Sora({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400'],
+})
+
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+  weight: ['400'],
 })
 
 export const viewport: Viewport = {
@@ -74,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ro" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
+    <html lang="ro" className={`${hankenGrotesk.variable} ${sora.variable} ${inconsolata.variable}`}>
       <head>
         <GoogleAnalytics />
         {/* Inline critical styles for instant loading screen */}
