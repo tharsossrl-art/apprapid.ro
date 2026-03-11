@@ -34,7 +34,7 @@ export default function AplicatiiPage() {
       <section id="quiz" className="relative z-10 px-6 py-24 bg-slate-900/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
               Nu știi ce pachet <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">ți se potrivește?</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-xl mx-auto">

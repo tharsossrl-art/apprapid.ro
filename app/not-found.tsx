@@ -12,11 +12,11 @@ export default function NotFound() {
       <div className="relative text-center max-w-lg">
         {/* 404 Number */}
         <div className="relative mb-8">
-          <span className="text-[12rem] md:text-[16rem] font-heading font-black text-slate-900 leading-none select-none">
+          <span className="text-[12rem] md:text-[16rem] font-heading font-medium tracking-wide text-slate-900 leading-none select-none">
             404
           </span>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-6xl md:text-8xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+            <span className="text-6xl md:text-8xl font-heading font-medium tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               404
             </span>
           </div>
@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
 
         {/* Message */}
-        <h1 className="text-3xl md:text-4xl font-black text-white mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-medium tracking-wide text-white mb-4">
           Pagină{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             negăsită

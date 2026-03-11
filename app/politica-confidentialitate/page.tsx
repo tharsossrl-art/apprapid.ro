@@ -9,9 +9,9 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Header */}
-      <header className="border-b border-slate-800">
+      <header className="border-b border-slate-700">
         <div className="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-heading font-black">
+          <Link href="/" className="text-2xl font-heading font-medium tracking-wide">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               AppRapid
             </span>
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-black mb-4">
+        <h1 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
           Politica de{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             Confidențialitate
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
               Date pe care le colectăm
             </h2>
             <div className="space-y-4">
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-white mb-2">Date furnizate direct de tine:</h3>
                 <ul className="text-slate-300 space-y-1 list-disc list-inside">
                   <li>Nume și prenume</li>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                   <li>Mesaje trimise prin formularul de contact</li>
                 </ul>
               </div>
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-white mb-2">Date colectate automat:</h3>
                 <ul className="text-slate-300 space-y-1 list-disc list-inside">
                   <li>Adresa IP (anonimizată)</li>
@@ -126,11 +126,11 @@ export default function PrivacyPolicy() {
               Folosim cookie-uri pentru a asigura funcționarea corectă a site-ului și pentru analiză. Poți controla cookie-urile din setările browserului tău.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-emerald-400 mb-2">Cookie-uri esențiale</h3>
                 <p className="text-slate-400 text-sm">Necesare pentru funcționarea site-ului. Nu pot fi dezactivate.</p>
               </div>
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-blue-400 mb-2">Cookie-uri analitice</h3>
                 <p className="text-slate-400 text-sm">Ne ajută să înțelegem cum este folosit site-ul. Anonimizate.</p>
               </div>
@@ -192,7 +192,7 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Back to home */}
-        <div className="mt-16 pt-8 border-t border-slate-800">
+        <div className="mt-16 pt-8 border-t border-slate-700">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-8">
+      <footer className="border-t border-slate-700 py-8">
         <div className="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
           © 2026 AppRapid.ro — Operat de Tharsos SRL, Timișoara
         </div>

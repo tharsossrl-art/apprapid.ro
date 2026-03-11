@@ -9,9 +9,9 @@ export default function TermsAndConditions() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Header */}
-      <header className="border-b border-slate-800">
+      <header className="border-b border-slate-700">
         <div className="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-heading font-black">
+          <Link href="/" className="text-2xl font-heading font-medium tracking-wide">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               AppRapid
             </span>
@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-black mb-4">
+        <h1 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
           Termeni și{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             Condiții
@@ -63,7 +63,7 @@ export default function TermsAndConditions() {
               AppRapid.ro oferă servicii de dezvoltare aplicații web, inclusiv:
             </p>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-emerald-400 mb-2">Pachete de dezvoltare</h3>
                 <ul className="text-slate-400 text-sm space-y-1 list-disc list-inside">
                   <li>Pachet Start</li>
@@ -71,7 +71,7 @@ export default function TermsAndConditions() {
                   <li>Pachet Complet</li>
                 </ul>
               </div>
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
+              <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
                 <h3 className="font-semibold text-blue-400 mb-2">Servicii adiționale</h3>
                 <ul className="text-slate-400 text-sm space-y-1 list-disc list-inside">
                   <li>Hosting și mentenanță</li>
@@ -231,7 +231,7 @@ export default function TermsAndConditions() {
         </div>
 
         {/* Links to other pages */}
-        <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
+        <div className="mt-16 pt-8 border-t border-slate-700 flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
@@ -254,7 +254,7 @@ export default function TermsAndConditions() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-8">
+      <footer className="border-t border-slate-700 py-8">
         <div className="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
           © 2026 AppRapid.ro — Operat de Tharsos SRL, Timișoara
         </div>
