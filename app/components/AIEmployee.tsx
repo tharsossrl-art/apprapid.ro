@@ -102,17 +102,17 @@ function AIChatMockup() {
       <div className="absolute -inset-10 bg-gradient-to-r from-violet-500/15 to-fuchsia-500/15 rounded-[60px] blur-3xl opacity-60" />
 
       {/* Phone */}
-      <div className="relative w-[260px] h-[520px] sm:w-[280px] sm:h-[560px] bg-slate-800 rounded-[35px] border-[3px] border-slate-600 shadow-2xl overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90px] h-[26px] bg-slate-900 rounded-b-2xl z-20" />
+      <div className="relative w-[260px] h-[520px] sm:w-[280px] sm:h-[560px] bg-slate-800 rounded-[35px] border-[3px] border-slate-600 shadow-token-xl overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90px] h-[26px] bg-slate-900 rounded-b-xl z-20" />
 
         <div className="absolute inset-[3px] rounded-[32px] overflow-hidden bg-slate-950 flex flex-col">
           {/* Header */}
           <div className={`pt-8 pb-3 px-4 bg-gradient-to-r ${current.color} flex items-center gap-3`}>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-[9px] font-bold">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-[9px] font-medium">
               {current.avatar}
             </div>
             <div>
-              <div className="text-white text-[11px] font-bold">{current.botName}</div>
+              <div className="text-white text-[11px] font-medium">{current.botName}</div>
               <div className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                 <span className="text-white/70 text-[9px]">Activ — 24/7</span>
@@ -131,10 +131,10 @@ function AIChatMockup() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`max-w-[85%] px-3 py-2 rounded-2xl text-[10px] leading-relaxed ${
+                <div className={`max-w-[85%] px-3 py-2 rounded-xl text-[10px] leading-relaxed ${
                   msg.from === 'user'
                     ? 'bg-violet-500/30 text-white rounded-br-sm'
-                    : 'bg-slate-800 text-slate-200 rounded-bl-sm'
+                    : 'bg-slate-800 border border-slate-700 text-slate-200 rounded-bl-sm'
                 }`}>
                   {msg.text}
                 </div>
@@ -142,7 +142,7 @@ function AIChatMockup() {
             ))}
             {visibleMsgs < current.messages.length && visibleMsgs > 0 && (
               <motion.div className="flex justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <div className="bg-slate-800 px-4 py-2.5 rounded-2xl rounded-bl-sm flex gap-1">
+                <div className="bg-slate-800 border border-slate-700 px-4 py-2.5 rounded-xl rounded-bl-sm flex gap-1">
                   <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                   <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -183,7 +183,7 @@ function AIChatMockup() {
 function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string }) {
   return (
     <motion.span
-      className="text-4xl md:text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400"
+      className="text-4xl md:text-5xl font-heading font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -311,12 +311,12 @@ function AgentsTab() {
     <div>
       {/* Pricing table */}
       <div className="max-w-3xl mx-auto">
-        <div className="bg-slate-800/30 border border-violet-500/20 rounded-2xl overflow-hidden">
+        <div className="bg-slate-800/30 border border-violet-500/20 rounded-xl overflow-hidden">
           {/* Header */}
           <div className="grid grid-cols-3 bg-violet-500/10 px-6 py-4 border-b border-violet-500/20">
-            <span className="text-sm font-bold text-violet-300">Nr. Agenți</span>
-            <span className="text-sm font-bold text-violet-300 text-center">Setup / agent</span>
-            <span className="text-sm font-bold text-violet-300 text-right">Lunar</span>
+            <span className="text-sm font-medium text-violet-300">Nr. Agenți</span>
+            <span className="text-sm font-medium text-violet-300 text-center">Setup / agent</span>
+            <span className="text-sm font-medium text-violet-300 text-right">Lunar</span>
           </div>
           {/* Rows */}
           {AGENT_PRICING.map((tier, i) => (
@@ -324,15 +324,15 @@ function AgentsTab() {
               key={tier.agents}
               className={`grid grid-cols-3 px-6 py-5 items-center ${
                 i < AGENT_PRICING.length - 1 ? 'border-b border-slate-700/50' : ''
-              } hover:bg-violet-500/5 transition-colors`}
+              } hover:bg-violet-500/5 transition-colors duration-300`}
             >
-              <span className="text-white font-bold">{tier.agents} agenți</span>
+              <span className="text-white font-medium">{tier.agents} agenți</span>
               <div className="text-center">
-                <span className="text-2xl font-black text-white">{tier.setupPerAgent}</span>
+                <span className="text-2xl font-heading font-semibold text-white">{tier.setupPerAgent}</span>
                 <span className="text-slate-400 text-sm ml-1">RON</span>
               </div>
               <div className="text-right">
-                <span className="text-lg font-bold text-white">{tier.monthly}</span>
+                <span className="text-lg font-medium text-white">{tier.monthly}</span>
                 <span className="text-slate-400 text-sm ml-1">RON/lună</span>
               </div>
             </div>
@@ -349,7 +349,7 @@ function AgentsTab() {
             'Monitorizare și actualizări continue',
             'Suport tehnic dedicat',
           ].map((f) => (
-            <div key={f} className="flex items-start gap-2.5 text-slate-300 text-sm">
+            <div key={f} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
               <svg className="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
@@ -364,7 +364,7 @@ function AgentsTab() {
             href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează Agenți AI Autonomi pentru afacerea mea.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(139,92,246,0.2)] hover:shadow-token-lg transition-all duration-300 ease-premium"
           >
             Vreau Agenți AI
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -387,8 +387,8 @@ function TeamTab() {
             <motion.div
               key={pkg.key}
               className={`relative bg-gradient-to-br from-blue-900/20 to-blue-900/5 border ${
-                pkg.popular ? 'border-blue-500/40 ring-1 ring-blue-500/20' : 'border-blue-500/20'
-              } hover:border-blue-500/50 rounded-2xl p-6 transition-all flex flex-col`}
+                pkg.popular ? 'border-blue-400/40 ring-1 ring-blue-500/20' : 'border-blue-500/20'
+              } hover:border-blue-500/50 rounded-xl p-7 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg flex flex-col`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -396,18 +396,18 @@ function TeamTab() {
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-blue-500 text-white text-xs font-medium px-4 py-1 rounded-full whitespace-nowrap">
                     Recomandat
                   </span>
                 </div>
               )}
 
-              <h3 className="text-xl font-black mb-1 mt-1">{pkg.name}</h3>
-              <p className="text-slate-500 text-xs mb-5">{pkg.tagline}</p>
+              <h3 className="text-xl font-medium mb-1 mt-1">{pkg.name}</h3>
+              <p className="font-light text-slate-500 text-xs mb-5">{pkg.tagline}</p>
 
               <ul className="space-y-2.5 mb-6 flex-1">
                 {pkg.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                  <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
                     <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -418,12 +418,12 @@ function TeamTab() {
 
               <div className="mb-1">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-3xl font-heading font-black text-white">{pkg.setup}</span>
+                  <span className="text-3xl font-heading font-semibold text-white">{pkg.setup}</span>
                   <span className="text-slate-400 text-sm">RON</span>
                 </div>
                 <p className="text-xs mt-1 text-slate-500">setup unic</p>
                 <div className="flex items-baseline gap-1.5 mt-2">
-                  <span className="text-lg font-bold text-blue-300">+{pkg.monthly}</span>
+                  <span className="text-lg font-medium text-blue-300">+{pkg.monthly}</span>
                   <span className="text-slate-500 text-sm">RON/lună</span>
                 </div>
               </div>
@@ -432,9 +432,9 @@ function TeamTab() {
                 href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-5 block w-full py-3.5 rounded-xl border font-bold text-center text-sm transition-all ${
+                className={`mt-5 block w-full py-3 rounded-lg border text-sm font-medium tracking-wider text-center transition-all duration-300 ease-premium ${
                   pkg.popular
-                    ? 'bg-blue-500 hover:bg-blue-600 text-white border-blue-500'
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white border-blue-500 shadow-[0_2px_8px_rgba(96,165,250,0.2)]'
                     : 'bg-blue-500/20 border-blue-500/30 hover:bg-blue-500/30 text-blue-300'
                 }`}
               >
@@ -459,7 +459,7 @@ function PlatformTab() {
               key={pkg.key}
               className={`relative bg-gradient-to-br from-amber-900/20 to-amber-900/5 border ${
                 pkg.popular ? 'border-amber-500/40 ring-1 ring-amber-500/20' : 'border-amber-500/20'
-              } hover:border-amber-500/50 rounded-2xl p-6 transition-all flex flex-col`}
+              } hover:border-amber-500/50 rounded-xl p-7 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg flex flex-col`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -467,18 +467,18 @@ function PlatformTab() {
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium px-4 py-1 rounded-full whitespace-nowrap">
                     Enterprise
                   </span>
                 </div>
               )}
 
-              <h3 className="text-xl font-black mb-1 mt-1">{pkg.name}</h3>
-              <p className="text-slate-500 text-xs mb-5">{pkg.tagline}</p>
+              <h3 className="text-xl font-medium mb-1 mt-1">{pkg.name}</h3>
+              <p className="font-light text-slate-500 text-xs mb-5">{pkg.tagline}</p>
 
               <ul className="space-y-2.5 mb-6 flex-1">
                 {pkg.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                  <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
                     <svg className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -489,12 +489,12 @@ function PlatformTab() {
 
               <div className="mb-1">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-3xl font-heading font-black text-white">{pkg.setup}</span>
+                  <span className="text-3xl font-heading font-semibold text-white">{pkg.setup}</span>
                   <span className="text-slate-400 text-sm">RON</span>
                 </div>
                 <p className="text-xs mt-1 text-slate-500">setup unic</p>
                 <div className="flex items-baseline gap-1.5 mt-2">
-                  <span className="text-lg font-bold text-amber-300">+{pkg.monthly}</span>
+                  <span className="text-lg font-medium text-amber-300">+{pkg.monthly}</span>
                   <span className="text-slate-500 text-sm">RON/lună</span>
                 </div>
               </div>
@@ -503,9 +503,9 @@ function PlatformTab() {
                 href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-5 block w-full py-3.5 rounded-xl border font-bold text-center text-sm transition-all ${
+                className={`mt-5 block w-full py-3 rounded-lg border text-sm font-medium tracking-wider text-center transition-all duration-300 ease-premium ${
                   pkg.popular
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-white border-amber-500'
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-white border-amber-500 shadow-[0_2px_8px_rgba(245,158,11,0.2)]'
                     : 'bg-amber-500/20 border-amber-500/30 hover:bg-amber-500/30 text-amber-300'
                 }`}
               >
@@ -533,7 +533,7 @@ export default function AIEmployee() {
             HERO IMAGE — Full width
             ────────────────────────────────────────── */}
         <motion.div
-          className="mb-12 rounded-2xl overflow-hidden"
+          className="mb-12 rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -544,7 +544,7 @@ export default function AIEmployee() {
             alt="AI Employee — Colegul tău digital, activ 24/7"
             width={1920}
             height={1080}
-            className="w-full h-auto rounded-2xl hidden md:block"
+            className="w-full h-auto rounded-xl hidden md:block"
             priority
           />
           <Image
@@ -552,7 +552,7 @@ export default function AIEmployee() {
             alt="AI Employee — Colegul tău digital, activ 24/7"
             width={540}
             height={960}
-            className="w-full h-auto rounded-2xl md:hidden"
+            className="w-full h-auto rounded-xl md:hidden"
             priority
           />
         </motion.div>
@@ -563,7 +563,7 @@ export default function AIEmployee() {
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 mb-24">
           <div className="flex-1 text-center md:text-left">
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-medium tracking-wide mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -577,17 +577,17 @@ export default function AIEmployee() {
             </motion.h2>
 
             <motion.p
-              className="text-slate-400 text-lg md:text-xl mb-4 max-w-lg mx-auto md:mx-0 leading-relaxed"
+              className="font-light text-slate-400 text-lg md:text-xl mb-4 max-w-lg mx-auto md:mx-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Un angajat digital care <span className="text-white font-semibold">știe afacerea ta pe de rost</span> — proceduri, echipa, regulile interne. Auditează date, trimite rapoarte, aplică reguli, urmărește deadline-uri. Tu doar dai instrucțiuni.
+              Un angajat digital care <span className="text-white font-medium">știe afacerea ta pe de rost</span> — proceduri, echipa, regulile interne. Auditează date, trimite rapoarte, aplică reguli, urmărește deadline-uri. Tu doar dai instrucțiuni.
             </motion.p>
 
             <motion.p
-              className="text-slate-500 text-base mb-8 max-w-lg mx-auto md:mx-0"
+              className="font-light text-slate-500 text-base mb-8 max-w-lg mx-auto md:mx-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -609,18 +609,18 @@ export default function AIEmployee() {
                 { icon: 'M13 10V3L4 14h7v7l9-11h-7z', text: 'Răspunsuri în secunde' },
                 { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', text: 'Datele tale rămân la tine' },
               ].map((item) => (
-                <div key={item.text} className="flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 px-4 py-2.5 rounded-xl">
+                <div key={item.text} className="flex items-center gap-2 bg-slate-900/80 border border-slate-700 px-4 py-2.5 rounded-lg">
                   <svg className="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                   </svg>
-                  <span className="text-sm text-slate-300">{item.text}</span>
+                  <span className="text-sm font-light text-slate-300">{item.text}</span>
                 </div>
               ))}
             </motion.div>
 
             <motion.a
               href="#ai-pachete"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-4 rounded-full font-bold text-lg"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(139,92,246,0.2)] hover:shadow-token-lg transition-all duration-300 ease-premium"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               initial={{ opacity: 0, y: 20 }}
@@ -649,23 +649,23 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-black text-center mb-3">
+          <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-center mb-3">
             &ldquo;Da, și eu am un chatbot pe site.&rdquo;
           </h3>
-          <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
-            Un chatbot răspunde clienților. Un AI Employee <span className="text-white">conduce operațiunile</span>.
+          <p className="font-light text-slate-500 text-center mb-10 max-w-lg mx-auto">
+            Un chatbot răspunde clienților. Un AI Employee <span className="text-white font-medium">conduce operațiunile</span>.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Chatbot generic */}
-            <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-6">
+            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-7">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center">
                   <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-slate-400">Chatbot generic</h4>
+                <h4 className="font-medium text-slate-400">Chatbot generic</h4>
               </div>
               <ul className="space-y-3">
                 {[
@@ -675,7 +675,7 @@ export default function AIEmployee() {
                   'Nu știe regulile, procedurile sau echipa ta',
                   'Nu poate lua decizii sau aplica reguli',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-slate-500 text-sm">
+                  <li key={item} className="flex items-start gap-2.5 font-light text-slate-500 text-sm">
                     <svg className="w-4 h-4 text-red-400/60 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                     </svg>
@@ -686,14 +686,14 @@ export default function AIEmployee() {
             </div>
 
             {/* AI Employee */}
-            <div className="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/10 border border-violet-500/30 rounded-2xl p-6 ring-1 ring-violet-500/20">
+            <div className="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/10 border border-violet-500/30 rounded-xl p-7 ring-1 ring-violet-500/20">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center">
                   <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-white">AI Employee</h4>
+                <h4 className="font-medium text-white">AI Employee</h4>
               </div>
               <ul className="space-y-3">
                 {[
@@ -703,7 +703,7 @@ export default function AIEmployee() {
                   'Aplică reguli și ia decizii conform instrucțiunilor',
                   'Se conectează la uneltele pe care le folosești deja',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-slate-200 text-sm">
+                  <li key={item} className="flex items-start gap-2.5 font-light text-slate-200 text-sm">
                     <svg className="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -733,15 +733,15 @@ export default function AIEmployee() {
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
-                className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5"
+                className="bg-slate-900/80 border border-slate-700 rounded-xl p-5 shadow-token-md"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <AnimatedNumber value={stat.value} />
-                <div className="text-sm font-bold text-white mt-2">{stat.label}</div>
-                <div className="text-xs text-slate-500 mt-1">{stat.sub}</div>
+                <div className="text-sm font-medium text-white mt-2">{stat.label}</div>
+                <div className="text-xs font-light text-slate-500 mt-1">{stat.sub}</div>
               </motion.div>
             ))}
           </div>
@@ -756,10 +756,10 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-black text-center mb-3">
+          <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-center mb-3">
             Ce face în fiecare zi — fără să-l rogi
           </h3>
-          <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
+          <p className="font-light text-slate-500 text-center mb-10 max-w-lg mx-auto">
             Un program complet de operațiuni, executat automat, în fiecare zi.
           </p>
 
@@ -779,19 +779,19 @@ export default function AIEmployee() {
                 >
                   {/* Time badge */}
                   <div className="flex-shrink-0 w-[58px] md:w-[66px] text-right">
-                    <span className="text-sm md:text-base font-mono font-bold text-violet-400">{item.time}</span>
+                    <span className="text-sm md:text-base font-mono font-medium text-violet-400">{item.time}</span>
                   </div>
 
                   {/* Dot */}
                   <div className="flex-shrink-0 w-3 h-3 mt-1.5 rounded-full bg-violet-500 ring-4 ring-slate-950 relative z-10" />
 
                   {/* Card */}
-                  <div className="flex-1 bg-slate-800/40 border border-slate-700/50 rounded-xl px-4 py-3 group-hover:border-violet-500/30 transition-colors">
+                  <div className="flex-1 bg-slate-800/40 border border-slate-700/50 rounded-lg px-4 py-3 group-hover:border-violet-500/30 transition-colors duration-300 ease-premium">
                     <div className="flex items-center gap-2.5">
                       <svg className="w-4 h-4 text-violet-400/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                       </svg>
-                      <span className="text-sm text-slate-300">{item.task}</span>
+                      <span className="text-sm font-light text-slate-300">{item.task}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -809,10 +809,10 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-black text-center mb-3">
+          <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-center mb-3">
             Ce face concret?
           </h3>
-          <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
+          <p className="font-light text-slate-500 text-center mb-10 max-w-lg mx-auto">
             Configurat exact pe nevoile industriei tale. Iată câteva exemple reale.
           </p>
 
@@ -855,18 +855,18 @@ export default function AIEmployee() {
                 ],
               },
             ].map((item) => (
-              <div key={item.industry} className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-6 hover:border-violet-500/30 transition-colors">
+              <div key={item.industry} className="bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-violet-500/30 transition-colors duration-300 ease-premium shadow-token-md hover:shadow-token-lg">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center`}>
+                  <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center`}>
                     <svg className={`w-5 h-5 ${item.color}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                     </svg>
                   </div>
-                  <h4 className="font-bold text-white">{item.industry}</h4>
+                  <h4 className="font-medium text-white">{item.industry}</h4>
                 </div>
                 <ul className="space-y-2.5">
                   {item.tasks.map((task) => (
-                    <li key={task} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                    <li key={task} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
                       <svg className="w-4 h-4 text-violet-400/60 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                       </svg>
@@ -888,10 +888,10 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-black text-center mb-3">
+          <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-center mb-3">
             Tu nu faci nimic. Noi configurăm totul.
           </h3>
-          <p className="text-slate-500 text-center mb-10 max-w-lg mx-auto">
+          <p className="font-light text-slate-500 text-center mb-10 max-w-lg mx-auto">
             De la prima discuție la lansare — în maxim 7 zile.
           </p>
 
@@ -918,22 +918,22 @@ export default function AIEmployee() {
             ].map((item, i) => (
               <motion.div
                 key={item.step}
-                className="relative bg-slate-800/30 border border-slate-700/50 rounded-2xl p-6 hover:border-violet-500/30 transition-colors"
+                className="relative bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-violet-500/30 transition-colors duration-300 ease-premium shadow-token-md hover:shadow-token-lg"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl font-heading font-black text-violet-500/20">{item.step}</span>
+                  <span className="text-3xl font-heading font-semibold text-violet-500/20">{item.step}</span>
                   <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                     </svg>
                   </div>
                 </div>
-                <h4 className="text-lg font-bold mb-2">{item.title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="text-lg font-medium mb-2">{item.title}</h4>
+                <p className="font-light text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -948,17 +948,17 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/10 border border-violet-500/20 rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/10 border border-violet-500/20 rounded-xl p-8 shadow-token-md text-center">
             <div className="w-14 h-14 rounded-full bg-violet-500/20 flex items-center justify-center mx-auto mb-4">
               <svg className="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <p className="text-lg md:text-xl text-slate-200 mb-3 leading-relaxed italic">
+            <p className="text-lg md:text-xl font-light text-slate-300 mb-3 leading-relaxed italic">
               &ldquo;Andrei verifică zilnic datele din CRM, trimite avertismente agenților care nu completează câmpurile obligatorii, și ne face raport săptămânal. Noi nu trebuie să facem nimic.&rdquo;
             </p>
-            <div className="text-sm font-bold text-white">Real District Estate</div>
-            <div className="text-xs text-slate-500">Primul AI Employee configurat de noi — în producție</div>
+            <div className="text-sm font-heading font-medium text-white">Real District Estate</div>
+            <div className="text-xs tracking-wide font-light text-slate-500">Primul AI Employee configurat de noi — în producție</div>
           </div>
         </motion.div>
 
@@ -972,10 +972,10 @@ export default function AIEmployee() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl md:text-4xl font-black mb-3">
+            <h3 className="text-3xl md:text-4xl font-heading font-medium tracking-wide mb-3">
               Alege soluția AI potrivită
             </h3>
-            <p className="text-slate-400 max-w-xl mx-auto">
+            <p className="font-light text-slate-400 max-w-xl mx-auto">
               Trei produse diferite, pentru nevoi diferite. De la agenți autonomi la platforme complete de management AI.
             </p>
           </motion.div>
@@ -991,9 +991,9 @@ export default function AIEmployee() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-premium ${
                     activeTab === tab.id
-                      ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-token-md'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1023,12 +1023,12 @@ export default function AIEmployee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-slate-400 mb-4">Nu ești sigur ce pachet ți se potrivește?</p>
+          <p className="font-light text-slate-400 mb-4">Nu ești sigur ce pachet ți se potrivește?</p>
           <a
             href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Vreau să aflu mai multe despre AI Employee — ce pachet mi se potrivește?')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 px-6 py-3 rounded-full text-sm font-bold hover:bg-slate-800 hover:border-violet-500/30 transition-all"
+            className="inline-flex items-center gap-2 bg-slate-900/80 border border-slate-700 px-7 py-3 rounded-lg text-sm font-medium hover:bg-slate-800 hover:border-violet-500/30 transition-all duration-300 ease-premium"
           >
             <svg className="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />

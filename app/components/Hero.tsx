@@ -17,7 +17,7 @@ export default function Hero() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-heading font-medium tracking-wide leading-[1.1] mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -33,12 +33,12 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
+              className="text-lg md:text-xl text-slate-400 font-light mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Nu facem site-uri clasice. Facem aplicații web moderne care arată și funcționează ca cele din App Store — <span className="text-white font-semibold">dar fără costurile și complicațiile lor.</span>
+              Nu facem site-uri clasice. Facem aplicații web moderne care arată și funcționează ca cele din App Store — <span className="text-white font-medium">dar fără costurile și complicațiile lor.</span>
             </motion.p>
 
             {/* Guarantee Banner */}
@@ -62,10 +62,10 @@ export default function Hero() {
                   label: 'Preț fix', sublabel: 'fără surprize'
                 },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 bg-slate-800/50 border border-slate-700/50 px-5 py-3 rounded-xl">
+                <div key={i} className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 px-5 py-3 rounded-lg">
                   {item.icon}
                   <div className="text-left">
-                    <div className="text-sm font-bold text-white">{item.label}</div>
+                    <div className="text-sm font-medium text-white">{item.label}</div>
                     <div className="text-xs text-slate-500">{item.sublabel}</div>
                   </div>
                 </div>
@@ -81,13 +81,13 @@ export default function Hero() {
             >
               <motion.a
                 href="#quiz"
-                className="group relative bg-gradient-to-r from-blue-500 to-emerald-500 px-8 py-4 rounded-full font-bold text-lg overflow-hidden"
+                className="group relative bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] overflow-hidden transition-all duration-300 ease-premium"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Descoperă pachetul potrivit
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
@@ -96,7 +96,7 @@ export default function Hero() {
 
               <motion.a
                 href="#pachete"
-                className="bg-slate-800/50 border border-slate-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 hover:border-slate-600 transition-all text-center"
+                className="bg-slate-900/80 border border-slate-700 px-7 py-3 rounded-lg text-sm font-medium tracking-wider hover:bg-slate-800 hover:border-slate-600 transition-all duration-300 ease-premium text-center"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -117,7 +117,7 @@ export default function Hero() {
               alt="Aplicații web moderne — dashboard cu statistici"
               width={1920}
               height={1080}
-              className="w-full h-auto rounded-2xl hidden md:block"
+              className="w-full h-auto rounded-xl hidden md:block"
               priority
             />
             <Image
@@ -125,7 +125,7 @@ export default function Hero() {
               alt="Aplicații web moderne"
               width={540}
               height={960}
-              className="w-full h-auto rounded-2xl md:hidden"
+              className="w-full h-auto rounded-xl md:hidden"
               priority
             />
           </motion.div>

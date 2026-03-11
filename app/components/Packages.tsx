@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 /* ─────────────────────────────────────────────
@@ -99,7 +99,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
 
   const accentColors: Record<string, { bg: string; text: string; border: string; glow: string }> = {
     emerald: { bg: 'bg-emerald-500', text: 'text-emerald-400', border: 'border-emerald-500', glow: 'shadow-emerald-500/25' },
-    blue: { bg: 'bg-blue-500', text: 'text-blue-400', border: 'border-blue-500', glow: 'shadow-blue-500/25' },
+    blue: { bg: 'bg-blue-500', text: 'text-blue-400', border: 'border-blue-400', glow: 'shadow-blue-500/25' },
     purple: { bg: 'bg-purple-500', text: 'text-purple-400', border: 'border-purple-500', glow: 'shadow-purple-500/25' },
   }
 
@@ -113,16 +113,11 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
     >
-      {/* Popular glow effect */}
-      {plan.popular && (
-        <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-500 rounded-[1.75rem] opacity-75 blur-sm animate-pulse" />
-      )}
-
       {/* Card */}
-      <div className={`relative bg-slate-900/90 backdrop-blur-sm border rounded-3xl p-8 h-full transition-all duration-300 ${
+      <div className={`relative bg-slate-900 border rounded-xl p-7 h-full transition-all duration-300 ease-premium ${
         plan.popular
-          ? 'border-blue-500/50 shadow-2xl shadow-blue-500/10'
-          : 'border-slate-800 hover:border-slate-700'
+          ? 'border-blue-400/40 shadow-token-lg'
+          : 'border-slate-700 hover:border-slate-600 shadow-token-md hover:shadow-token-lg'
       }`}>
         {/* Popular badge */}
         {plan.popular && (
@@ -134,7 +129,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full blur-md opacity-75" />
-              <div className="relative bg-gradient-to-r from-blue-500 to-indigo-500 px-5 py-1.5 rounded-full text-sm font-bold flex items-center gap-2">
+              <div className="relative bg-gradient-to-r from-blue-500 to-indigo-500 px-5 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
@@ -146,7 +141,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
 
         {/* Package name badge */}
         <motion.div
-          className={`inline-block bg-gradient-to-r ${plan.color} px-4 py-1.5 rounded-lg text-sm font-bold mb-6`}
+          className={`inline-block bg-gradient-to-r ${plan.color} px-4 py-1.5 rounded-lg text-sm font-medium mb-6`}
           whileHover={{ scale: 1.05 }}
         >
           {plan.name}
@@ -155,7 +150,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
         {/* Pricing */}
         <div className="mb-4">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-4xl md:text-5xl font-heading font-black">
+            <span className="text-4xl md:text-5xl font-heading font-semibold">
               {plan.price}
             </span>
             <span className="text-slate-400 text-lg">RON</span>
@@ -164,7 +159,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
 
           {/* Hosting gratis badge */}
           <motion.div
-            className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-full mt-3"
+            className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mt-3"
             whileHover={{ scale: 1.05 }}
           >
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -195,7 +190,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
                 <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${accent.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-slate-300">{feature}</span>
+                <span className="font-light text-slate-300">{feature}</span>
               </motion.li>
             ))}
           </AnimatePresence>
@@ -215,7 +210,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
               viewBox="0 0 24 24"
               stroke="currentColor"
               animate={{ rotate: isExpanded ? 180 : 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.3 }}
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </motion.svg>
@@ -223,7 +218,7 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
         )}
 
         {/* Delivery info */}
-        <div className="flex items-center gap-4 text-xs text-slate-500 mb-6 py-3 border-t border-b border-slate-800">
+        <div className="flex items-center gap-4 text-xs text-slate-500 mb-6 py-3 border-t border-b border-slate-700">
           <span className="flex items-center gap-1.5">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -239,10 +234,10 @@ function PlanCard({ plan, index, expandedPlan, setExpandedPlan }: {
           href={`https://wa.me/40756870425?text=${encodeURIComponent(`Bună! Mă interesează pachetul ${plan.name} (${plan.price} RON). Putem discuta?`)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`relative block w-full py-4 rounded-xl font-bold text-center overflow-hidden transition-all ${
+          className={`relative block w-full py-3 px-7 rounded-lg text-sm font-medium tracking-wider text-center overflow-hidden transition-all duration-300 ease-premium ${
             plan.popular
-              ? `bg-gradient-to-r ${plan.color} hover:shadow-xl ${accent.glow}`
-              : 'bg-slate-800 hover:bg-slate-700 border border-slate-700'
+              ? `bg-gradient-to-r ${plan.color} shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-token-lg`
+              : 'bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600'
           }`}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -279,14 +274,14 @@ export default function Packages() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
             Pachete{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               transparente
             </span>
           </h2>
-          <p className="text-slate-400 text-lg">Prețuri fixe, fără surprize. Prima lună hosting inclusă gratuit.</p>
-          <p className="text-slate-500 text-sm mt-2">De 3-4x mai ieftin decât o aplicație nativă. De 2x mai bun decât un site clasic.</p>
+          <p className="font-light text-slate-400 text-lg">Prețuri fixe, fără surprize. Prima lună hosting inclusă gratuit.</p>
+          <p className="font-light text-slate-500 text-sm mt-2">De 3-4x mai ieftin decât o aplicație nativă. De 2x mai bun decât un site clasic.</p>
         </motion.div>
 
         {/* Plans grid */}
