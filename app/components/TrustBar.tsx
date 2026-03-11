@@ -49,7 +49,7 @@ export default function TrustBar() {
     >
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-12">
         {trustItems.map((item, i) => (
-          <div key={i} className="flex items-center gap-2.5 text-sm text-slate-400">
+          <div key={i} className="flex items-center gap-2.5 text-sm font-medium tracking-wide text-slate-400 transition-all duration-300">
             {item.icon}
             <span>{item.text}</span>
           </div>

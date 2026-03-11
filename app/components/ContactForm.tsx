@@ -84,11 +84,14 @@ export default function ContactForm() {
     return remaining > 0 ? remaining : 0
   }
 
+  const inputClass = "w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-400 focus:ring-[3px] focus:ring-blue-400/15 hover:border-slate-600 transition-all duration-300"
+  const labelClass = "block text-xs font-normal text-slate-400 tracking-wide mb-2"
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="name" className={labelClass}>
             Nume complet *
           </label>
           <input
@@ -98,12 +101,12 @@ export default function ContactForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            className={inputClass}
             placeholder="Ion Popescu"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="email" className={labelClass}>
             Email *
           </label>
           <input
@@ -113,7 +116,7 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            className={inputClass}
             placeholder="ion@exemplu.ro"
           />
         </div>
@@ -121,7 +124,7 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="phone" className={labelClass}>
             Telefon
           </label>
           <input
@@ -130,12 +133,12 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            className={inputClass}
             placeholder="0712 345 678"
           />
         </div>
         <div>
-          <label htmlFor="package" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="package" className={labelClass}>
             Pachet de interes
           </label>
           <select
@@ -143,7 +146,7 @@ export default function ContactForm() {
             name="package"
             value={formData.package}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            className={inputClass}
           >
             <option value="">Selectează...</option>
             <optgroup label="Aplicații Web (PWA)">
@@ -166,7 +169,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+        <label htmlFor="message" className={labelClass}>
           Mesaj *
         </label>
         <textarea
@@ -176,25 +179,25 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
+          className={`${inputClass} resize-none`}
           placeholder="Spune-ne despre afacerea ta și ce ai nevoie..."
         />
       </div>
 
       {submitStatus === 'success' && (
-        <div className="p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-sm">
+        <div className="p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-sm font-light">
           Mesaj trimis! Îți vom răspunde în curând pe email sau WhatsApp.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-300 text-sm">
+        <div className="p-4 bg-red-500/20 border border-red-400/30 ring-[3px] ring-red-400/15 rounded-lg text-red-300 text-sm font-light">
           A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi direct pe WhatsApp.
         </div>
       )}
 
       {submitStatus === 'rate-limited' && (
-        <div className="p-4 bg-amber-500/20 border border-amber-500/30 rounded-xl text-amber-300 text-sm">
+        <div className="p-4 bg-amber-500/20 border border-amber-500/30 rounded-lg text-amber-300 text-sm font-light">
           Așteaptă {getRemainingTime()} secunde înainte de a trimite din nou.
         </div>
       )}
@@ -202,7 +205,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting || submitStatus === 'rate-limited'}
-        className="w-full py-4 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl font-bold text-white transition-all flex items-center justify-center gap-2"
+        className="w-full px-7 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-sm font-medium tracking-wider text-white transition-all duration-300 ease-premium shadow-[0_2px_8px_rgba(96,165,250,0.2)] flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
           <>
@@ -222,7 +225,7 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-slate-500 text-xs text-center">
+      <p className="font-light text-slate-500 text-xs text-center">
         Prin trimiterea formularului, ești de acord cu{' '}
         <a href="/politica-confidentialitate" className="text-blue-400 hover:underline">
           politica de confidențialitate
