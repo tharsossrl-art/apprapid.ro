@@ -84,7 +84,7 @@ function BenefitCard({ benefit, index }: { benefit: typeof benefits[0]; index: n
       {/* Glow effect on hover */}
       <div className={`absolute -inset-1 bg-gradient-to-r ${benefit.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
 
-      <div className="relative bg-slate-900/80 border border-slate-700 rounded-xl p-6 hover:border-slate-600 hover:bg-slate-900 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg h-full">
+      <div className="relative bg-slate-900/80 border border-slate-700 rounded-xl p-6 hover:border-slate-600 hover:bg-slate-900 transition-premium shadow-token-md hover:shadow-token-lg h-full">
         {/* Icon with gradient background */}
         <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${benefit.gradient} p-[1px] mb-4`}>
           <div className="w-full h-full bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-slate-800 transition-colors">
@@ -95,12 +95,12 @@ function BenefitCard({ benefit, index }: { benefit: typeof benefits[0]; index: n
         </div>
 
         {/* Title */}
-        <h3 className="font-medium text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all">
+        <h3 className="text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all">
           {benefit.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm font-light text-slate-400 group-hover:text-slate-300 transition-colors leading-relaxed">
+        <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors leading-relaxed">
           {benefit.desc}
         </p>
       </div>
@@ -122,13 +122,13 @@ export default function Benefits() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-medium tracking-wide mb-3">
+          <h2 className="text-3xl md:text-4xl mb-3">
             De ce să alegi o{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               aplicație web?
             </span>
           </h2>
-          <p className="font-light text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-400 max-w-2xl mx-auto">
             Toate avantajele unei aplicații mobile, fără dezavantajele ei.
           </p>
         </motion.div>

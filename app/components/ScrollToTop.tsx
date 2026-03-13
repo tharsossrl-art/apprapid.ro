@@ -24,9 +24,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 left-6 z-50 w-12 h-12 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg flex items-center justify-center text-white shadow-token-md backdrop-blur-sm transition-all duration-300 ease-premium ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-      }`}
+      className={`fixed bottom-6 left-6 z-50 w-12 h-12 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg flex items-center justify-center text-white shadow-token-md backdrop-blur-sm transition-premium ${ isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none' }`}
       aria-label="Scroll to top"
     >
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

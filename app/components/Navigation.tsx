@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { WHATSAPP_URL } from '../data/constants'
 
 const serviceIcons: Record<string, React.ReactNode> = {
   web: (
@@ -57,11 +58,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
-        scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/30 shadow-lg shadow-black/20'
-          : 'bg-slate-950'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${ scrolled ? 'bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/30 shadow-lg shadow-black/20' : 'bg-slate-950' }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -101,9 +98,7 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-1">
           <Link
             href="/"
-            className={`relative px-4 py-2 transition-all duration-300 ease-premium font-medium tracking-wide group ${
-              pathname === '/' ? 'text-white' : 'text-slate-300 hover:text-white'
-            }`}
+            className={`relative px-4 py-2 transition-premium font-medium tracking-wide group ${ pathname === '/' ? 'text-white' : 'text-slate-300 hover:text-white' }`}
           >
             Acasă
             {pathname === '/' && (
@@ -116,9 +111,7 @@ export default function Navigation() {
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               onMouseEnter={() => setServicesOpen(true)}
-              className={`relative px-4 py-2 transition-all duration-300 ease-premium font-medium tracking-wide group flex items-center gap-1 ${
-                isServicePage ? 'text-white' : 'text-slate-300 hover:text-white'
-              }`}
+              className={`relative px-4 py-2 transition-premium font-medium tracking-wide group flex items-center gap-1 ${ isServicePage ? 'text-white' : 'text-slate-300 hover:text-white' }`}
             >
               Servicii
               <svg className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -145,11 +138,7 @@ export default function Navigation() {
                         key={service.href}
                         href={service.href}
                         onClick={() => setServicesOpen(false)}
-                        className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-300 ease-premium ${
-                          pathname.startsWith(service.href)
-                            ? 'bg-slate-800/80 text-white'
-                            : 'hover:bg-slate-800/50 text-slate-300 hover:text-white'
-                        }`}
+                        className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-premium ${ pathname.startsWith(service.href) ? 'bg-slate-800/80 text-white' : 'hover:bg-slate-800/50 text-slate-300 hover:text-white' }`}
                       >
                         {serviceIcons[service.iconKey]}
                         <div>
@@ -166,16 +155,16 @@ export default function Navigation() {
 
           <Link
             href="/#contact"
-            className="relative px-4 py-2 text-slate-300 hover:text-white transition-all duration-300 ease-premium font-medium tracking-wide"
+            className="relative px-4 py-2 text-slate-300 hover:text-white transition-premium font-medium tracking-wide"
           >
             Contact
           </Link>
 
           <motion.a
-            href="https://wa.me/40756870425?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20serviciile%20AppRapid."
+            href={`${WHATSAPP_URL}?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20serviciile%20AppRapid.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 relative overflow-hidden bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)] transition-all duration-300 ease-premium group"
+            className="ml-4 relative overflow-hidden bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-cta-glow-blue hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)] transition-premium group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -221,7 +210,7 @@ export default function Navigation() {
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
+                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-premium"
               >
                 Acasă
               </Link>
@@ -229,7 +218,7 @@ export default function Navigation() {
               {/* Services Accordion */}
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="w-full flex items-center justify-between py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
+                className="w-full flex items-center justify-between py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-premium"
               >
                 Servicii
                 <svg className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -252,7 +241,7 @@ export default function Navigation() {
                           key={service.href}
                           href={service.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-3 py-2.5 px-4 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
+                          className="flex items-center gap-3 py-2.5 px-4 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-xl transition-premium"
                         >
                           {serviceIcons[service.iconKey]}
                           <div>
@@ -269,17 +258,17 @@ export default function Navigation() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-all duration-300 ease-premium"
+                className="block py-3 px-4 text-slate-300 font-medium tracking-wide hover:bg-slate-800/50 rounded-xl transition-premium"
               >
                 Contact
               </Link>
 
               <motion.a
-                href="https://wa.me/40756870425?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20serviciile%20AppRapid."
+                href={`${WHATSAPP_URL}?text=Bun%C4%83!%20M%C4%83%20intereseaz%C4%83%20serviciile%20AppRapid.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block mt-3 bg-gradient-to-r from-blue-500 to-emerald-500 px-5 py-4 rounded-lg font-medium tracking-wider text-center transition-all duration-300 ease-premium shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)]"
+                className="block mt-3 bg-gradient-to-r from-blue-500 to-emerald-500 px-5 py-4 rounded-lg font-medium tracking-wider text-center transition-premium shadow-cta-glow-blue hover:shadow-[0_4px_16px_rgba(96,165,250,0.3)]"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}

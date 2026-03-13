@@ -42,20 +42,20 @@ export default function Process() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             În{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               4 pași simpli
             </span>
           </h2>
-          <p className="font-light text-slate-400 text-lg">De la idee la aplicație funcțională — în maxim 7 zile.</p>
+          <p className="text-slate-400 text-lg">De la idee la aplicație funcțională — în maxim 7 zile.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((item, i) => (
             <motion.div
               key={i}
-              className="relative bg-slate-900/80 border border-slate-700 rounded-xl shadow-token-md p-6 hover:border-slate-600 transition-all duration-300 ease-premium group"
+              className="relative bg-slate-900/80 border border-slate-700 rounded-xl shadow-token-md p-6 hover:border-slate-600 transition-premium group"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: i * 0.12 }}
@@ -63,8 +63,8 @@ export default function Process() {
               <div className={`text-5xl font-heading font-medium text-transparent bg-clip-text bg-gradient-to-r ${item.color} mb-4`}>
                 {item.step}
               </div>
-              <h3 className="text-xl font-heading font-medium tracking-wide mb-3 text-white">{item.title}</h3>
-              <p className="font-light text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="text-xl mb-3 text-white">{item.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
 
               {/* Connector line (hidden on last) */}
               {i < steps.length - 1 && (

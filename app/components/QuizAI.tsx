@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { WhatsAppIcon } from './icons'
+import { WHATSAPP_NUMBER } from '../data/constants'
 
 type PackageKey = 'starter' | 'business' | 'enterprise'
 
@@ -159,8 +161,8 @@ export default function QuizAI() {
             </svg>
           </div>
         </div>
-        <h3 className="text-2xl font-heading font-medium tracking-wide text-white mb-3">Analizăm răspunsurile...</h3>
-        <p className="font-light text-slate-400">AI-ul nostru găsește pachetul perfect pentru tine</p>
+        <h3 className="text-2xl text-white mb-3">Analizăm răspunsurile...</h3>
+        <p className="text-slate-400">AI-ul nostru găsește pachetul perfect pentru tine</p>
         <div className="mt-8 flex justify-center gap-1">
           {[0, 1, 2].map((i) => (
             <div key={i} className="w-3 h-3 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: `${i * 0.15}s` }}></div>
@@ -186,35 +188,33 @@ export default function QuizAI() {
             </svg>
             Analiză completă
           </div>
-          <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-white mb-2">Recomandarea noastră</h3>
+          <h3 className="text-2xl md:text-3xl text-white mb-2">Recomandarea noastră</h3>
         </div>
 
         <div className={`bg-gradient-to-br ${colorClasses[recommended.color]} rounded-xl p-6 md:p-8 mb-6`}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
             <div>
               <div className="text-white/80 text-sm font-medium mb-1">Pachet recomandat</div>
-              <h4 className="text-3xl font-heading font-semibold text-white">{recommended.name}</h4>
-              <p className="font-light text-white/80">{recommended.tagline}</p>
+              <h4 className="text-3xl text-white">{recommended.name}</h4>
+              <p className="text-white/80">{recommended.tagline}</p>
             </div>
             <div className="text-right">
               <div className="text-4xl font-heading font-semibold text-white">{recommended.price}</div>
-              <div className="font-light text-white/70 text-sm">plată unică</div>
+              <div className="text-white/70 text-sm">plată unică</div>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <a
-              href={`https://wa.me/40756870425?text=${encodeURIComponent(`Bună! Am completat quiz-ul și vreau pachetul ${recommended.name} (${recommended.price}). Putem discuta?`)}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Bună! Am completat quiz-ul și vreau pachetul ${recommended.name} (${recommended.price}). Putem discuta?`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-white text-slate-900 py-3 px-6 rounded-lg font-medium text-sm tracking-wider text-center hover:bg-white/90 transition-all duration-300 ease-premium flex items-center justify-center gap-2"
+              className="flex-1 bg-white text-slate-900 py-3 px-6 rounded-lg font-medium text-sm tracking-wider text-center hover:bg-white/90 transition-premium flex items-center justify-center gap-2"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-              </svg>
+              <WhatsAppIcon className="w-5 h-5" />
               Vreau acest pachet
             </a>
-            <button onClick={resetQuiz} className="flex-1 sm:flex-none bg-white/10 text-white py-3 px-6 rounded-lg font-medium text-sm hover:bg-white/20 transition-all duration-300 ease-premium">
+            <button onClick={resetQuiz} className="flex-1 sm:flex-none bg-white/10 text-white py-3 px-6 rounded-lg font-medium text-sm hover:bg-white/20 transition-premium">
               Refă testul
             </button>
           </div>
@@ -243,8 +243,8 @@ export default function QuizAI() {
       </div>
 
       <div className="text-center mb-8">
-        <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide text-white mb-2">{currentQuestion.question}</h3>
-        <p className="font-light text-slate-400">{currentQuestion.subtitle}</p>
+        <h3 className="text-2xl md:text-3xl text-white mb-2">{currentQuestion.question}</h3>
+        <p className="text-slate-400">{currentQuestion.subtitle}</p>
       </div>
 
       <div className="grid gap-3 max-w-2xl mx-auto">
@@ -252,12 +252,12 @@ export default function QuizAI() {
           <button
             key={i}
             onClick={() => handleAnswer(currentQuestion.id, option)}
-            className="group w-full p-4 md:p-5 rounded-lg border border-slate-700 bg-slate-800/50 text-left transition-all duration-300 ease-premium hover:border-blue-400 hover:bg-blue-400/10 hover:scale-[1.02]"
+            className="group w-full p-4 md:p-5 rounded-lg border border-slate-700 bg-slate-800/50 text-left transition-premium hover:border-blue-400 hover:bg-blue-400/10 hover:scale-[1.02]"
           >
             <div className="flex items-center gap-4">
               <div className="flex-1">
                 <div className="font-medium text-white group-hover:text-blue-300 transition-colors duration-300">{option.label}</div>
-                {option.desc && <div className="text-sm font-light text-slate-400 mt-0.5">{option.desc}</div>}
+                {option.desc && <div className="text-sm text-slate-400 mt-0.5">{option.desc}</div>}
               </div>
               <div className="w-6 h-6 rounded-full border-2 border-slate-600 group-hover:border-blue-400 flex-shrink-0 transition-colors duration-300"></div>
             </div>
@@ -269,7 +269,7 @@ export default function QuizAI() {
         <button
           onClick={() => currentStep > 0 && setCurrentStep(currentStep - 1)}
           disabled={currentStep === 0}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-premium ${currentStep === 0 ? 'text-slate-600' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-premium ${currentStep === 0 ? 'text-slate-600' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

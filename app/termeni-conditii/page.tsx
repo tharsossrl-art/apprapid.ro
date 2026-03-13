@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+        <h1 className="text-4xl md:text-5xl mb-4">
           Termeni și{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             Condiții
@@ -64,7 +64,7 @@ export default function TermsAndConditions() {
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-emerald-400 mb-2">Pachete de dezvoltare</h3>
+                <h3 className="text-emerald-400 mb-2">Pachete de dezvoltare</h3>
                 <ul className="text-slate-400 text-sm space-y-1 list-disc list-inside">
                   <li>Pachet Start</li>
                   <li>Pachet Business</li>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
                 </ul>
               </div>
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-blue-400 mb-2">Servicii adiționale</h3>
+                <h3 className="text-blue-400 mb-2">Servicii adiționale</h3>
                 <ul className="text-slate-400 text-sm space-y-1 list-disc list-inside">
                   <li>Hosting și mentenanță</li>
                   <li>Integrări și module extra</li>
@@ -92,28 +92,28 @@ export default function TermsAndConditions() {
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">1</div>
                 <div>
-                  <h4 className="font-semibold text-white">Consultație inițială</h4>
+                  <h4 className="text-white">Consultație inițială</h4>
                   <p className="text-slate-400 text-sm">Discutăm nevoile tale și stabilim cerințele proiectului.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">2</div>
                 <div>
-                  <h4 className="font-semibold text-white">Ofertă și contract</h4>
+                  <h4 className="text-white">Ofertă și contract</h4>
                   <p className="text-slate-400 text-sm">Primești o ofertă detaliată. După accept, semnăm contractul.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">3</div>
                 <div>
-                  <h4 className="font-semibold text-white">Dezvoltare</h4>
+                  <h4 className="text-white">Dezvoltare</h4>
                   <p className="text-slate-400 text-sm">Construim aplicația ta cu update-uri regulate de progres.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">4</div>
                 <div>
-                  <h4 className="font-semibold text-white">Livrare și suport</h4>
+                  <h4 className="text-white">Livrare și suport</h4>
                   <p className="text-slate-400 text-sm">Lansăm aplicația și oferim suport continuu.</p>
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function TermsAndConditions() {
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
-                <h3 className="font-semibold text-emerald-400 mb-2">Ce garantăm</h3>
+                <h3 className="text-emerald-400 mb-2">Ce garantăm</h3>
                 <ul className="text-slate-300 text-sm space-y-1 list-disc list-inside">
                   <li>Funcționalitate conform specificațiilor agreate</li>
                   <li>Suport tehnic în perioada contractată</li>
@@ -189,7 +189,7 @@ export default function TermsAndConditions() {
                 </ul>
               </div>
               <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
-                <h3 className="font-semibold text-red-400 mb-2">Limite</h3>
+                <h3 className="text-red-400 mb-2">Limite</h3>
                 <ul className="text-slate-300 text-sm space-y-1 list-disc list-inside">
                   <li>Nu garantăm rezultate de business</li>
                   <li>Nu răspundem pentru întreruperi hosting terț</li>

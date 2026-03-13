@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+        <h1 className="text-4xl md:text-5xl mb-4">
           Politica de{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             Confidențialitate
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
             </h2>
             <div className="space-y-4">
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-white mb-2">Date furnizate direct de tine:</h3>
+                <h3 className="text-white mb-2">Date furnizate direct de tine:</h3>
                 <ul className="text-slate-300 space-y-1 list-disc list-inside">
                   <li>Nume și prenume</li>
                   <li>Adresă de email</li>
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
                 </ul>
               </div>
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-white mb-2">Date colectate automat:</h3>
+                <h3 className="text-white mb-2">Date colectate automat:</h3>
                 <ul className="text-slate-300 space-y-1 list-disc list-inside">
                   <li>Adresa IP (anonimizată)</li>
                   <li>Tipul browserului și dispozitivului</li>
@@ -127,11 +127,11 @@ export default function PrivacyPolicy() {
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-emerald-400 mb-2">Cookie-uri esențiale</h3>
+                <h3 className="text-emerald-400 mb-2">Cookie-uri esențiale</h3>
                 <p className="text-slate-400 text-sm">Necesare pentru funcționarea site-ului. Nu pot fi dezactivate.</p>
               </div>
               <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-                <h3 className="font-semibold text-blue-400 mb-2">Cookie-uri analitice</h3>
+                <h3 className="text-blue-400 mb-2">Cookie-uri analitice</h3>
                 <p className="text-slate-400 text-sm">Ne ajută să înțelegem cum este folosit site-ul. Anonimizate.</p>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
                 { title: 'Dreptul de retragere', desc: 'Poți retrage consimțământul oricând' },
               ].map((right, i) => (
                 <div key={i} className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl">
-                  <h3 className="font-semibold text-white mb-1">{right.title}</h3>
+                  <h3 className="text-white mb-1">{right.title}</h3>
                   <p className="text-slate-400 text-sm">{right.desc}</p>
                 </div>
               ))}

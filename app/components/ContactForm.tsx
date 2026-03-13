@@ -185,19 +185,19 @@ export default function ContactForm() {
       </div>
 
       {submitStatus === 'success' && (
-        <div className="p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-sm font-light">
+        <div className="p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-sm">
           Mesaj trimis! Îți vom răspunde în curând pe email sau WhatsApp.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="p-4 bg-red-500/20 border border-red-400/30 ring-[3px] ring-red-400/15 rounded-lg text-red-300 text-sm font-light">
+        <div className="p-4 bg-red-500/20 border border-red-400/30 ring-[3px] ring-red-400/15 rounded-lg text-red-300 text-sm">
           A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi direct pe WhatsApp.
         </div>
       )}
 
       {submitStatus === 'rate-limited' && (
-        <div className="p-4 bg-amber-500/20 border border-amber-500/30 rounded-lg text-amber-300 text-sm font-light">
+        <div className="p-4 bg-amber-500/20 border border-amber-500/30 rounded-lg text-amber-300 text-sm">
           Așteaptă {getRemainingTime()} secunde înainte de a trimite din nou.
         </div>
       )}
@@ -205,7 +205,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting || submitStatus === 'rate-limited'}
-        className="w-full px-7 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-sm font-medium tracking-wider text-white transition-all duration-300 ease-premium shadow-[0_2px_8px_rgba(96,165,250,0.2)] flex items-center justify-center gap-2"
+        className="w-full px-7 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-sm font-medium tracking-wider text-white transition-premium shadow-cta-glow-blue flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
           <>
@@ -225,7 +225,7 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="font-light text-slate-500 text-xs text-center">
+      <p className="text-slate-500 text-xs text-center">
         Prin trimiterea formularului, ești de acord cu{' '}
         <a href="/politica-confidentialitate" className="text-blue-400 hover:underline">
           politica de confidențialitate

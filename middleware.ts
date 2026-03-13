@@ -3,22 +3,8 @@ import type { NextRequest } from 'next/server'
 
 const GATED_HOSTS = ['apprapid.ro', 'www.apprapid.ro']
 
-// Static assets and Next.js internals that should always pass through
-const PASSTHROUGH_PREFIXES = [
-  '/_next/',
-  '/favicon',
-  '/robots.txt',
-  '/sitemap',
-  '/manifest.json',
-  '/apple-touch-icon',
-  '/icons/',
-  '/heroes/',
-  '/og-',
-]
-
 export function middleware(request: NextRequest) {
-  const host = request.headers.get('host') ?? ''
-  const hostname = host.split(':')[0] // strip port if present
+  const hostname = request.nextUrl.hostname
 
   // Only gate on the production domain
   if (!GATED_HOSTS.includes(hostname)) {
@@ -26,13 +12,6 @@ export function middleware(request: NextRequest) {
   }
 
   const pathname = request.nextUrl.pathname
-
-  // Always allow static assets and Next.js internals through
-  for (const prefix of PASSTHROUGH_PREFIXES) {
-    if (pathname.startsWith(prefix) || pathname === prefix.replace(/\/$/, '')) {
-      return NextResponse.next()
-    }
-  }
 
   // Already on /coming-soon — let it render
   if (pathname.startsWith('/coming-soon')) {
@@ -51,8 +30,8 @@ export const config = {
      * Match all request paths EXCEPT:
      * - _next/static (static files)
      * - _next/image (image optimization)
-     * - favicon.ico
+     * - favicon, robots, sitemap, manifest, icons, heroes, og images
      */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon|robots\\.txt|sitemap|manifest\\.json|apple-touch-icon|icons/|heroes/|og-).*)',
   ],
 }

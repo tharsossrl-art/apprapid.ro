@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { products } from '../data/products'
+import { CheckIcon } from './icons'
 
 const icons: Record<string, React.ReactNode> = {
   aplicatii: (
@@ -56,10 +57,10 @@ export default function ProductGrid() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-semibold tracking-wide mb-4">
+          <h2 className="text-3xl md:text-5xl font-semibold mb-4">
             Alege ce ai nevoie
           </h2>
-          <p className="font-light text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Trei servicii. O singură echipă. Rezultate garantate.
           </p>
         </motion.div>
@@ -76,23 +77,21 @@ export default function ProductGrid() {
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
               >
                 <Link href={product.slug} className="block h-full">
-                  <div className={`relative h-full rounded-xl border ${colors.border} bg-slate-900/80 bg-gradient-to-b ${colors.bg} shadow-token-md p-7 transition-all duration-300 ease-premium hover:translate-y-[-4px] hover:shadow-token-lg`}>
+                  <div className={`relative h-full rounded-xl border ${colors.border} bg-slate-900/80 bg-gradient-to-b ${colors.bg} shadow-token-md p-7 transition-premium hover:translate-y-[-4px] hover:shadow-token-lg`}>
                     {/* Icon */}
                     <div className={`w-14 h-14 rounded-lg ${colors.icon} flex items-center justify-center ${colors.iconText} mb-6`}>
                       {icons[product.id]}
                     </div>
 
                     {/* Name & Tagline */}
-                    <h3 className="text-2xl font-heading font-semibold tracking-wide text-white mb-2">{product.name}</h3>
-                    <p className="font-light text-slate-400 text-sm mb-6">{product.tagline}</p>
+                    <h3 className="text-2xl text-white mb-2">{product.name}</h3>
+                    <p className="text-slate-400 text-sm mb-6">{product.tagline}</p>
 
                     {/* Features */}
                     <ul className="space-y-3 mb-8">
                       {product.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-300 font-light">
-                          <svg className={`w-4 h-4 mt-0.5 shrink-0 ${colors.iconText}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                          <CheckIcon className={`w-4 h-4 mt-0.5 shrink-0 ${colors.iconText}`} />
                           {feature}
                         </li>
                       ))}
@@ -103,7 +102,7 @@ export default function ProductGrid() {
                       <p className="text-xs text-slate-500 mb-3">
                         {product.priceRange} &middot; {product.deliveryRange}
                       </p>
-                      <div className={`w-full py-3 rounded-lg bg-gradient-to-r ${colors.btn} text-center text-sm font-medium tracking-wide text-white transition-all duration-300 ease-premium`}>
+                      <div className={`w-full py-3 rounded-lg bg-gradient-to-r ${colors.btn} text-center text-sm font-medium tracking-wide text-white transition-premium`}>
                         {product.ctaLabel} →
                       </div>
                     </div>

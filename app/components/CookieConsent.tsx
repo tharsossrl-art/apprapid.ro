@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { CheckIcon } from './icons'
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
@@ -55,7 +56,7 @@ export default function CookieConsent() {
             </div>
 
             <div>
-              <h3 className="font-medium tracking-wide text-white text-lg mb-1">Confidențialitatea ta contează</h3>
+              <h3 className="text-white text-lg mb-1">Confidențialitatea ta contează</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Folosim cookie-uri pentru a-ți oferi cea mai bună experiență. Datele tale sunt în siguranță.
                 {' '}
@@ -73,22 +74,20 @@ export default function CookieConsent() {
           <div className="flex gap-3 flex-shrink-0 md:ml-4">
             <button
               onClick={handleDecline}
-              className="px-5 py-2.5 text-sm font-medium tracking-wider text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg transition-all duration-300 ease-premium"
+              className="px-5 py-2.5 text-sm font-medium tracking-wider text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg transition-premium"
             >
               Refuz
             </button>
             <button
               onClick={handleAccept}
-              className="group relative px-5 py-2.5 text-sm font-medium tracking-wider text-white overflow-hidden rounded-lg transition-all duration-300 ease-premium"
+              className="group relative px-5 py-2.5 text-sm font-medium tracking-wider text-white overflow-hidden rounded-lg transition-premium"
             >
               {/* Button gradient background */}
               <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 group-hover:from-blue-600 group-hover:to-emerald-600 transition-all" />
               {/* Shine effect */}
               <span className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-500" />
               <span className="relative flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+                <CheckIcon className="w-4 h-4" />
                 Accept
               </span>
             </button>

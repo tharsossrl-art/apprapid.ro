@@ -52,20 +52,20 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             Proiecte{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               în lucru
             </span>
           </h2>
-          <p className="font-light text-slate-400 text-lg">7 branduri locale din Timișoara — aplicații livrate în curând</p>
+          <p className="text-slate-400 text-lg">7 branduri locale din Timișoara — aplicații livrate în curând</p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              className="bg-slate-900/80 border border-slate-700 rounded-xl overflow-hidden hover:border-slate-600 hover:shadow-token-lg transition-all duration-300 ease-premium group shadow-token-md"
+              className="bg-slate-900/80 border border-slate-700 rounded-xl overflow-hidden hover:border-slate-600 hover:shadow-token-lg transition-premium group shadow-token-md"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: i * 0.08 }}
@@ -74,7 +74,7 @@ export default function Portfolio() {
                 {project.icon}
               </div>
               <div className="p-4">
-                <h3 className="font-heading font-medium tracking-wide text-white mb-1">{project.name}</h3>
+                <h3 className="text-white mb-1">{project.name}</h3>
                 <p className="text-slate-500 text-xs mb-3">{project.type}</p>
                 {(() => {
                   const sc = statusConfig[project.status] || statusConfig['În dezvoltare']
@@ -102,7 +102,7 @@ export default function Portfolio() {
           <p className="text-slate-500 text-sm mb-4">Vrei să fii următorul?</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-token-lg transition-all duration-300 ease-premium"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-cta-glow-blue hover:shadow-token-lg transition-premium"
           >
             Discută cu noi
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

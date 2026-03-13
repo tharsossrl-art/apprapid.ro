@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Hanken_Grotesk, Sora, Inconsolata } from 'next/font/google'
+import { Hanken_Grotesk, Sora } from 'next/font/google'
 import './globals.css'
 import GoogleAnalytics from './components/GoogleAnalytics'
 
@@ -15,13 +15,6 @@ const sora = Sora({
   variable: '--font-body',
   display: 'swap',
   weight: ['300', '400'],
-})
-
-const inconsolata = Inconsolata({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-  weight: ['400'],
 })
 
 export const viewport: Viewport = {
@@ -81,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ro" className={`${hankenGrotesk.variable} ${sora.variable} ${inconsolata.variable}`}>
+    <html lang="ro" className={`${hankenGrotesk.variable} ${sora.variable}`}>
       <head>
         <GoogleAnalytics />
         {/* Inline critical styles for instant loading screen */}

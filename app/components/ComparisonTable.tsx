@@ -1,5 +1,7 @@
 'use client'
 
+import { CheckIcon } from './icons'
+
 const rows: { feature: string; apprapid: boolean | string; agency: boolean | string; diy: boolean | string }[] = [
   { feature: 'Preț', apprapid: 'de la 2.999 RON', agency: '7.500-25.000 RON', diy: '1.000 RON/an' },
   { feature: 'Timp livrare', apprapid: '3-14 zile', agency: '4-12 săptămâni', diy: 'DIY (ore-zile)' },
@@ -14,9 +16,7 @@ const rows: { feature: string; apprapid: boolean | string; agency: boolean | str
 
 function Check() {
   return (
-    <svg className="w-5 h-5 text-emerald-400 mx-auto flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-    </svg>
+    <CheckIcon className="w-5 h-5 text-emerald-400 mx-auto flex-shrink-0" />
   )
 }
 
@@ -103,10 +103,10 @@ export default function ComparisonTable() {
     <section className="relative z-10 px-4 sm:px-6 py-16 sm:py-24 bg-slate-900/50">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-medium tracking-wide mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
             De ce <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">AppRapid</span>?
           </h2>
-          <p className="font-light text-slate-400 text-base sm:text-lg">Comparație sinceră cu alternativele</p>
+          <p className="text-slate-400 text-base sm:text-lg">Comparație sinceră cu alternativele</p>
         </div>
         <MobileComparison />
         <DesktopComparison />

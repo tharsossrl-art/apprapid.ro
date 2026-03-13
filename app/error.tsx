@@ -33,7 +33,7 @@ export default function Error({
         </div>
 
         {/* Message */}
-        <h1 className="text-3xl md:text-4xl font-heading font-medium tracking-wide text-white mb-4">
+        <h1 className="text-3xl md:text-4xl text-white mb-4">
           Oops!{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
             Ceva n-a mers bine

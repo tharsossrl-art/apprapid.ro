@@ -39,13 +39,13 @@ export default function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             Ce spun{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               clienții
             </span>
           </h2>
-          <p className="font-light text-slate-400 text-lg">Primele proiecte sunt în lucru. Testimonialele vin curând.</p>
+          <p className="text-slate-400 text-lg">Primele proiecte sunt în lucru. Testimonialele vin curând.</p>
         </motion.div>
 
         <motion.div
@@ -62,8 +62,8 @@ export default function Testimonials() {
               </span>
               În lucru acum
             </div>
-            <h3 className="text-2xl font-heading font-medium text-white mb-2">Construim pentru 7 branduri locale</h3>
-            <p className="font-light text-slate-400 max-w-xl mx-auto">
+            <h3 className="text-2xl text-white mb-2">Construim pentru 7 branduri locale</h3>
+            <p className="text-slate-400 max-w-xl mx-auto">
               Din industrii diferite — beauty, wellness, fitness, retail, terapie. Rezultatele vor vorbi de la sine.
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function Testimonials() {
                 transition={{ delay: 0.3 + i * 0.1 }}
               >
                 <div className="flex justify-center mb-2">{item.icon}</div>
-                <div className="text-sm font-light text-slate-300">{item.label}</div>
+                <div className="text-sm text-slate-300">{item.label}</div>
               </motion.div>
             ))}
           </div>

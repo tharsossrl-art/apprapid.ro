@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { CheckIcon } from './icons'
+import { WHATSAPP_NUMBER } from '../data/constants'
 
 const packages = [
   {
@@ -57,7 +59,7 @@ const colorMap: Record<string, Record<string, string>> = {
     icon: 'bg-blue-500/20',
     iconText: 'text-blue-400',
     check: 'text-blue-400',
-    btn: 'bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-[0_2px_8px_rgba(96,165,250,0.2)]',
+    btn: 'bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-cta-glow-blue',
   },
   violet: {
     border: 'border-violet-500/30',
@@ -84,13 +86,13 @@ export default function MobilePackages() {
           <div className="inline-block px-4 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium mb-4">
             Pachete & Prețuri
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             Alege pachetul{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
               potrivit
             </span>
           </h2>
-          <p className="font-light text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Plată unică. Fără abonamente ascunse. Publicare în magazine inclusă.
           </p>
         </motion.div>
@@ -106,7 +108,7 @@ export default function MobilePackages() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className={`relative rounded-xl border ${colors.border} ${colors.borderHover} bg-gradient-to-b ${colors.bg} backdrop-blur-sm p-7 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg flex flex-col`}
+                className={`relative rounded-xl border ${colors.border} ${colors.borderHover} bg-gradient-to-b ${colors.bg} backdrop-blur-sm p-7 transition-premium shadow-token-md hover:shadow-token-lg flex flex-col`}
               >
                 {pkg.popular && (
                   <div className={`absolute -top-3 left-1/2 -translate-x-1/2 ${colors.badge} text-white text-xs font-medium px-4 py-1 rounded-full`}>
@@ -115,8 +117,8 @@ export default function MobilePackages() {
                 )}
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-medium text-white mb-1">{pkg.name}</h3>
-                  <p className="font-light text-slate-400 text-sm">{pkg.tagline}</p>
+                  <h3 className="text-xl text-white mb-1">{pkg.name}</h3>
+                  <p className="text-slate-400 text-sm">{pkg.tagline}</p>
                 </div>
 
                 <div className="mb-6">
@@ -143,10 +145,10 @@ export default function MobilePackages() {
                 </div>
 
                 <a
-                  href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3 rounded-lg border text-center font-medium text-sm tracking-wider transition-all duration-300 ease-premium mb-6 block ${colors.btn}`}
+                  className={`w-full py-3 rounded-lg border text-center font-medium text-sm tracking-wider transition-premium mb-6 block ${colors.btn}`}
                 >
                   Solicită oferta →
                 </a>
@@ -157,10 +159,8 @@ export default function MobilePackages() {
 
                 <ul className="space-y-2.5 flex-1">
                   {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm font-light text-slate-300">
-                      <svg className={`w-4 h-4 mt-0.5 shrink-0 ${colors.check}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                      <CheckIcon className={`w-4 h-4 mt-0.5 shrink-0 ${colors.check}`} />
                       {feature}
                     </li>
                   ))}
@@ -181,13 +181,13 @@ export default function MobilePackages() {
             <div className="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm font-medium mb-4">
               Ai deja o aplicație web de la noi?
             </div>
-            <h3 className="text-2xl md:text-3xl font-heading font-medium tracking-wide mb-3">
+            <h3 className="text-2xl md:text-3xl mb-3">
               Lansează-te pe App Store la{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
                 jumătate de preț
               </span>
             </h3>
-            <p className="font-light text-slate-400 max-w-lg mx-auto">
+            <p className="text-slate-400 max-w-lg mx-auto">
               Backend-ul și dashboard-ul există deja. Noi doar construim aplicația nativă pe baza lor — mai rapid și mai ieftin.
             </p>
           </div>
@@ -228,9 +228,9 @@ export default function MobilePackages() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="rounded-xl border border-emerald-500/20 hover:border-emerald-500/40 bg-gradient-to-b from-emerald-900/15 to-emerald-900/5 backdrop-blur-sm p-7 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg flex flex-col"
+                  className="rounded-xl border border-emerald-500/20 hover:border-emerald-500/40 bg-gradient-to-b from-emerald-900/15 to-emerald-900/5 backdrop-blur-sm p-7 transition-premium shadow-token-md hover:shadow-token-lg flex flex-col"
                 >
-                  <h3 className="text-xl font-medium text-white mb-1">{addon.name}</h3>
+                  <h3 className="text-xl text-white mb-1">{addon.name}</h3>
                   <div className="flex items-center gap-4 mb-4 text-xs text-slate-400">
                     <span className="flex items-center gap-1">
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -250,20 +250,18 @@ export default function MobilePackages() {
 
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {addon.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm font-light text-slate-300">
-                        <svg className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
+                      <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                        <CheckIcon className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" />
                         {f}
                       </li>
                     ))}
                   </ul>
 
                   <a
-                    href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 rounded-lg border bg-emerald-500/20 border-emerald-500/30 hover:bg-emerald-500/30 text-emerald-300 text-center font-medium text-sm tracking-wider transition-all duration-300 ease-premium block"
+                    className="w-full py-3 rounded-lg border bg-emerald-500/20 border-emerald-500/30 hover:bg-emerald-500/30 text-emerald-300 text-center font-medium text-sm tracking-wider transition-premium block"
                   >
                     Vreau {addon.name} →
                   </a>

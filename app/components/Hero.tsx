@@ -17,7 +17,7 @@ export default function Hero() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-heading font-medium tracking-wide leading-[1.1] mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -33,7 +33,7 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-lg md:text-xl text-slate-400 font-light mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
+              className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -81,7 +81,7 @@ export default function Hero() {
             >
               <motion.a
                 href="#quiz"
-                className="group relative bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] overflow-hidden transition-all duration-300 ease-premium"
+                className="group relative bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-cta-glow-blue overflow-hidden transition-premium"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -96,7 +96,7 @@ export default function Hero() {
 
               <motion.a
                 href="#pachete"
-                className="bg-slate-900/80 border border-slate-700 px-7 py-3 rounded-lg text-sm font-medium tracking-wider hover:bg-slate-800 hover:border-slate-600 transition-all duration-300 ease-premium text-center"
+                className="bg-slate-900/80 border border-slate-700 px-7 py-3 rounded-lg text-sm font-medium tracking-wider hover:bg-slate-800 hover:border-slate-600 transition-premium text-center"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -113,7 +113,7 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
           >
             <Image
-              src="/heroes/aplicatiiwebdesktop.png"
+              src="/heroes/aplicatiiwebdesktop.webp"
               alt="Aplicații web moderne — dashboard cu statistici"
               width={1920}
               height={1080}
@@ -121,7 +121,7 @@ export default function Hero() {
               priority
             />
             <Image
-              src="/heroes/aplicatiiwebmobile.png"
+              src="/heroes/aplicatiiwebmobile.webp"
               alt="Aplicații web moderne"
               width={540}
               height={960}

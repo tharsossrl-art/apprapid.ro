@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { CheckIcon } from './icons'
+import { WHATSAPP_NUMBER } from '../data/constants'
 
 const tiers = [
   {
@@ -45,7 +47,7 @@ const colorMap: Record<string, Record<string, string>> = {
     bg: 'from-purple-900/30 to-pink-900/10',
     badge: 'bg-purple-500',
     check: 'text-purple-400',
-    btn: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-token-lg text-white shadow-[0_2px_8px_rgba(168,85,247,0.2)]',
+    btn: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-token-lg text-white shadow-cta-glow-violet',
     price: 'text-purple-400',
   },
   amber: {
@@ -66,10 +68,10 @@ export default function Hosting() {
     <section className="relative z-10 px-6 py-24 bg-slate-900/50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             Mentenanță & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Suport</span>
           </h2>
-          <p className="font-light text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Aplicația ta are nevoie de un loc unde să ruleze, updates de securitate și pe cineva care răspunde când ai o întrebare.
           </p>
         </div>
@@ -79,13 +81,13 @@ export default function Hosting() {
           <div className="bg-slate-800 rounded-full p-1 flex">
             <button
               onClick={() => setAnnual(false)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-premium ${!annual ? 'bg-purple-500 text-white' : 'text-slate-400 hover:text-white'}`}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-premium ${!annual ? 'bg-purple-500 text-white' : 'text-slate-400 hover:text-white'}`}
             >
               Lunar
             </button>
             <button
               onClick={() => setAnnual(true)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-premium flex items-center gap-2 ${annual ? 'bg-purple-500 text-white' : 'text-slate-400 hover:text-white'}`}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-premium flex items-center gap-2 ${annual ? 'bg-purple-500 text-white' : 'text-slate-400 hover:text-white'}`}
             >
               Anual
               <span className={`text-xs px-2 py-0.5 rounded-full ${annual ? 'bg-white/20' : 'bg-emerald-500/20 text-emerald-400'}`}>-20%</span>
@@ -105,7 +107,7 @@ export default function Hosting() {
             return (
               <div
                 key={tier.key}
-                className={`relative bg-gradient-to-br ${c.bg} border ${c.border} ${c.borderHover} rounded-xl p-7 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg flex flex-col ${tier.popular ? 'ring-1 ring-purple-500/30' : ''}`}
+                className={`relative bg-gradient-to-br ${c.bg} border ${c.border} ${c.borderHover} rounded-xl p-7 transition-premium shadow-token-md hover:shadow-token-lg flex flex-col ${tier.popular ? 'ring-1 ring-purple-500/30' : ''}`}
               >
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -116,7 +118,7 @@ export default function Hosting() {
                 )}
 
                 <div className={tier.popular ? 'mt-2' : ''}>
-                  <h3 className="text-xl font-heading font-medium mb-1">{tier.name}</h3>
+                  <h3 className="text-xl mb-1">{tier.name}</h3>
                   <p className="text-slate-500 text-xs mb-5">{tier.target}</p>
                 </div>
 
@@ -136,20 +138,18 @@ export default function Hosting() {
                 {/* Features */}
                 <ul className="space-y-2.5 mb-6 flex-1">
                   {tier.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
-                      <svg className={`w-4 h-4 ${c.check} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                    <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                      <CheckIcon className={`w-4 h-4 ${c.check} flex-shrink-0 mt-0.5`} />
                       {f}
                     </li>
                   ))}
                 </ul>
 
                 <a
-                  href={`https://wa.me/40756870425?text=${encodeURIComponent(waText)}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-auto block w-full py-3 px-7 rounded-lg border text-sm font-medium tracking-wider text-center transition-all duration-300 ease-premium ${c.btn}`}
+                  className={`mt-auto block w-full py-3 px-7 rounded-lg border text-sm font-medium tracking-wider text-center transition-premium ${c.btn}`}
                 >
                   Alege {tier.name}
                 </a>
@@ -166,8 +166,8 @@ export default function Hosting() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>
-            <h4 className="font-medium text-lg mb-2">Fără hosting = aplicația nu merge</h4>
-            <p className="font-light text-slate-400 text-sm leading-relaxed">
+            <h4 className="text-lg mb-2">Fără hosting = aplicația nu merge</h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Aplicația ta are nevoie de un server ca să fie accesibilă online. E ca și chiria pentru un magazin fizic — fără ea, ușa e închisă.
             </p>
           </div>
@@ -178,8 +178,8 @@ export default function Hosting() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h4 className="font-medium text-lg mb-2">Securitate pe care nu o vezi</h4>
-            <p className="font-light text-slate-400 text-sm leading-relaxed">
+            <h4 className="text-lg mb-2">Securitate pe care nu o vezi</h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Updates automate, backup-uri, SSL — fără ele site-ul e vulnerabil. Noi ne ocupăm, tu te ocupi de clienți.
             </p>
           </div>
@@ -190,8 +190,8 @@ export default function Hosting() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
             </div>
-            <h4 className="font-medium text-lg mb-2">Suport real, nu un robot</h4>
-            <p className="font-light text-slate-400 text-sm leading-relaxed">
+            <h4 className="text-lg mb-2">Suport real, nu un robot</h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Ai o problemă? Scrii pe WhatsApp și primești răspuns de la o persoană reală, nu de la un chatbot. Simplu.
             </p>
           </div>

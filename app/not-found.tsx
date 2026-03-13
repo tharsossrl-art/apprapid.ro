@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
 
         {/* Message */}
-        <h1 className="text-3xl md:text-4xl font-heading font-medium tracking-wide text-white mb-4">
+        <h1 className="text-3xl md:text-4xl text-white mb-4">
           Pagină{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
             negăsită

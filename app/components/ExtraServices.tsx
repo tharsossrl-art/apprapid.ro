@@ -1,19 +1,22 @@
+import { CheckIcon } from './icons'
+import { WHATSAPP_NUMBER } from '../data/constants'
+
 export default function ExtraServices() {
   return (
     <section className="relative z-10 px-6 py-24">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-wide mb-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
             Adaugă <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">superputeri</span>
           </h2>
-          <p className="font-light text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Funcționalități extra care aduc clienți noi și automatizează munca repetitivă. Se adaugă la orice pachet.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {/* AI Chatbot */}
-          <div className="relative bg-gradient-to-br from-blue-900/20 to-blue-900/5 border border-blue-500/20 rounded-xl p-7 hover:border-blue-500/40 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg group">
+          <div className="relative bg-gradient-to-br from-blue-900/20 to-blue-900/5 border border-blue-500/20 rounded-xl p-7 hover:border-blue-500/40 transition-premium shadow-token-md hover:shadow-token-lg group">
             <div className="absolute -top-3 left-6">
               <span className="bg-blue-500 text-white text-xs font-medium px-3 py-1 rounded-full">
                 Cel mai popular
@@ -26,7 +29,7 @@ export default function ExtraServices() {
               </svg>
             </div>
 
-            <h3 className="text-xl font-medium mb-1">AI Chatbot</h3>
+            <h3 className="text-xl mb-1">AI Chatbot</h3>
             <p className="text-slate-500 text-xs mb-4">Integrare unică — setup o singură dată</p>
 
             <ul className="space-y-2.5 mb-6">
@@ -36,10 +39,8 @@ export default function ExtraServices() {
                 "Colectează date de contact automat",
                 "Antrenat pe informațiile afacerii tale",
               ].map((f, i) => (
-                <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
-                  <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                  <CheckIcon className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
                   {f}
                 </li>
               ))}
@@ -51,15 +52,15 @@ export default function ExtraServices() {
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează AI Chatbot-ul (999 RON).')}`}
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bună! Mă interesează AI Chatbot-ul (999 RON).')}`}
               target="_blank" rel="noopener noreferrer"
-              className="block w-full py-3 rounded-lg bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 font-medium text-center text-sm text-blue-300 transition-all duration-300 ease-premium">
+              className="block w-full py-3 rounded-lg bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 font-medium text-center text-sm text-blue-300 transition-premium">
               Vreau chatbot
             </a>
           </div>
 
           {/* QR Menu Digital */}
-          <div className="bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-slate-600 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg group">
+          <div className="bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-slate-600 transition-premium shadow-token-md hover:shadow-token-lg group">
             <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
@@ -68,7 +69,7 @@ export default function ExtraServices() {
               </svg>
             </div>
 
-            <h3 className="text-xl font-medium mb-1">QR Menu Digital</h3>
+            <h3 className="text-xl mb-1">QR Menu Digital</h3>
             <p className="text-slate-500 text-xs mb-4">Pentru restaurante & cafenele</p>
 
             <ul className="space-y-2.5 mb-6">
@@ -78,10 +79,8 @@ export default function ExtraServices() {
                 "Poze produse + categorii organizate",
                 "Design personalizat pe brand-ul tău",
               ].map((f, i) => (
-                <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
-                  <svg className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                  <CheckIcon className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                   {f}
                 </li>
               ))}
@@ -93,22 +92,22 @@ export default function ExtraServices() {
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează QR Menu Digital (399 RON).')}`}
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bună! Mă interesează QR Menu Digital (399 RON).')}`}
               target="_blank" rel="noopener noreferrer"
-              className="block w-full py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 font-medium text-center text-sm transition-all duration-300 ease-premium">
+              className="block w-full py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 font-medium text-center text-sm transition-premium">
               Vreau meniu QR
             </a>
           </div>
 
           {/* Email Marketing */}
-          <div className="bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-slate-600 transition-all duration-300 ease-premium shadow-token-md hover:shadow-token-lg group">
+          <div className="bg-slate-900/80 border border-slate-700 rounded-xl p-7 hover:border-slate-600 transition-premium shadow-token-md hover:shadow-token-lg group">
             <div className="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
 
-            <h3 className="text-xl font-medium mb-1">Email Marketing</h3>
+            <h3 className="text-xl mb-1">Email Marketing</h3>
             <p className="text-slate-500 text-xs mb-4">Transformă vizitatorii în clienți fideli</p>
 
             <ul className="space-y-2.5 mb-6">
@@ -118,10 +117,8 @@ export default function ExtraServices() {
                 "Colectare email-uri de pe aplicație",
                 "Rapoarte deschideri, click-uri, conversii",
               ].map((f, i) => (
-                <li key={i} className="flex items-start gap-2.5 font-light text-slate-300 text-sm">
-                  <svg className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <li key={i} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                  <CheckIcon className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
                   {f}
                 </li>
               ))}
@@ -133,9 +130,9 @@ export default function ExtraServices() {
             </div>
             <p className="text-slate-500 text-xs mb-4">plată unică, fără abonament</p>
 
-            <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează Email Marketing (499 RON).')}`}
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bună! Mă interesează Email Marketing (499 RON).')}`}
               target="_blank" rel="noopener noreferrer"
-              className="block w-full py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 font-medium text-center text-sm transition-all duration-300 ease-premium">
+              className="block w-full py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 font-medium text-center text-sm transition-premium">
               Vreau email marketing
             </a>
           </div>
@@ -146,13 +143,13 @@ export default function ExtraServices() {
           <p className="text-lg font-medium mb-2">
             Adaugi toate 3? <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Primești 15% reducere.</span>
           </p>
-          <p className="font-light text-slate-400 text-sm mb-4">
+          <p className="text-slate-400 text-sm mb-4">
             Chatbot + QR Menu + Email Marketing = <span className="line-through text-slate-500">1.899 RON</span>{' '}
             <span className="text-white font-heading font-medium">1.599 RON</span>
           </p>
-          <a href={`https://wa.me/40756870425?text=${encodeURIComponent('Bună! Mă interesează pachetul complet de servicii extra (Chatbot + QR Menu + Email Marketing).')}`}
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bună! Mă interesează pachetul complet de servicii extra (Chatbot + QR Menu + Email Marketing).')}`}
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-[0_2px_8px_rgba(96,165,250,0.2)] hover:shadow-token-lg transition-all duration-300 ease-premium">
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-emerald-500 px-7 py-3 rounded-lg text-sm font-medium tracking-wider shadow-cta-glow-blue hover:shadow-token-lg transition-premium">
             Vreau toate 3 cu reducere
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
