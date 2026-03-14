@@ -13,7 +13,7 @@ export default function AIEmployeePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
       <Navigation />
-      <div className="pt-16">
+      <div className="pt-2">
         <AIEmployee />
       </div>
 
