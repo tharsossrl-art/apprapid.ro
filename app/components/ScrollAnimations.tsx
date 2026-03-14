@@ -19,8 +19,9 @@ export default function ScrollAnimations() {
       })
     }, observerOptions)
 
-    // Observe all sections and cards
-    const elements = document.querySelectorAll('section, .animate-on-scroll')
+    // Only observe elements explicitly marked for scroll animation
+    // (NOT all sections — framer-motion handles its own animations)
+    const elements = document.querySelectorAll('.animate-on-scroll')
     elements.forEach((el) => {
       el.classList.add('animate-on-scroll-init')
       observer.observe(el)
