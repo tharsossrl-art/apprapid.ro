@@ -1318,8 +1318,8 @@ const templates = [
     image: '/templates/restaurant.png',
     color: 'from-orange-500 to-red-600',
     popularBadge: true,
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     demoUrl: '#',
     features: [
       {
@@ -1384,7 +1384,7 @@ const templates = [
     image: '/templates/cafenea.png',
     color: 'from-amber-600 to-orange-700',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Precomandă & Pick-up',
@@ -1433,7 +1433,7 @@ const templates = [
     image: '/templates/brutarie.png',
     color: 'from-yellow-600 to-amber-700',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Precomandă Pâine',
@@ -1485,7 +1485,7 @@ const templates = [
     color: 'from-pink-500 to-rose-600',
     popularBadge: true,
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Programări Online 24/7',
@@ -1548,8 +1548,8 @@ const templates = [
     description: 'Programări rapide pentru bărbați ocupați. Alege frizerul, ora și gata. Simplu și masculin.',
     image: '/templates/frizerie.png',
     color: 'from-slate-600 to-slate-800',
-    packageRecommended: 'Vitrină',
-    price: '1.499 RON',
+    packageRecommended: 'Starter',
+    price: '2.999 RON',
     features: [
       {
         name: 'Programare în 3 Tapuri',
@@ -1598,7 +1598,7 @@ const templates = [
     image: '/templates/spa.png',
     color: 'from-teal-500 to-cyan-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Catalog Tratamente',
@@ -1649,8 +1649,8 @@ const templates = [
     image: '/templates/fitness.png',
     color: 'from-red-500 to-orange-600',
     popularBadge: true,
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     features: [
       {
         name: 'Check-in Digital',
@@ -1714,7 +1714,7 @@ const templates = [
     image: '/templates/yoga.png',
     color: 'from-purple-500 to-indigo-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Calendar Clase',
@@ -1762,8 +1762,8 @@ const templates = [
     description: 'Programări la medici, rezultate analize online și comunicare securizată. Profesionalism digital.',
     image: '/templates/clinica.png',
     color: 'from-blue-500 to-cyan-600',
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     features: [
       {
         name: 'Programări Online',
@@ -1822,7 +1822,7 @@ const templates = [
     image: '/templates/dentist.png',
     color: 'from-sky-500 to-blue-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Programări Inteligente',
@@ -1871,7 +1871,7 @@ const templates = [
     image: '/templates/veterinar.png',
     color: 'from-green-500 to-emerald-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Profil Animal',
@@ -1922,7 +1922,7 @@ const templates = [
     image: '/templates/service-auto.png',
     color: 'from-slate-600 to-zinc-700',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Programare Service',
@@ -1970,8 +1970,8 @@ const templates = [
     description: 'Listări proprietăți, vizionări online și notificări proprietăți noi. Găsește casa perfectă.',
     image: '/templates/imobiliare.png',
     color: 'from-emerald-500 to-teal-600',
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     features: [
       {
         name: 'Catalog Proprietăți',
@@ -2030,7 +2030,7 @@ const templates = [
     image: '/templates/avocat.png',
     color: 'from-amber-700 to-yellow-800',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Programare Consultație',
@@ -2079,7 +2079,7 @@ const templates = [
     image: '/templates/contabil.png',
     color: 'from-blue-600 to-indigo-700',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Portal Documente',
@@ -2128,7 +2128,7 @@ const templates = [
     image: '/templates/fotograf.png',
     color: 'from-violet-500 to-purple-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Portofoliu Galerie',
@@ -2177,7 +2177,7 @@ const templates = [
     image: '/templates/croitorie.png',
     color: 'from-rose-500 to-pink-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Catalog Servicii',
@@ -2227,8 +2227,8 @@ const templates = [
     description: 'Comenzi buchete, livrare programată și aranjamente personalizate. Frumusețe digitală.',
     image: '/templates/florarie.png',
     color: 'from-pink-400 to-rose-500',
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     features: [
       {
         name: 'Catalog Buchete',
@@ -2281,8 +2281,8 @@ const templates = [
     description: 'Magazin online pentru iubitorii de animale. Comenzi, abonamente hrană și program fidelitate.',
     image: '/templates/petshop.png',
     color: 'from-orange-400 to-amber-500',
-    packageRecommended: 'Complet',
-    price: '4.999 RON',
+    packageRecommended: 'Enterprise',
+    price: '14.999+ RON',
     features: [
       {
         name: 'Catalog Produse',
@@ -2331,7 +2331,7 @@ const templates = [
     image: '/templates/farmacie.png',
     color: 'from-green-500 to-teal-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Verificare Stoc',
@@ -2382,7 +2382,7 @@ const templates = [
     image: '/templates/scoala-soferi.png',
     color: 'from-blue-500 to-sky-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Programare Condus',
@@ -2431,7 +2431,7 @@ const templates = [
     image: '/templates/limba-straina.png',
     color: 'from-indigo-500 to-violet-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Catalog Cursuri',
@@ -2479,8 +2479,8 @@ const templates = [
     description: 'Pentru profesori particulari. Programări ședințe, materiale și tracking progres elevi.',
     image: '/templates/meditatii.png',
     color: 'from-yellow-500 to-orange-600',
-    packageRecommended: 'Vitrină',
-    price: '1.499 RON',
+    packageRecommended: 'Starter',
+    price: '2.999 RON',
     features: [
       {
         name: 'Profil Profesor',
@@ -2531,7 +2531,7 @@ const templates = [
     image: '/templates/escape-room.png',
     color: 'from-purple-600 to-violet-700',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Catalog Camere',
@@ -2580,7 +2580,7 @@ const templates = [
     image: '/templates/sala-evenimente.png',
     color: 'from-gold-500 to-amber-600',
     packageRecommended: 'Business',
-    price: '2.499 RON',
+    price: '6.999 RON',
     features: [
       {
         name: 'Calendar Disponibilitate',
@@ -2886,6 +2886,7 @@ const Icons = {
 const TemplatesShowcase = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeTemplate, setActiveTemplate] = useState(templates[0]);
+  const [showGrid, setShowGrid] = useState(false);
 
   const filteredTemplates = templates.filter(t =>
     selectedCategory === 'all' || t.category === selectedCategory
@@ -2915,7 +2916,7 @@ const TemplatesShowcase = () => {
             <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
             {templates.length} Template-uri Disponibile
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Template-uri pentru{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400">
               Orice Industrie
@@ -2924,24 +2925,6 @@ const TemplatesShowcase = () => {
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Alege template-ul perfect pentru afacerea ta. Fiecare vine cu funcționalități specifice industriei tale, gata de personalizat.
           </p>
-        </div>
-
-        {/* Category Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => handleCategoryChange(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-500 to-emerald-500 text-white shadow-lg shadow-emerald-500/20'
-                  : 'bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 border border-slate-700/50'
-              }`}
-            >
-              {category.name}
-              <span className="ml-2 text-xs opacity-70">({category.count})</span>
-            </button>
-          ))}
         </div>
 
         {/* Main Showcase: Phone + Details */}
@@ -2985,7 +2968,7 @@ const TemplatesShowcase = () => {
             </div>
 
             {/* Name */}
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-3">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
               {activeTemplate.name}
             </h3>
 
@@ -3010,7 +2993,7 @@ const TemplatesShowcase = () => {
             <div className="flex items-center justify-center lg:justify-start gap-6 mb-6">
               <div>
                 <span className="text-sm text-slate-500">De la</span>
-                <p className="text-3xl font-black text-white">{activeTemplate.price}</p>
+                <p className="text-3xl font-bold text-white">{activeTemplate.price}</p>
               </div>
               <div className="w-px h-10 bg-slate-700"></div>
               <div>
@@ -3044,54 +3027,89 @@ const TemplatesShowcase = () => {
           </div>
         </div>
 
-        {/* Template Selector Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {filteredTemplates.map(template => (
-            <button
-              key={template.id}
-              onClick={() => setActiveTemplate(template)}
-              className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl border transition-all text-left ${
-                activeTemplate.id === template.id
-                  ? `bg-gradient-to-r ${template.color} border-transparent text-white shadow-lg`
-                  : 'bg-slate-800/50 border-slate-700/50 text-slate-400 hover:border-slate-600 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <span className="text-xl flex-shrink-0">{template.emoji}</span>
-              <div className="min-w-0">
-                <div className={`text-sm font-semibold truncate ${activeTemplate.id === template.id ? 'text-white' : ''}`}>
-                  {template.name}
-                </div>
-                <div className={`text-xs truncate ${activeTemplate.id === template.id ? 'text-white/70' : 'text-slate-500'}`}>
-                  {template.price}
-                </div>
-              </div>
-              {template.popularBadge && (
-                <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-amber-500 rounded-full border-2 border-slate-950"></span>
-              )}
-            </button>
-          ))}
+        {/* Toggle Grid Button */}
+        <div className="text-center mb-8">
+          <button
+            onClick={() => setShowGrid(!showGrid)}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-bold rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          >
+            <svg className={`w-5 h-5 transition-transform ${showGrid ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+            {showGrid ? 'Ascunde template-urile' : `Vezi toate template-urile (${templates.length})`}
+          </button>
         </div>
 
-        {/* Empty State */}
-        {filteredTemplates.length === 0 && (
-          <div className="text-center py-16">
-            <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
-            <h3 className="text-xl font-bold text-white mb-2">Niciun template găsit</h3>
-            <p className="text-slate-400">Selectează altă categorie.</p>
-            <button
-              onClick={() => handleCategoryChange('all')}
-              className="mt-4 px-6 py-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"
-            >
-              Vezi toate
-            </button>
-          </div>
+        {showGrid && (
+          <>
+            {/* Category Pills */}
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {categories.map(category => (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryChange(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    selectedCategory === category.id
+                      ? 'bg-gradient-to-r from-blue-500 to-emerald-500 text-white shadow-lg shadow-emerald-500/20'
+                      : 'bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 border border-slate-700/50'
+                  }`}
+                >
+                  {category.name}
+                  <span className="ml-2 text-xs opacity-70">({category.count})</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Template Selector Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {filteredTemplates.map(template => (
+                <button
+                  key={template.id}
+                  onClick={() => setActiveTemplate(template)}
+                  className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl border transition-all text-left ${
+                    activeTemplate.id === template.id
+                      ? `bg-gradient-to-r ${template.color} border-transparent text-white shadow-lg`
+                      : 'bg-slate-800/50 border-slate-700/50 text-slate-400 hover:border-slate-600 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  <span className="text-xl flex-shrink-0">{template.emoji}</span>
+                  <div className="min-w-0">
+                    <div className={`text-sm font-semibold truncate ${activeTemplate.id === template.id ? 'text-white' : ''}`}>
+                      {template.name}
+                    </div>
+                    <div className={`text-xs truncate ${activeTemplate.id === template.id ? 'text-white/70' : 'text-slate-500'}`}>
+                      {template.price}
+                    </div>
+                  </div>
+                  {template.popularBadge && (
+                    <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-amber-500 rounded-full border-2 border-slate-950"></span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Empty State */}
+            {filteredTemplates.length === 0 && (
+              <div className="text-center py-16">
+                <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+                <h3 className="text-xl font-bold text-white mb-2">Niciun template găsit</h3>
+                <p className="text-slate-400">Selectează altă categorie.</p>
+                <button
+                  onClick={() => handleCategoryChange('all')}
+                  className="mt-4 px-6 py-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"
+                >
+                  Vezi toate
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* Custom Template CTA */}
         <div className="mt-16 bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-3xl p-8 md:p-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-1">
-              <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Nu găsești ce cauți?
               </h3>
               <p className="text-slate-400 text-lg mb-6">

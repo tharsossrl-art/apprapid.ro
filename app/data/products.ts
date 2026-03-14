@@ -55,7 +55,7 @@ export const products: Product[] = [
     name: 'AI Employee',
     tagline: 'Angajați AI care lucrează non-stop pentru tine.',
     description: 'Un angajat AI care auditează date, trimite rapoarte, aplică reguli și urmărește deadline-uri — non-stop, 365 zile/an.',
-    priceRange: 'de la 2.499 RON',
+    priceRange: 'de la 4.499 RON',
     gradient: 'from-violet-500 to-fuchsia-500',
     features: [
       'Lucrează 24/7, 365 zile/an',
