@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
+import { rateLimit } from '@/app/lib/rate-limit'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
@@ -7,6 +8,12 @@ const discordWebhookUrl = process.env.DISCORD_LEADS_WEBHOOK_URL || ''
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+    const { allowed } = rateLimit(ip, 'leads', 5, 3_600_000) // 5 submissions/hour per IP
+    if (!allowed) {
+      return NextResponse.json({ error: 'Prea multe cereri. Încearcă din nou mai târziu.' }, { status: 429 })
+    }
+
     const body = await req.json()
 
     const { product, business_name, industry, contact_name, email, phone, timeline, budget, details } = body

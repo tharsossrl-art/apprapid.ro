@@ -68,10 +68,10 @@ export default function SchemaMarkup() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Pachet Vitrină',
-            description: 'Prezența ta digitală completă'
+            name: 'Pachet Starter',
+            description: 'Landing page + admin dashboard'
           },
-          price: '1499',
+          price: '2999',
           priceCurrency: 'RON'
         },
         {
@@ -79,19 +79,19 @@ export default function SchemaMarkup() {
           itemOffered: {
             '@type': 'Service',
             name: 'Pachet Business',
-            description: 'Tot ce-ți trebuie să crești'
+            description: 'Funcționalități avansate + integrări'
           },
-          price: '2499',
+          price: '6999',
           priceCurrency: 'RON'
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Pachet Complet',
-            description: 'Operațiunea ta digitală completă'
+            name: 'Pachet Enterprise',
+            description: 'Soluții complexe, personalizate'
           },
-          price: '4999',
+          price: '14999',
           priceCurrency: 'RON'
         }
       ]
@@ -130,30 +130,30 @@ export default function SchemaMarkup() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'AI Employee ESENȚIAL',
-            description: '1 AI Employee configurat, 5 proceduri automate, 1 canal de comunicare, SLA 24h'
+            name: 'AI Employee Starter',
+            description: '1 agent AI configurat, mentenanță 249 RON/lună'
           },
-          price: '1499',
+          price: '4499',
           priceCurrency: 'RON'
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'AI Employee AVANSAT',
-            description: '2 AI Employees, 10 proceduri automate, 2 canale, SLA 12h, integrare CRM/API'
+            name: 'AI Employee Business',
+            description: '2-3 agenți AI, integrare CRM/API, mentenanță 499 RON/lună'
           },
-          price: '2499',
+          price: '14999',
           priceCurrency: 'RON'
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'AI Employee COMPLET',
-            description: 'AI Employees nelimitați, proceduri automate nelimitate, toate canalele, SLA 4h, manager AI dedicat'
+            name: 'AI Employee Enterprise',
+            description: '5+ agenți AI, toate canalele, manager AI dedicat, mentenanță 899 RON/lună'
           },
-          price: '3999',
+          price: '24999',
           priceCurrency: 'RON'
         }
       ]

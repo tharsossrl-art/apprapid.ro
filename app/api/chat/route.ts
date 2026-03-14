@@ -1,5 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest } from 'next/server'
+import { rateLimit } from '@/app/lib/rate-limit'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -48,6 +49,15 @@ interface ChatMessage {
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+    const { allowed } = rateLimit(ip, 'chat', 30, 60_000) // 30 requests/minute per IP
+    if (!allowed) {
+      return new Response(
+        JSON.stringify({ error: 'Prea multe cereri. Încearcă din nou în câteva secunde.' }),
+        { status: 429, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
     const body = await request.json()
     const messages: ChatMessage[] = body.messages
 
