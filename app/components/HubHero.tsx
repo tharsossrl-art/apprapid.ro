@@ -26,7 +26,7 @@ export default function HubHero() {
           <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-br from-blue-500/10 via-emerald-500/5 to-violet-500/10 -z-10" />
 
           {/* Desktop video */}
-          <div className="hidden md:block w-full aspect-[21/9] overflow-hidden">
+          <div className="hidden md:block w-full aspect-[21/9] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/50 to-slate-900">
             <video
               ref={videoRef}
               autoPlay
@@ -41,7 +41,7 @@ export default function HubHero() {
           </div>
 
           {/* Mobile video */}
-          <div className="md:hidden w-full aspect-[9/14] overflow-hidden">
+          <div className="md:hidden w-full aspect-[9/14] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/50 to-slate-900">
             <video
               autoPlay
               loop
