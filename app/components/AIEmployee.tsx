@@ -270,7 +270,7 @@ const TIMELINE = [
    ═══════════════════════════════════════════════════ */
 export default function AIEmployee() {
   return (
-    <section id="ai-employee" className="relative z-10 px-6 py-24 overflow-hidden">
+    <section id="ai-employee" className="relative z-10 px-6 pt-4 pb-24 overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* ──────────────────────────────────────────
