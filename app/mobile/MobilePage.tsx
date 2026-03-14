@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation'
 import MobilePackages from '../components/MobilePackages'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import FloatingWhatsApp from '../components/FloatingWhatsApp'
+// import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import CookieConsent from '../components/CookieConsent'
 import ScrollToTop from '../components/ScrollToTop'
 import ScrollAnimations from '../components/ScrollAnimations'
@@ -316,7 +316,7 @@ export default function MobilePage() {
       <Contact />
       <Footer />
       <ChatBot />
-      <FloatingWhatsApp />
+      {/* <FloatingWhatsApp /> */}
       <ScrollToTop />
       <CookieConsent />
       <ScrollAnimations />

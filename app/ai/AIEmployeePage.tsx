@@ -5,7 +5,7 @@ import AIEmployee from '../components/AIEmployee'
 import FAQ from '../components/FAQ'
 import LeadFormButton from '../components/LeadFormButton'
 import Footer from '../components/Footer'
-import FloatingWhatsApp from '../components/FloatingWhatsApp'
+// import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import ChatBot from '../components/ChatBot'
 import { faqAI } from '../data/faq'
 
@@ -30,7 +30,7 @@ export default function AIEmployeePage() {
 
       <Footer />
       <ChatBot />
-      <FloatingWhatsApp />
+      {/* <FloatingWhatsApp /> */}
     </div>
   )
 }

@@ -28,9 +28,22 @@ export async function POST(req: NextRequest) {
     // Save to Supabase
     if (supabaseUrl && supabaseServiceKey) {
       const supabase = createClient(supabaseUrl, supabaseServiceKey)
+      const productLabelsDB: Record<string, string> = {
+        aplicatii: 'Aplicație Web (PWA)',
+        mobile: 'Aplicație Mobilă',
+        ai: 'AI Employee',
+      }
+
       const { error } = await supabase.from('lead_submissions').insert({
-        product,
+        // Original table columns (NOT NULL)
         name: contact_name,
+        service_interest: productLabelsDB[product] || product,
+        source: 'website_form',
+        agency_id: 'apprapid',
+        honeypot_filled: false,
+        processed: false,
+        // New columns from our migration
+        product,
         business_name,
         industry: industry || null,
         contact_name,
@@ -39,12 +52,10 @@ export async function POST(req: NextRequest) {
         timeline: timeline || null,
         budget: budget || null,
         details: details || {},
-        source: 'website_form',
-        agency_id: 'apprapid',
       })
 
       if (error) {
-        console.error('Supabase insert error:', error)
+        console.error('Supabase insert error:', JSON.stringify(error))
         return NextResponse.json({ error: 'Eroare la salvare. Încearcă din nou.' }, { status: 500 })
       }
     }

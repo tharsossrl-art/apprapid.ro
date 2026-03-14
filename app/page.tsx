@@ -9,7 +9,7 @@ import Process from './components/Process'
 import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import FloatingWhatsApp from './components/FloatingWhatsApp'
+// import FloatingWhatsApp from './components/FloatingWhatsApp'
 import ChatBot from './components/ChatBot'
 import CookieConsent from './components/CookieConsent'
 import ScrollToTop from './components/ScrollToTop'
@@ -34,7 +34,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <ChatBot />
-      <FloatingWhatsApp />
+      {/* <FloatingWhatsApp /> */}
       <ScrollToTop />
       <CookieConsent />
       <ScrollAnimations />
